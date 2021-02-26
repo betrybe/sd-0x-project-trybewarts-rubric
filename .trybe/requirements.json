@@ -1,0 +1,84 @@
+{
+  "requirements": [
+    { 
+      "description": "1",
+      "bonus": false
+    },
+    { 
+      "description": "2",
+      "bonus": false
+    },
+    { 
+      "description": "3",
+      "bonus": false
+    },
+    { 
+      "description": "4",
+      "bonus": false
+    },
+    { 
+      "description": "5",
+      "bonus": false
+    },
+    { 
+      "description": "6",
+      "bonus": false
+    },
+    { 
+      "description": "7",
+      "bonus": false
+    },
+    { 
+      "description": "8",
+      "bonus": false
+    },
+    { 
+      "description": "9",
+      "bonus": false
+    },
+    { 
+      "description": "10",
+      "bonus": false
+    },
+    { 
+      "description": "11",
+      "bonus": false
+    },
+    { 
+      "description": "12",
+      "bonus": false
+    },
+    { 
+      "description": "13",
+      "bonus": false
+    },
+    { 
+      "description": "14",
+      "bonus": false
+    },
+    { 
+      "description": "15",
+      "bonus": false
+    },
+    { 
+      "description": "16",
+      "bonus": false
+    },
+    { 
+      "description": "17",
+      "bonus": false
+    },
+    { 
+      "description": "18",
+      "bonus": false
+    },
+    { 
+      "description": "19",
+      "bonus": false
+    },
+    { 
+      "description": "20",
+      "bonus": false
+    }
+  ]
+}
