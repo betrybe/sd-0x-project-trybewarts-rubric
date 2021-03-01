@@ -15,19 +15,19 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-evaluator_job:
-  runs-on: ubuntu-18.04
-  name: Evaluator job
-  steps:
-    - uses: actions/checkout@v2
-    - name: Cypress evaluator step
-      id: cypress
-      uses: betrybe/custom-evaluator-action@v5
-      with:
-        repository-test-name: 'betrybe/sd-0x-project-trybewarts-tests'
-        repository-test-branch: 'master'
-      - name: Store evaluation step
-        uses: betrybe/store-evaluation-action@v2
+  evaluator_job:
+    runs-on: ubuntu-18.04
+    name: Evaluator job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cypress evaluator step
+        id: cypress
+        uses: betrybe/custom-evaluator-action@v5
+        with:
+          repository-test-name: 'betrybe/sd-0x-project-trybewarts-tests'
+          repository-test-branch: 'master'
+        - name: Store evaluation step
+          uses: betrybe/store-evaluation-action@v2
         with:
           evaluation-data: ${{ steps.evaluator.outputs.result }}
           environment: staging
