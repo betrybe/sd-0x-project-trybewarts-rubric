@@ -247,19 +247,19 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
 ### 1. Crie uma barra verde na parte superior da página
 
   Pontos importantes:
-  * A barra deve ter a classe `top-bar`
-  * A classe `top-bar` deve determinar que o elemento é um flex container
-  * A classe `top-bar` deve possuir a propriedade `background-color: r#32a791`
+  * A barra deve ter a id `top-bar`
+  * O id `top-bar` deve determinar que o elemento é um flex container
+  * O id `top-bar` deve possuir a propriedade `background-color: r#32a791`
 
 ### 2. Posicione o logotipo da Trybewarts no canto esquerdo na barra superior
 
   Pontos importantes:
-  * Deve existir um elemento `img` com a classe `trybewarts-logo`
+  * Deve existir um elemento `img` com a id `trybewarts-logo`
   * Esse elemento `img` deverá ter o atributo `alt` com o valor `trybewarts-logo`
   * O logotipo deve estar alinhado a esquerda dentro da barra verde
   * O atributo `src` do logotipo deve apontar para `"images/trybewarts-logo.png"`
 
-### 3. Crie um título "Trybewarts" dentro do `onClickHeaderBtn`
+### 3. Crie um título "Trybewarts" dentro do `Header`
 
 Pontos importantes:
   * Deverá conter uma tag `<h1>` com o título
@@ -270,21 +270,21 @@ Pontos importantes:
   Pontos importantes:
   * Os inputs deverão conter um placeholder contendo as palavras *'Login'* e *'Senha'* em seus respectivos campos
   * O nome do botão deverá conter a palavra *'Entrar'*
-  * Ao clicar no botão, um alerta deverá ser emitido na página, contendo o texto *"Olá, <Login>!"*
+  * Ao clicar no botão, um alerta deverá ser emitido na página, contendo o texto *"Olá, Tryber!"*
 
 ### 5. Adicione um formulário no lado esquerdo da página
 
   Pontos importantes:
   * O formulário deve estar alinhado à esquerda, no body do HTML
-  * O formulário deve conter a classe `trybewarts-form`
+  * O formulário deve conter o id `trybewarts-form`
   * O formulário deve ser um flex container
 
-### 6. Crie uma classe no CSS 
+### 6. Crie um id no CSS 
 
   Pontos importantes:
-  * Essa classe deverá se chamar `form-group`
-  * Essa classe deverá possuir a propriedade `display: flex`
-  * Alinhe o eixo principal dessa classe para ser o eixo vertical
+  * Esse id deverá se chamar `form-group`
+  * Esse id deverá possuir a propriedade `display: flex`
+  * Alinhe o eixo principal desse id para ser o eixo vertical
 
 ### 7. Adicione a logo da Trybewarts no lado direito da página
 
