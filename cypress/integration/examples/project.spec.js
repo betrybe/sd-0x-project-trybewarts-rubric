@@ -70,7 +70,7 @@ describe('Trybewarts', () => {
     cy.visit('./index.html');
   });
 
-  describe('Crie uma barra azul na parte superior da página com a classe top-bar', () => {
+  describe('1) Crie uma barra azul na parte superior da página com a classe top-bar', () => {
     it('Esta barra deve possuir a classe top-bar', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
@@ -84,7 +84,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe trybewarts-logo', () => {
+  describe('2) A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe trybewarts-logo', () => {
     it('O logotipo deve estar alinhado a esquerda dentro da barra azul', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', '.top-bar');
     });
@@ -98,7 +98,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('A barra superior deve conter um formulário de autenticação no canto direito', () => {
+  describe('3) A barra superior deve conter um formulário de autenticação no canto direito', () => {
     it('O formulário deve estar alinhado a direita dentro da barra azul', () => {
       cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
     });
@@ -112,7 +112,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Crie uma classe no CSS chamada form-group', () => {
+  describe('4) Crie uma classe no CSS chamada form-group', () => {
     it('Essa classe deve possuir a propriedade `display: flex`', () => {
       cy.get('.form-group').should('have.css', 'display', 'flex');
     });
@@ -122,7 +122,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Adicione o primeiro subcontainer com a classe form-group para agrupar o rótulo e campo "E-mail ou telefone" dentro do formulário criado na etapa 3', () => {
+  describe('5) Adicione o primeiro subcontainer com a classe form-group para agrupar o rótulo e campo "E-mail ou telefone" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um container utilizando a classe `form-group` criada no passo anterior', () => {
       cy.get('form.trybewarts-login').children().first()
         .should('exist')
@@ -146,7 +146,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Adicione o segundo subcontainer com a classe form-group para agrupar o rótulo e campo "Senha" dentro do formulário criado na etapa 3', () => {
+  describe('6) Adicione o segundo subcontainer com a classe form-group para agrupar o rótulo e campo "Senha" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um novo container utilizando a classe `form-group` criada no passo 4', () => {
       cy.get("form.trybewarts-login > .form-group").eq(1).should('exist');
     });
@@ -165,7 +165,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Adicione o terceiro subcontainer com a classe form-control com o botão "Entrar" dentro do formulário criado na etapa 3', () => {
+  describe('7) Adicione o terceiro subcontainer com a classe form-control com o botão "Entrar" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um novo container utilizando a classe `form-control` criada no passo anterior`', () => {
       cy.get("form.trybewarts-login > .form-control").eq(0).should('exist');
     });
@@ -204,7 +204,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um container com a classe main-content abaixo da barra azul para agrupar o conteúdo principal da página", () => {
+  describe("8) Crie um container com a classe main-content abaixo da barra azul para agrupar o conteúdo principal da página", () => {
     it('Crie um elemento com a classe main-content', () => {
       cy.get('.main-content').should('exist');
     });
@@ -220,7 +220,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um subcontainer com a classe left-content para colocar o conteúdo do lado esquerdo dentro do container com a classe main-content", () => {
+  describe("9) Crie um subcontainer com a classe left-content para colocar o conteúdo do lado esquerdo dentro do container com a classe main-content", () => {
     it('O subcontainer deve ter a classe left-content', () => {
       cy.get('.main-content > .left-content').should('exist');
     });
@@ -244,7 +244,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um subcontainer com a classe right-content para colocar o conteúdo do lado direito dentro do container com a classe main-content", () => {
+  describe("10) Crie um subcontainer com a classe right-content para colocar o conteúdo do lado direito dentro do container com a classe main-content", () => {
     it('O novo subcontainer deve ter a classe right-content', () => {
       cy.get('.main-content > .right-content').should('exist');
     });
@@ -280,7 +280,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada de texto para o nome do usuário dentro do formulário criado no requisito 10", () => {
+  describe("11) Crie um campo de entrada de texto para o nome do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "first-name"', () => {
       cy.get('.main-content form input[name="first-name"]').should('exist');    
     });
@@ -290,7 +290,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10", () => {
+  describe("12) Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "last-name"', () => {
       cy.get('.main-content form input[name="last-name"]').should('exist');    
     });
@@ -304,7 +304,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada de texto para o celular ou email do usuário dentro do formulário criado no requisito 10", () => {
+  describe("13) Crie um campo de entrada de texto para o celular ou email do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "phone_email"', () => {
       cy.get('.main-content form input[name="phone_email"]').should('exist');    
     });
@@ -318,7 +318,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada para senha do usuário dentro do formulário criado no requisito 10", () => {
+  describe("14) Crie um campo de entrada para senha do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "password"', () => {
       cy.get('.main-content form input[name="password"]').should('exist');    
     });
@@ -336,7 +336,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada para data de nascimento do usuário dentro do formulário criado no requisito 10", () => {
+  describe("15) Crie um campo de entrada para data de nascimento do usuário dentro do formulário criado no requisito 10", () => {
     it('Um rótulo abaixo do campo nova senha com o id label-birth-date e o texto "Data de nascimento" ', () => {
       cy.get('.main-content form label#label-birth-date').contains(BIRTH_DATE_TITLE);
     });
@@ -354,7 +354,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("Crie um campo de entrada para gênero do usuário dentro do formulário criado no requisito 10", () => {
+  describe("16) Crie um campo de entrada para gênero do usuário dentro do formulário criado no requisito 10", () => {
     it('Um rótulo abaixo do campo nova senha com o id label-gender e o texto "Gênero" ', () => {
       cy.get('.main-content form label#label-gender').contains(GENDER_TITLE);
     });
@@ -399,7 +399,7 @@ describe('Trybewarts', () => {
     });
   });
   
-  describe("Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10", () => {
+  describe("17) Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10", () => {
     it('Um botão com o texto "Cadastre-se" e id "trybewarts-register"', () => {
       cy.get(REGISTER_BUTTON_SELECTOR)
         .should('exist')
@@ -411,7 +411,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {
+  describe('18) Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {
     it('Exibir uma mensagem "Campos inválidos" dentro do formulário caso pelo menos um campo não esteja preenchido', () => {
       cy.get('input[name="first-name"]').type("John");
       cy.get('input[name="last-name"]').type("Doe");
@@ -421,7 +421,7 @@ describe('Trybewarts', () => {
     });    
   });
 
-  describe('Adicione um novo campo de texto no formulário se a pessoa usuária selecionar a opção "Personalizado" no campo Gênero', () => {
+  describe('19) Adicione um novo campo de texto no formulário se a pessoa usuária selecionar a opção "Personalizado" no campo Gênero', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
@@ -454,7 +454,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('Substituir o conteúdo do container com a classe right-content se o formulário estiver completamente preenchido e validado', () => {
+  describe('20) Substituir o conteúdo do container com a classe right-content se o formulário estiver completamente preenchido e validado', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
