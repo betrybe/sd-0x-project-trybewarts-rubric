@@ -24,6 +24,7 @@
     "cypress-multi-reporters": "1.4.0",
     "eslint": "7.20.0",
     "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-trybe-fundamentals": "^1.1.0",
     "eslint-plugin-cypress": "2.11.2",
     "eslint-plugin-import": "2.22.1",
     "minimist": "1.2.5",

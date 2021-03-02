@@ -7,7 +7,7 @@
         "node": true,
         "jest": true
     },
-    "extends": ["airbnb-base", "plugin:cypress/recommended"],
+    "extends": ["airbnb-base", "plugin:cypress/recommended", "trybe-fundamentals"],
     "parserOptions": { "ecmaVersion": 11 },
     "rules": {
       "no-console": "off",
