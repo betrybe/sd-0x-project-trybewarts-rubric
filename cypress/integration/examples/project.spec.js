@@ -65,7 +65,7 @@ const checkIsBelowOf = (elementAboveSelector, elementBelowSelector) => {
   });
 };
 
-describe('Facebook Signup', () => {
+describe('Trybewarts', () => {
   beforeEach(() => {
     cy.visit('./index.html');
   });
