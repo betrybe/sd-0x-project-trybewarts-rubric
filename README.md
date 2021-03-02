@@ -31,23 +31,23 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Lista de requisitos obrigatórios](#lista-de-requisitos-obrigatórios)
   - [1. Crie uma barra verde na parte superior da página](#1-crie-uma-barra-verde-na-parte-superior-da-página)
   - [2. Posicione o logotipo da Trybewarts no canto esquerdo na barra superior](#2-posicione-o-logotipo-da-trybewarts-no-canto-esquerdo-na-barra-superior)
-  - [3. Crie um título "Trybewarts" dentro do `Header`](#3-crie-um-titulo-'Trybewarts'-dentro-do-`Header`)
+  - [3. Crie um título "Trybewarts" dentro do `Header`](#3-crie-um-título-"Trybewarts"-dentro-do-Header)
   - [4. Crie campos de login, senha e um botão no canto direito na barra superior](#4-crie-campos-de-login-senha-e-um-botão-no-canto-direito-na-barra-superior)
   - [5. Adicione um formulário no lado esquerdo da página](#5-adicione-um-formulário-no-lado-esquerdo-da-página)
-  - [6. Crie uma classe no CSS](#6-Crie-uma-classe-no-CSS)
+  - [6. Crie uma classe para o formulário do requisito 5](#6-Crie-uma-classe-para-o-formulário-do-requisito-5)
   - [7. Adicione a logo da Trybewarts no lado direito da página](#7-adicione-a-logo-da-Trybewarts-no-lado-direito-da-página)
-  - [8. No formulário, crie inputs  de 'Nome:', 'Sobrenome:' e 'Email'](#8-no-formulário-crie-inputs-de-'Nome'-'Sobrenome'-e-'Email')
-  - [9. Crie um select 'Casa' contendo três options](#9-crie-um-select-'Casa'-contendo-três-options)
-  - [10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha](#10-alinhe-os-campos-de-'Nome'-e-'Sobrenome'-para-que-fiquem-em-linha)
-  - [11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha](#11-alinhe-os-campos-de-'Email'-e-'Casa'-para-que-fiquem-em-linha)
+  - [8. No formulário, crie inputs  de 'Nome:', 'Sobrenome:' e 'Email'](#8-no-formulário-crie-inputs-de-Nome:-Sobrenome:-e-Email)
+  - [9. Crie um select 'Casa' contendo três options](#9-crie-um-select-Casa-contendo-três-options)
+  - [10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha](#10-alinhe-os-campos-de-Nome-e-Sobrenome-para-que-fiquem-em-linha)
+  - [11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha](#11-alinhe-os-campos-de-Email-e-Casa-para-que-fiquem-em-linha)
   - [12. Crie um campo de entrada para qual família a pessoa estudante se identificado](#12-crie-um-campo-de-entrada-para-qual-família-a-pessoa-estudante-se-identificado)
-  - [13. Crie campos de entrada do tipo 'checkbox' contendo seis opções](#13-crie-campos-de-entrada-do-tipo-'checkbox'-contendo-seis-opções)
+  - [13. Crie campos de entrada do tipo 'checkbox' contendo seis opções](#13-crie-campos-de-entrada-do-tipo-checkbox-contendo-seis-opções)
   - [14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts](#14-crie-campo-de-entrada-para-avaliar-de-1-a-10-o-nível-de-satisfação-com-a-Trybewarts)
   - [15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo](#15-crie-uma-textarea-contendo-o-número-máximo-de-caracteres-posicionado-logo-abaixo)
   - [16. O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea](#16-o-contador-contendo-o-número-de-caracteres-devera-ser-atualizado-a-medida-que-algo-for-digitado-na-textarea)
-  - [17. Crie um campo de entrada do tipo 'checkbox' para validar as informações](#17-crie-um-campo-de-entrada-do-tipo-'checkbox'-para-validar-as-informações)
+  - [17. Crie um campo de entrada do tipo 'checkbox' para validar as informações](#17-crie-um-campo-de-entrada-do-tipo-checkbox-para-validar-as-informações)
   - [18. Crie um botão de Enviar](#18-crie-um-botão-de-Enviar)
-  - [19. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 18 ser selecionada](#19-o-botão-'Enviar'-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-18-ser-selecionada)
+  - [19. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 18 ser selecionada](#19-o-botão-Enviar-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-18-ser-selecionada)
   - [20. Crie um rodapé no final da página](#20-crie-um-rodapé-no-final-da-página)
   - [Requisito Bônus](#requisito-bônus)
 - [Avisos finais](#avisos-finais)
@@ -279,12 +279,12 @@ Pontos importantes:
   * O formulário deve conter o id `trybewarts-form`
   * O formulário deve ser um flex container
 
-### 6. Crie um id no CSS 
+### 6. Crie uma classe para o formulário do requisito 5 
 
   Pontos importantes:
-  * Esse id deverá se chamar `form-group`
-  * Esse id deverá possuir a propriedade `display: flex`
-  * Alinhe o eixo principal desse id para ser o eixo vertical
+  * Essa classe deverá se chamar `form-group`
+  * Essa classe deverá possuir a propriedade `display: flex`
+  * Alinhe o eixo principal dessa classe para ser o eixo vertical
 
 ### 7. Adicione a logo da Trybewarts no lado direito da página
 
