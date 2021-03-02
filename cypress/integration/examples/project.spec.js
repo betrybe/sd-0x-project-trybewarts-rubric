@@ -1,6 +1,6 @@
 const TOP_BAR_SELECTOR = '.top-bar';
-const FACEBOOK_LOGOTIPO_SELECTOR = '.facebook-logo';
-const FACEBOOK_LOGIN_FORM_SELECTOR = 'form.facebook-login';
+const TRYBEWARTS_LOGO_SELECTOR = '.trybewarts-logo';
+const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
 const USER_IDENTIFIER_INPUT_SELECTOR = 'input#user-email-phone';
 const USER_IDENTIFIER_LABEL_SELECTOR = '#user-email-phone-label';
 const USER_PASSWORD_LABEL_SELECTOR = '#user-password-label';
@@ -8,9 +8,9 @@ const USER_IDENTIFIER_LABEL_TEXT_SELECTOR = 'Email ou telefone';
 const USER_PASSWORD_LABEL_TEXT_SELECTOR = 'Senha';
 const USER_PASSWORD_INPUT_SELECTOR = 'input#user-password';
 const USER_LOGIN_BUTTON_SELECTOR = '#button-login';
-const FACEBOOK_SLOGAN_SELECTOR = 'p#facebook-slogan';
-const FACEBOOK_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
-const FACEBOOK_NETWORKING_IMG_SELECTOR = 'img#facebook-networking';
+const TRYBEWARTS_SLOGAN_SELECTOR = 'p#trybewarts-slogan';
+const TRYBEWARTS_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
+const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
 const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
 const ALL_INPUT_SELECTOR = 'input';
@@ -22,7 +22,7 @@ const GENRES = [
   'Masculino',
   'Personalizado'
 ];
-const REGISTER_BUTTON_SELECTOR = 'button#facebook-register';
+const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
 
 const checkPlaceholder = (elements, placeholder) => (
   elements.some((element) => Cypress.$(element).attr('placeholder') === placeholder)
@@ -84,31 +84,31 @@ describe('Facebook Signup', () => {
     });
   });
 
-  describe('A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe facebook-logo', () => {
+  describe('A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe trybewarts-logo', () => {
     it('O logotipo deve estar alinhado a esquerda dentro da barra azul', () => {
-      cy.get(FACEBOOK_LOGOTIPO_SELECTOR).should('be.leftAligned', '.top-bar');
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', '.top-bar');
     });
 
-    it('Deve existir um elemento img com a classe facebook-logo', () => {
-      cy.get(FACEBOOK_LOGOTIPO_SELECTOR).should('exist');
+    it('Deve existir um elemento img com a classe trybewarts-logo', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
     });
     
-    it('O atributo src do logotipo deve apontar para imgs/facebook-logo.png', () => {
-      cy.get(FACEBOOK_LOGOTIPO_SELECTOR).should('have.attr', 'src').should('equal','imgs/facebook-logo.png')
+    it('O atributo src do logotipo deve apontar para imgs/trybewarts-logo.png', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal','imgs/trybewarts-logo.png')
     });
   });
 
   describe('A barra superior deve conter um formulário de autenticação no canto direito', () => {
     it('O formulário deve estar alinhado a direita dentro da barra azul', () => {
-      cy.get(FACEBOOK_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
     });
 
-    it('Existe formulário possui uma classe chamada facebook-login', () => {
-      cy.get(FACEBOOK_LOGIN_FORM_SELECTOR).should('exist');
+    it('Existe formulário possui uma classe chamada trybewarts-login', () => {
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('exist');
     });
 
     it('O formulário deve ser um flex container', () => {
-      cy.get(FACEBOOK_LOGIN_FORM_SELECTOR).should('have.css', 'display', 'flex');
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('have.css', 'display', 'flex');
     });
   });
 
@@ -124,7 +124,7 @@ describe('Facebook Signup', () => {
 
   describe('Adicione o primeiro subcontainer com a classe form-group para agrupar o rótulo e campo "E-mail ou telefone" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um container utilizando a classe `form-group` criada no passo anterior', () => {
-      cy.get('form.facebook-login').children().first()
+      cy.get('form.trybewarts-login').children().first()
         .should('exist')
         .should('have.class', 'form-group')
     });
@@ -148,17 +148,17 @@ describe('Facebook Signup', () => {
 
   describe('Adicione o segundo subcontainer com a classe form-group para agrupar o rótulo e campo "Senha" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um novo container utilizando a classe `form-group` criada no passo 4', () => {
-      cy.get("form.facebook-login > .form-group").eq(1).should('exist');
+      cy.get("form.trybewarts-login > .form-group").eq(1).should('exist');
     });
   
     it('Dentro do novo container `form-group` criado, deve haver um rótulo com o id user-password-label e o texto "Senha"', () => {
-      cy.get("form.facebook-login .form-group label#user-password-label")
+      cy.get("form.trybewarts-login .form-group label#user-password-label")
         .should('exist')
         .should('have.text', USER_PASSWORD_LABEL_TEXT_SELECTOR);
     });
 
     it('Dentro do novo container `form-group` criado, abaixo do rótulo deve haver campo de entrada para senha com o id user-password', () => {
-      cy.get("form.facebook-login .form-group input#user-password").should('exist');
+      cy.get("form.trybewarts-login .form-group input#user-password").should('exist');
 
       checkIsBelowOf(USER_PASSWORD_LABEL_SELECTOR, USER_PASSWORD_INPUT_SELECTOR);
 
@@ -167,7 +167,7 @@ describe('Facebook Signup', () => {
 
   describe('Adicione o terceiro subcontainer com a classe form-control com o botão "Entrar" dentro do formulário criado na etapa 3', () => {
     it('Deve haver um novo container utilizando a classe `form-control` criada no passo anterior`', () => {
-      cy.get("form.facebook-login > .form-control").eq(0).should('exist');
+      cy.get("form.trybewarts-login > .form-control").eq(0).should('exist');
     });
 
     it('Crie uma classe no CSS form-control com a propriedade `align-self: flex-end`', () => {
@@ -175,7 +175,7 @@ describe('Facebook Signup', () => {
     });
 
     it('Dentro do novo container `form-control` criado, deve haver um botão com o id "button-login" e o texto "Entrar"', () => {
-      cy.get("form.facebook-login .form-control #button-login")
+      cy.get("form.trybewarts-login .form-control #button-login")
         .should('exist')
         .should('have.text', 'Entrar');
     });
@@ -229,18 +229,18 @@ describe('Facebook Signup', () => {
       cy.get('.main-content > .left-content').should('have.css', 'width', '800px');
     });
 
-    it('Dentro do container com a classe left-content deve existir um parágrafo com id facebook-slogan e o texto "O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida."', () => {
-      cy.get('.main-content > .left-content #facebook-slogan')
+    it('Dentro do container com a classe left-content deve existir um parágrafo com id trybewarts-slogan e o texto "O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida."', () => {
+      cy.get('.main-content > .left-content #trybewarts-slogan')
         .should('exist')
-        .contains(FACEBOOK_SLOGAN);
+        .contains(TRYBEWARTS_SLOGAN);
     });
 
-    it('Dentro do container com a classe left-content deve existir abaixo do parágrafo com id facebook-slogan uma imagem com id facebook-networking e o src com o endereço `imgs/networking.png`.', () => {
-      cy.get('.main-content > .left-content img#facebook-networking')
+    it('Dentro do container com a classe left-content deve existir abaixo do parágrafo com id trybewarts-slogan uma imagem com id trybewarts-networking e o src com o endereço `imgs/networking.png`.', () => {
+      cy.get('.main-content > .left-content img#trybewarts-networking')
         .should('exist')
         .should('have.attr', 'src', 'imgs/networking.png');
         
-      checkIsBelowOf(FACEBOOK_SLOGAN_SELECTOR, FACEBOOK_NETWORKING_IMG_SELECTOR);
+      checkIsBelowOf(TRYBEWARTS_SLOGAN_SELECTOR, TRYBEWARTS_NETWORKING_IMG_SELECTOR);
     });
   });
 
@@ -400,7 +400,7 @@ describe('Facebook Signup', () => {
   });
   
   describe("Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10", () => {
-    it('Um botão com o texto "Cadastre-se" e id "facebook-register"', () => {
+    it('Um botão com o texto "Cadastre-se" e id "trybewarts-register"', () => {
       cy.get(REGISTER_BUTTON_SELECTOR)
         .should('exist')
         .should('have.text', 'Cadastre-se');
