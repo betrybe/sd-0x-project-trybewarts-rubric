@@ -31,7 +31,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Lista de requisitos obrigatórios](#lista-de-requisitos-obrigatórios)
   - [1. Crie uma barra verde na parte superior da página](#1-crie-uma-barra-verde-na-parte-superior-da-página)
   - [2. Posicione o logotipo da Trybewarts no canto esquerdo na barra superior](#2-posicione-o-logotipo-da-trybewarts-no-canto-esquerdo-na-barra-superior)
-  - [3. Crie um título "Trybewarts" dentro do `onClickHeaderBtn`](#3-Crie-um-título-"Trybewarts"-dentro-do-`onClickHeaderBtn`)
+  - [3. Crie um título "Trybewarts" dentro do `Header`](#3-Crie-um-título-"Trybewarts"-dentro-do-`Header`)
   - [4. Crie campos de login, senha e um botão no canto direito na barra superior](#4-Crie-campos-de-login-senha-e-um-botão-no-canto-direito-na-barra-superior)
   - [5. Adicione um formulário no lado esquerdo da página](#5-Adicione-um-formulário-no-lado-esquerdo-da-página)
   - [6. Crie uma classe no CSS](#6-Crie-uma-classe-no-CSS)
