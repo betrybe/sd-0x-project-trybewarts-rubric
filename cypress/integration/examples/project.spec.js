@@ -15,7 +15,7 @@ const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
 const ALL_INPUT_SELECTOR = 'input';
 const ALL_PASSWORD_INPUT_SELECTOR = 'input[type=password]';
-const BIRTHDATE_TITLE = 'Data de nascimento';
+const BIRTH_DATE_TITLE = 'Data de nascimento';
 const GENDER_TITLE = 'Gênero';
 const GENRES = [
   'Feminino',
@@ -113,7 +113,7 @@ describe('Facebook Signup', () => {
   });
 
   describe('Crie uma classe no CSS chamada form-group', () => {
-    it('Essa classe deve possuir a propriedade `diplay: flex`', () => {
+    it('Essa classe deve possuir a propriedade `display: flex`', () => {
       cy.get('.form-group').should('have.css', 'display', 'flex');
     });
 
@@ -281,26 +281,26 @@ describe('Facebook Signup', () => {
   });
 
   describe("Crie um campo de entrada de texto para o nome do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "firstname"', () => {
-      cy.get('.main-content form input[name="firstname"]').should('exist');    
+    it('O campo deve ter o atributo name com o valor "first-name"', () => {
+      cy.get('.main-content form input[name="first-name"]').should('exist');    
     });
 
     it('O campo deve ter um placeholder com o valor "Nome"', () => {
-      cy.get('.main-content form input[name="firstname"]').should('have.attr', 'placeholder', 'Nome');
+      cy.get('.main-content form input[name="first-name"]').should('have.attr', 'placeholder', 'Nome');
     });
   });
 
   describe("Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "lastname"', () => {
-      cy.get('.main-content form input[name="lastname"]').should('exist');    
+    it('O campo deve ter o atributo name com o valor "last-name"', () => {
+      cy.get('.main-content form input[name="last-name"]').should('exist');    
     });
 
     it('O campo deve ter um placeholder com o valor "Sobrenome"', () => {
-      cy.get('.main-content form input[name="lastname"]').should('have.attr', 'placeholder', 'Sobrenome');
+      cy.get('.main-content form input[name="last-name"]').should('have.attr', 'placeholder', 'Sobrenome');
     });
 
     it('Esse campo deve estar alinhado a direita do campo de Nome', () => {
-      checkIsRightOf('.main-content form input[name="firstname"]', '.main-content form input[name="lastname"]')
+      checkIsRightOf('.main-content form input[name="first-name"]', '.main-content form input[name="last-name"]')
     });
   });
 
@@ -314,7 +314,7 @@ describe('Facebook Signup', () => {
     });
 
     it('Posicione esse campo abaixo do campo do nome do usuário', () => {
-      checkIsBelowOf('.main-content form input[name="firstname"]', '.main-content form input[name="phone_email"]')
+      checkIsBelowOf('.main-content form input[name="first-name"]', '.main-content form input[name="phone_email"]')
     });
   });
 
@@ -337,20 +337,20 @@ describe('Facebook Signup', () => {
   });
 
   describe("Crie um campo de entrada para data de nascimento do usuário dentro do formulário criado no requisito 10", () => {
-    it('Um rótulo abaixo do campo nova senha com o id label-birthdate e o texto "Data de nascimento" ', () => {
-      cy.get('.main-content form label#label-birthdate').contains(BIRTHDATE_TITLE);
+    it('Um rótulo abaixo do campo nova senha com o id label-birth-date e o texto "Data de nascimento" ', () => {
+      cy.get('.main-content form label#label-birth-date').contains(BIRTH_DATE_TITLE);
     });
 
-    it('O campo deve ter o atributo name com o valor "birthdate"', () => {
-      cy.get('.main-content form input[name="birthdate"]').should('exist');    
+    it('O campo deve ter o atributo name com o valor "birth-date"', () => {
+      cy.get('.main-content form input[name="birth-date"]').should('exist');    
     });
 
     it('O campo deve ter um placeholder com o valor "dd/mm/aaaa"', () => {
-      cy.get('.main-content form input[name="birthdate"]').should('have.attr', 'placeholder', 'dd/mm/aaaa');
+      cy.get('.main-content form input[name="birth-date"]').should('have.attr', 'placeholder', 'dd/mm/aaaa');
     });
 
     it('Posicione esse campo abaixo do rótulo', () => {
-      checkIsBelowOf('.main-content form label#label-birthdate', '.main-content form input[name="birthdate"]')
+      checkIsBelowOf('.main-content form label#label-birth-date', '.main-content form input[name="birth-date"]')
     });
   });
 
@@ -413,8 +413,8 @@ describe('Facebook Signup', () => {
 
   describe('Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {
     it('Exibir uma mensagem "Campos inválidos" dentro do formulário caso pelo menos um campo não esteja preenchido', () => {
-      cy.get('input[name="firstname"]').type("John");
-      cy.get('input[name="lastname"]').type("Doe");
+      cy.get('input[name="first-name"]').type("John");
+      cy.get('input[name="last-name"]').type("Doe");
       cy.get(REGISTER_BUTTON_SELECTOR).click();
 
       cy.get('.main-content form').contains('Campos inválidos');
@@ -422,20 +422,20 @@ describe('Facebook Signup', () => {
   });
 
   describe('Adicione um novo campo de texto no formulário se a pessoa usuária selecionar a opção "Personalizado" no campo Gênero', () => {
-    const firstname = 'John';
-    const lastname = 'Doe';
+    const firstName = 'John';
+    const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
-    const birthdate = '01/01/1990';
-    const password = 'changeme';
+    const birthDate = '01/01/1990';
+    const password = 'change-me';
   
     function fillForm() {
       cy.visit('./index.html');
 
-      cy.get('input[name="firstname"]').type(firstname);
-      cy.get('input[name="lastname"]').type(lastname);
+      cy.get('input[name="first-name"]').type(firstName);
+      cy.get('input[name="last-name"]').type(lastName);
       cy.get('input[name="phone_email"]').type(phoneEmail);
       cy.get('input[name="password"]').type(password);
-      cy.get('input[name="birthdate"]').type(birthdate);
+      cy.get('input[name="birth-date"]').type(birthDate);
     }
 
     beforeEach(() => {
@@ -455,20 +455,20 @@ describe('Facebook Signup', () => {
   });
 
   describe('Substituir o conteúdo do container com a classe right-content se o formulário estiver completamente preenchido e validado', () => {
-    const firstname = 'John';
-    const lastname = 'Doe';
+    const firstName = 'John';
+    const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
-    const password = 'changeme';
-    const birthdate = '01/01/1990';
+    const password = 'change-me';
+    const birthDate = '01/01/1990';
   
     function fillForm() {
       cy.visit('./index.html');
 
-      cy.get('input[name="firstname"]').type(firstname);
-      cy.get('input[name="lastname"]').type(lastname);
+      cy.get('input[name="first-name"]').type(firstName);
+      cy.get('input[name="last-name"]').type(lastName);
       cy.get('input[name="phone_email"]').type(phoneEmail);
       cy.get('input[name="password"]').type(phoneEmail);
-      cy.get('input[name="birthdate"]').type(birthdate);
+      cy.get('input[name="birth-date"]').type(birthDate);
       cy.get('input[name="gender"]').check('Feminino')
     }
 
@@ -477,9 +477,9 @@ describe('Facebook Signup', () => {
       cy.get(REGISTER_BUTTON_SELECTOR).click();
     });
 
-    it('Deve haver um texto no modelo "Olá, Jonh Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
+    it('Deve haver um texto no modelo "Olá, John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
       cy.get('.main-content .right-content')
-        .contains(`Olá, ${firstname} ${lastname}`)
+        .contains(`Olá, ${firstName} ${lastName}`)
     });
 
     it('Exibir o e-mail ou telefone', () => {
@@ -492,7 +492,7 @@ describe('Facebook Signup', () => {
     });
 
     it('Exibir a data de nascimento', () => {
-      cy.get('.main-content .right-content').contains(birthdate);
+      cy.get('.main-content .right-content').contains(birthDate);
     });
 
     it('Caso a opção selecionada no campo Gênero seja Feminino exibir "Feminino"', () => {
