@@ -36,7 +36,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [5. Adicione um formulário no lado esquerdo da página](#5-Adicione-um-formulário-no-lado-esquerdo-da-página)
   - [6. Crie uma classe no CSS](#6-Crie-uma-classe-no-CSS)
   - [7. Adicione a logo da Trybewarts no lado direito da página](#7-Adicione-a-logo-da-Trybewarts-no-lado-direito-da-página)
-  - [8. No formulário, crie inputs  de 'Nome:', 'Sobrenome:' e 'Email'](#8-No-formulário-crie-inputs-de-'Nome:'-'Sobrenome:'-e-'Email')
+  - [8. No formulário, crie inputs  de 'Nome:', 'Sobrenome:' e 'Email'](#8-No-formulário-crie-inputs-de-'Nome'-'Sobrenome'-e-'Email')
   - [9. Crie um select 'Casa' contendo três options](#9-Crie-um-select-'Casa'-contendo-três-options)
   - [10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha](#10-Alinhe-os-campos-de-'Nome'-e-'Sobrenome'-para-que-fiquem-em-linha)
   - [11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha](#11-Alinhe-os-campos-de-'Email'-e-'Casa'-para-que-fiquem-em-linha)
