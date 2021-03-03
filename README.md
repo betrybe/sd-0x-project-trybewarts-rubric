@@ -291,8 +291,6 @@ Pontos importantes:
   Pontos importantes:
   * A logo deve possuir um height de `100%`
   * O atributo `src` do logotipo deve apontar para ``images/trybewarts-logo.png``
-  * A logo deve possuir um height de `100%`
-  * O atributo `src` do logotipo deve apontar para `imgs/trybewarts-logo.png`
 
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 
