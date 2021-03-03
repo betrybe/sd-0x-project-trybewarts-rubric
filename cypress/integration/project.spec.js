@@ -209,30 +209,17 @@ describe('Trybewarts', () => {
     });
   });
 
-<<<<<<< HEAD:cypress/integration/project.spec.js
-  describe("11) Crie um campo de entrada de texto para o nome do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "first-name"', () => {
-      cy.get('.main-content form input[name="first-name"]').should('exist');
-    });
-=======
   // Olá, povos e pova
->>>>>>> 252b4352ae6f5a90cb8dfb806a5805e886c9cc07:cypress/integration/examples/project.spec.js
 
   describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
-      checkIsRightOf('#email', '#house');    
+      checkIsRightOf('#email', '#house');
     });
   });
 
-<<<<<<< HEAD:cypress/integration/project.spec.js
-  describe("12) Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "last-name"', () => {
-      cy.get('.main-content form input[name="last-name"]').should('exist');
-=======
   describe("12) Crie um campo de entrada para qual família a pessoa estudante se identifica", () => {
     it('Um rótulo (label) com o id "label-family" e o texto "Qual sua família?" deverá ser criado', () => {
-      cy.get('#label-family').contains(LABEL_FAMILY_TEXT);    
->>>>>>> 252b4352ae6f5a90cb8dfb806a5805e886c9cc07:cypress/integration/examples/project.spec.js
+      cy.get('#label-family').contains(LABEL_FAMILY_TEXT);
     });
 
     it('O campo deve ser formado por três radio buttons com as opções "Frontend", "Backend" e "FullStack" - Frontend', () => {
@@ -249,26 +236,20 @@ describe('Trybewarts', () => {
       const radioBtns = querySelector('option[name="family"]');
       expect(radioBtns.length).to.equal(3);
     });
-    
+
     it('Posicione os radio buttons para ficar abaixo um do outro', () => {
       checkIsBelowOf('option[name="Família Frontend"]', 'option[name="Família Backend"]');
       checkIsBelowOf('option[name="Família Backend"]', 'option[name="Família FullStack"]');
     });
-    
+
     it('Posicione os radio buttons abaixo do label', () => {
       checkIsBelowOf('#label-family', 'option[name="Família Frontend"]');
     });
   });
 
-<<<<<<< HEAD:cypress/integration/project.spec.js
-  describe("13) Crie um campo de entrada de texto para o celular ou email do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "phone_email"', () => {
-      cy.get('.main-content form input[name="phone_email"]').should('exist');
-=======
   describe("13) Crie campos de entrada do tipo 'checkbox' contendo seis opções", () => {
     it('Um rótulo (label) com o id "label-content" e o texto "Qual conteúdo você está com mais vontade de aprender?" deverá ser criado', () => {
-      cy.get('#label-content').contains(LABEL_CONTENT_TEXT);    
->>>>>>> 252b4352ae6f5a90cb8dfb806a5805e886c9cc07:cypress/integration/examples/project.spec.js
+      cy.get('#label-content').contains(LABEL_CONTENT_TEXT);
     });
 
     it('Campo High Order Functions', () => {
@@ -279,14 +260,8 @@ describe('Trybewarts', () => {
       cy.get('input[value="Jest"]').contains('Jest');
     });
 
-<<<<<<< HEAD:cypress/integration/project.spec.js
-  describe("14) Crie um campo de entrada para senha do usuário dentro do formulário criado no requisito 10", () => {
-    it('O campo deve ter o atributo name com o valor "password"', () => {
-      cy.get('.main-content form input[name="password"]').should('exist');
-=======
     it('Campo Promises', () => {
       cy.get('input[value="Promises"]').contains('Promises');
->>>>>>> 252b4352ae6f5a90cb8dfb806a5805e886c9cc07:cypress/integration/examples/project.spec.js
     });
 
     it('Campo React', () => {
@@ -308,7 +283,7 @@ describe('Trybewarts', () => {
 
   describe("14) Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts", () => {
     it('Um rótulo (label) com o id label-rate e o texto "Como você avalia a Trybewarts?" deverá ser criado', () => {
-      cy.get('#label-rate').contains(LABEL_RATE_TEXT);    
+      cy.get('#label-rate').contains(LABEL_RATE_TEXT);
     });
 
     it('O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10', () => {
@@ -316,10 +291,6 @@ describe('Trybewarts', () => {
       expect(radioBtns.length).to.equal(10);
     });
 
-<<<<<<< HEAD:cypress/integration/project.spec.js
-    it('O campo deve ter o atributo name com o valor "birth-date"', () => {
-      cy.get('.main-content form input[name="birth-date"]').should('exist');
-=======
     it('Posicione os radio buttons a abaixo do label', () => {
       checkIsBelowOf('option[value="1"]', '#label-rate')
     });
@@ -328,11 +299,10 @@ describe('Trybewarts', () => {
   describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
     it('Um rótulo (label) com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
->>>>>>> 252b4352ae6f5a90cb8dfb806a5805e886c9cc07:cypress/integration/examples/project.spec.js
     });
 
     it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
-      cy.get('textarea').should('have.attr', 'maxlength', '500');    
+      cy.get('textarea').should('have.attr', 'maxlength', '500');
     });
 
     it('O número máximo de caracteres, 500, deverá estar localizado abaixo da textarea, com o id textarea-count', () => {
