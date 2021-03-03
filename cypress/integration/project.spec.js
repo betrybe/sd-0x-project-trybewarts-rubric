@@ -97,7 +97,7 @@ describe('Trybewarts', () => {
     it('Deve existir um elemento img com a classe trybewarts-logo', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
     });
-    
+
     it('O atributo src do logotipo deve apontar para imgs/trybewarts-logo.png', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal','imgs/trybewarts-logo.png')
     });
@@ -133,7 +133,7 @@ describe('Trybewarts', () => {
         .should('exist')
         .should('have.class', 'form-group')
     });
-  
+
     it('Dentro do container `form-group` criado, deve haver um rótulo com o id user-email-phone-label e o texto "Email ou telefone"', () => {
       cy.get(USER_IDENTIFIER_LABEL_SELECTOR).parent().should('have.class', 'form-group');
 
@@ -144,7 +144,7 @@ describe('Trybewarts', () => {
 
     it('Dentro do container `form-group` criado, abaixo do rótulo deve haver campo de entrada de texto para receber o email ou o telefone do usuário com o id user-email-phone', () => {
       cy.get(USER_IDENTIFIER_INPUT_SELECTOR).should('exist');
-      
+
       cy.get(USER_IDENTIFIER_INPUT_SELECTOR).parent().should('have.class', 'form-group');
 
       checkIsBelowOf(USER_IDENTIFIER_LABEL_SELECTOR, USER_IDENTIFIER_INPUT_SELECTOR);
@@ -155,7 +155,7 @@ describe('Trybewarts', () => {
     it('Essa classe deverá se chamar `form-group`', () => {
       cy.get(".form-group").eq(1).should('exist');
     });
-  
+
     it('Essa classe deverá possuir a propriedade `display: flex`', () => {
       cy.get(".form-group")
         .should('have.css', 'display', 'flex')
@@ -208,7 +208,7 @@ describe('Trybewarts', () => {
 
   describe("11) Crie um campo de entrada de texto para o nome do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "first-name"', () => {
-      cy.get('.main-content form input[name="first-name"]').should('exist');    
+      cy.get('.main-content form input[name="first-name"]').should('exist');
     });
 
     it('O campo deve ter um placeholder com o valor "Nome"', () => {
@@ -218,7 +218,7 @@ describe('Trybewarts', () => {
 
   describe("12) Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "last-name"', () => {
-      cy.get('.main-content form input[name="last-name"]').should('exist');    
+      cy.get('.main-content form input[name="last-name"]').should('exist');
     });
 
     it('O campo deve ter um placeholder com o valor "Sobrenome"', () => {
@@ -232,7 +232,7 @@ describe('Trybewarts', () => {
 
   describe("13) Crie um campo de entrada de texto para o celular ou email do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "phone_email"', () => {
-      cy.get('.main-content form input[name="phone_email"]').should('exist');    
+      cy.get('.main-content form input[name="phone_email"]').should('exist');
     });
 
     it('O campo deve ter um placeholder com o valor "Celular ou email"', () => {
@@ -246,7 +246,7 @@ describe('Trybewarts', () => {
 
   describe("14) Crie um campo de entrada para senha do usuário dentro do formulário criado no requisito 10", () => {
     it('O campo deve ter o atributo name com o valor "password"', () => {
-      cy.get('.main-content form input[name="password"]').should('exist');    
+      cy.get('.main-content form input[name="password"]').should('exist');
     });
 
     it('O campo deve ser do tipo "password"', () => {
@@ -268,7 +268,7 @@ describe('Trybewarts', () => {
     });
 
     it('O campo deve ter o atributo name com o valor "birth-date"', () => {
-      cy.get('.main-content form input[name="birth-date"]').should('exist');    
+      cy.get('.main-content form input[name="birth-date"]').should('exist');
     });
 
     it('O campo deve ter um placeholder com o valor "dd/mm/aaaa"', () => {
@@ -280,60 +280,28 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("16) Crie um campo de entrada para gênero do usuário dentro do formulário criado no requisito 10", () => {
-    it('Um rótulo abaixo do campo nova senha com o id label-gender e o texto "Gênero" ', () => {
-      cy.get('.main-content form label#label-gender').contains(GENDER_TITLE);
-    });
+  describe.only("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
+    it('Deve existir um contador com o ID "contador"', () => {
+      cy.get('#contador').should('exist');
+    })
 
-    it('O campo deve ser formado por três `radio buttons` com as opções "Feminino", "Masculino" e "Personalizado"', () => {
-      cy.get("input[type='radio']")
-        .should(($radios) => {
-          expect($radios).to.have.length(GENRES.length);
-          $radios.each((index, radio) => {
-            expect(Cypress.$(radio).val()).to.equal(GENRES[index]);
-          });
-        });
-    });
+    it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
+      const textarea = cy.get("#textarea");
+      const contador = cy.get("#contador");
 
-    it('Posicione os radio buttons para ficar na mesma linha', () => {
-      const topOptions = []
-      cy.get("input[type='radio']")
-        .should(($radios) => {
-          $radios.each((index, radio) => {
-            topOptions.push(radio.getBoundingClientRect()[`top`]);
-          });
-
-          expect([...new Set(topOptions)].length).to.equal(1);
-        });
-    });
-
-    it('Posicione os radio buttons para ficar abaixo do label', () => {
-      cy.document().then(doc => {
-        const topOptions = []
-        let topLabel = evaluateOffset(doc, '.main-content form label#label-gender', 'top');
-        let heightLabel = evaluateOffset(doc, '.main-content form label#label-gender', 'height');
-      
-        cy.get("input[type='radio']")
-          .should(($radios) => {
-            $radios.each((index, radio) => {
-              topOptions.push(radio.getBoundingClientRect()[`top`]);
-            });
-
-            expect([...new Set(topOptions)][0] >= (topLabel + heightLabel)).to.equal(true);
-          });
-        }); 
+      contador.should('contain', '500');
+      textarea.type('Salve salve família');
+      contador.should('contain', '481');
+      textarea.clear().type('Salve salve');
+      contador.should('contain', '489');
     });
   });
-  
-  describe("17) Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10", () => {
+
+  describe("17) Crie um campo de entrada do tipo 'checkbox' para validar as informações", () => {
     it('Um botão com o texto "Cadastre-se" e id "trybewarts-register"', () => {
       cy.get(REGISTER_BUTTON_SELECTOR)
         .should('exist')
         .should('have.text', 'Cadastre-se');
-    });
-
-    it('Deve ter a propriedade type igual a submit', () => {
-      cy.get(REGISTER_BUTTON_SELECTOR).should('have.attr', 'type').should('equal','submit')
     });
   });
 
@@ -344,7 +312,7 @@ describe('Trybewarts', () => {
       cy.get(REGISTER_BUTTON_SELECTOR).click();
 
       cy.get('.main-content form').contains('Campos inválidos');
-    });    
+    });
   });
 
   describe('19) Adicione um novo campo de texto no formulário se a pessoa usuária selecionar a opção "Personalizado" no campo Gênero', () => {
@@ -353,7 +321,7 @@ describe('Trybewarts', () => {
     const phoneEmail = 'johndoe@trybe.com';
     const birthDate = '01/01/1990';
     const password = 'change-me';
-  
+
     function fillForm() {
       cy.visit('./index.html');
 
@@ -371,7 +339,7 @@ describe('Trybewarts', () => {
 
     it('O novo campo dever ser uma campo de texto com o atributo name "gender-custom" e um placeholder "Gênero (opcional)"', () => {
       cy.get('input[name="gender-custom"]').should('exist');
-    });    
+    });
 
     it('O novo campo deve estar posicionado entre as opções de gênero e o botão "Cadastrar-se"', () => {
       checkIsBelowOf('input[name="gender"]', 'input[name="gender-custom"]');
@@ -386,7 +354,7 @@ describe('Trybewarts', () => {
     const phoneEmail = 'johndoe@trybe.com';
     const password = 'change-me';
     const birthDate = '01/01/1990';
-  
+
     function fillForm() {
       cy.visit('./index.html');
 
