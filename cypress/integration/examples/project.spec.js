@@ -1,12 +1,16 @@
 const TOP_BAR_SELECTOR = '.top-bar';
-const TRYBEWARTS_LOGO_SELECTOR = '.trybewarts-logo';
+const TRYBEWARTS_LOGO_SELECTOR = '#trybewarts-logo';
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
+const TRYBEWARTS_FORMS_CLASS = 'form.from-group';
+const HEIGHT = 100;
 const USER_IDENTIFIER_INPUT_SELECTOR = 'input#user-email-phone';
 const USER_IDENTIFIER_LABEL_SELECTOR = '#user-email-phone-label';
 const USER_PASSWORD_LABEL_SELECTOR = '#user-password-label';
 const USER_IDENTIFIER_LABEL_TEXT_SELECTOR = 'Email ou telefone';
 const USER_PASSWORD_LABEL_TEXT_SELECTOR = 'Senha';
-const USER_PASSWORD_INPUT_SELECTOR = 'input#user-password';
+const USER_NAME_INPUT_SELECTOR = 'input#input-name';
+const USER_LASTNAME_INPUT_SELECTOR = 'input#input-lastname';
+const USER_EMAIL_INPUT_SELECTOR = 'input#input-email';
 const USER_LOGIN_BUTTON_SELECTOR = '#button-login';
 const TRYBEWARTS_SLOGAN_SELECTOR = 'p#trybewarts-slogan';
 const TRYBEWARTS_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
@@ -17,10 +21,11 @@ const ALL_INPUT_SELECTOR = 'input';
 const ALL_PASSWORD_INPUT_SELECTOR = 'input[type=password]';
 const BIRTH_DATE_TITLE = 'Data de nascimento';
 const GENDER_TITLE = 'Gênero';
-const GENRES = [
-  'Feminino',
-  'Masculino',
-  'Personalizado'
+const HOUSE = [
+  'Gitnória',
+  'Reactpuff',
+  'Corvinode',
+  'Pytherina',
 ];
 const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
 
@@ -146,137 +151,58 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('6) Adicione o segundo subcontainer com a classe form-group para agrupar o rótulo e campo "Senha" dentro do formulário criado na etapa 3', () => {
-    it('Deve haver um novo container utilizando a classe `form-group` criada no passo 4', () => {
-      cy.get("form.trybewarts-login > .form-group").eq(1).should('exist');
+  describe('6) Crie uma classe para o formulário do requisito 5 ', () => {
+    it('Essa classe deverá se chamar `form-group`', () => {
+      cy.get(".form-group").eq(1).should('exist');
     });
   
-    it('Dentro do novo container `form-group` criado, deve haver um rótulo com o id user-password-label e o texto "Senha"', () => {
-      cy.get("form.trybewarts-login .form-group label#user-password-label")
-        .should('exist')
-        .should('have.text', USER_PASSWORD_LABEL_TEXT_SELECTOR);
-    });
-
-    it('Dentro do novo container `form-group` criado, abaixo do rótulo deve haver campo de entrada para senha com o id user-password', () => {
-      cy.get("form.trybewarts-login .form-group input#user-password").should('exist');
-
-      checkIsBelowOf(USER_PASSWORD_LABEL_SELECTOR, USER_PASSWORD_INPUT_SELECTOR);
-
-    });
-  });
-
-  describe('7) Adicione o terceiro subcontainer com a classe form-control com o botão "Entrar" dentro do formulário criado na etapa 3', () => {
-    it('Deve haver um novo container utilizando a classe `form-control` criada no passo anterior`', () => {
-      cy.get("form.trybewarts-login > .form-control").eq(0).should('exist');
-    });
-
-    it('Crie uma classe no CSS form-control com a propriedade `align-self: flex-end`', () => {
-      cy.get('.form-control').should('have.css', 'align-self', 'flex-end');
-    });
-
-    it('Dentro do novo container `form-control` criado, deve haver um botão com o id "button-login" e o texto "Entrar"', () => {
-      cy.get("form.trybewarts-login .form-control #button-login")
-        .should('exist')
-        .should('have.text', 'Entrar');
-    });
-
-    it('O botão deve estar alinhado a direita do campo de entrada para senha', () => {
-      checkIsRightOf(USER_PASSWORD_INPUT_SELECTOR, USER_LOGIN_BUTTON_SELECTOR);
-    });
-
-    it('Ao clicar no botão com o id #button-login deve exibir um alert com o valor do campo "Email ou telefone"', () => {
-      const content = 'my-user';
-      let alerted = false;
-  
-      cy.on('window:alert', (text) => {
-        expect(text).to.equal(content);
-        alerted = true;
-      });
-
-  
-      cy.get(USER_IDENTIFIER_INPUT_SELECTOR).type(content);
-      cy.get(USER_LOGIN_BUTTON_SELECTOR)
-        .should('exist')
-        .should('have.text', 'Entrar')
-        .click().then(()=> {
-          expect(alerted).to.eq(true);
-        });
-    });
-  });
-
-  describe("8) Crie um container com a classe main-content abaixo da barra azul para agrupar o conteúdo principal da página", () => {
-    it('Crie um elemento com a classe main-content', () => {
-      cy.get('.main-content').should('exist');
-    });
-
-    it('O elemento deve ser um flex container no eixo horizontal', () => {
-      cy.get('.main-content')
+    it('Essa classe deverá possuir a propriedade `display: flex`', () => {
+      cy.get(".form-group")
         .should('have.css', 'display', 'flex')
+    });
+
+    it('Alinhe o eixo principal dessa classe para ser o eixo vertical', () => {
+      cy.get(".form-group").should('have.css', 'flex-direction', 'column');
+    });
+  });
+
+  describe("'7) Adicione a logo da Trybewarts no lado direito da página", () => {
+    it('A logo deve possuir um height de `100%``', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.css', 'height,' `100%`);
+    });
+
+    it('O atributo `src` do logotipo deve apontar para `images/trybewarts-logo.png`', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.src', 'images/trybewarts-logo.png');
+    });
+  });
+
+  describe("8) No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'", () => {
+    it('Inputs de Nome, Sobrenome e Email deverão ser criados', () => {
+      cy.get(USER_NAME_INPUT_SELECTOR).should('exist');
+      cy.get(USER_LASTNAME_INPUT_SELECTOR ).should('exist');
+      cy.get(USER_EMAIL_INPUT_SELECTOR).should('exist');
+    });
+
+    it('Os inputs deverão conter um placeholder com Nome, Sobrenome e Email em seus respectivos campos', () => {
+      cy.get(USER_NAME_INPUT_SELECTOR)
+        .should('have.attr', 'placeholder', 'Nome');
+        cy.get(USER_LASTNAME_INPUT_SELECTOR)
+        .should('have.attr', 'placeholder', 'Sobrenome');
+        cy.get(USER_EMAIL_INPUT_SELECTOR)
+        .should('have.attr', 'placeholder', 'Email');
+    });
+  });
+
+  describe("9) Crie um select 'Casa' contendo três options", () => {
+    it('Deverá conter a opção `Gitnória`', () => {
+      cy.get(HOUSE).should('exist');
+    });
+  });
+
+  describe("10) Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha", () => {
+    it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
+      cy.get(USER_NAME_INPUT_SELECTOR, USER_LASTNAME_INPUT_SELECTOR)
         .should('have.css', 'flex-direction', 'row');
-    });
-
-    it('O elemento deve posicionado abaixo da barra azul', () => {
-      checkIsBelowOf('.top-bar', '.main-content');
-    });
-  });
-
-  describe("9) Crie um subcontainer com a classe left-content para colocar o conteúdo do lado esquerdo dentro do container com a classe main-content", () => {
-    it('O subcontainer deve ter a classe left-content', () => {
-      cy.get('.main-content > .left-content').should('exist');
-    });
-
-    it('A classe left-content deve ter uma largura de 800px', () => {
-      cy.get('.main-content > .left-content').should('have.css', 'width', '800px');
-    });
-
-    it('Dentro do container com a classe left-content deve existir um parágrafo com id trybewarts-slogan e o texto "O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida."', () => {
-      cy.get('.main-content > .left-content #trybewarts-slogan')
-        .should('exist')
-        .contains(TRYBEWARTS_SLOGAN);
-    });
-
-    it('Dentro do container com a classe left-content deve existir abaixo do parágrafo com id trybewarts-slogan uma imagem com id trybewarts-networking e o src com o endereço `imgs/networking.png`.', () => {
-      cy.get('.main-content > .left-content img#trybewarts-networking')
-        .should('exist')
-        .should('have.attr', 'src', 'imgs/networking.png');
-        
-      checkIsBelowOf(TRYBEWARTS_SLOGAN_SELECTOR, TRYBEWARTS_NETWORKING_IMG_SELECTOR);
-    });
-  });
-
-  describe("10) Crie um subcontainer com a classe right-content para colocar o conteúdo do lado direito dentro do container com a classe main-content", () => {
-    it('O novo subcontainer deve ter a classe right-content', () => {
-      cy.get('.main-content > .right-content').should('exist');
-    });
-
-    it('A classe right-content deve ter uma largura de 300px', () => {
-      cy.get('.main-content > .right-content').should('have.css', 'width', '300px');
-    });
-
-    it('Utilize na classe main-content a propriedade justify-content com o valor mais apropriado para alinhar os conteúdos', () => {
-      cy.get('.main-content').should('have.css', 'justify-content');
-    });
-
-    it('Dentro do subcontainer com a classe right-content deve existir um elemento h1 com o texto "Abra uma conta"', () => {
-      cy.get('.main-content > .right-content h1').contains(OPEN_ACCOUNT_MESSAGE);
-    });
-
-    it('Dentro do subcontainer com a classe right-content deve existir um elemento com a classe quick-easy com o texto "É rápido e fácil." posicionado abaixo do texto "Abra uma conta"', () => {
-      cy.get('.main-content > .right-content .quick-easy')
-        .should('exist')
-        .contains(QUICK_AND_SIMPLE_MESSAGE);
-
-      checkIsBelowOf('.main-content > .right-content h1', '.main-content > .right-content .quick-easy');
-    });
-
-    it('Dentro do subcontainer com a classe right-content deve existir um elemento form abaixo do texto "É rápido e fácil."', () => {
-      cy.get('.main-content > .right-content form').should('exist');
-
-      checkIsBelowOf('.main-content > .right-content .quick-easy', '.main-content > .right-content form');
-    });
-
-    it('O elemento com a classe right-content deve estar a direita do elemento com a classe left-content', () => {
-      checkIsRightOf('.main-content > .left-content', '.main-content > .right-content');
     });
   });
 

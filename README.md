@@ -291,12 +291,12 @@ Pontos importantes:
   Pontos importantes:
   * A logo deve possuir um height de `100%`
   * O atributo `src` do logotipo deve apontar para ``images/trybewarts-logo.png``
-  * A logo deve possuir um height de `100%`
-  * O atributo `src` do logotipo deve apontar para `imgs/trybewarts-logo.png`
 
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 
   Pontos importantes:
+  * Inputs de *'Nome'*, *'Sobrenome'* e *'Email'* deverão ser criados
+  *Os inputs devem possuir os ids 'input-name', 'input-lastname' e 'input-email'
   * Os inputs deverão conter um placeholder com *'Nome'*, *'Sobrenome'* e *'Email'* em seus respectivos campos
 
 ### 9. Crie um select 'Casa' contendo três options
@@ -310,7 +310,7 @@ Pontos importantes:
 ### 10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha
 
   Pontos importantes:
-  * Os campos de *'Name'* e *'Last Name'* devem estar lado a lado
+  * Os campos de *'Nome'* e *'Sobrenome'* devem estar lado a lado
 
 ### 11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha
 
