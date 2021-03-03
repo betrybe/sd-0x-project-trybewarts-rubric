@@ -40,7 +40,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [9. Crie um select 'Casa' contendo três options](#9-crie-um-select-Casa-contendo-três-options)
   - [10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha](#10-alinhe-os-campos-de-Nome-e-Sobrenome-para-que-fiquem-em-linha)
   - [11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha](#11-alinhe-os-campos-de-Email-e-Casa-para-que-fiquem-em-linha)
-  - [12. Crie um campo de entrada para qual família a pessoa estudante se identificado](#12-crie-um-campo-de-entrada-para-qual-família-a-pessoa-estudante-se-identificado)
+  - [12. Crie um campo de entrada para qual família a pessoa estudante se identifica](#12-crie-um-campo-de-entrada-para-qual-família-a-pessoa-estudante-se-identifica)
   - [13. Crie campos de entrada do tipo 'checkbox' contendo seis opções](#13-crie-campos-de-entrada-do-tipo-checkbox-contendo-seis-opções)
   - [14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts](#14-crie-campo-de-entrada-para-avaliar-de-1-a-10-o-nível-de-satisfação-com-a-Trybewarts)
   - [15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo](#15-crie-uma-textarea-contendo-o-número-máximo-de-caracteres-posicionado-logo-abaixo)
@@ -317,7 +317,7 @@ Pontos importantes:
   Pontos importantes:
   * Os campos de *'Email'* e *'Casa'* devem estar lado a lado
 
-### 12. Crie um campo de entrada para qual família a pessoa estudante se identificado
+### 12. Crie um campo de entrada para qual família a pessoa estudante se identifica
 
   Pontos importantes:
   * Um rótulo (label) com o id `label-family` e o texto *"Qual sua família?"* deverá ser criado
@@ -349,7 +349,7 @@ Pontos importantes:
   Pontos importantes:
   * Um rótulo (label) com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
   * O campo `textarea` deverá ter o máximo de 500 caracteres
-  * O número máximo de caracteres, 500, deverá estar localizado abaixo da `textarea`
+  * O número máximo de caracteres, 500, deverá estar localizado abaixo da `textarea`, com o id `textarea-count`
 
 ### 16. O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea
 
