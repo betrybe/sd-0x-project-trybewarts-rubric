@@ -1,5 +1,6 @@
 const TOP_BAR_SELECTOR = '.top-bar';
-const TRYBEWARTS_LOGO_SELECTOR = '.trybewarts-logo';
+const TRYBEWARTS_LOGO_SELECTOR = 'img.trybewarts-header-logo';
+const TRYBEWARTS_HEADER_TITLE = 'h1#trybewarts-header-title'
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
 const USER_IDENTIFIER_INPUT_SELECTOR = 'input#user-email-phone';
 const USER_IDENTIFIER_LABEL_SELECTOR = '#user-email-phone-label';
@@ -9,12 +10,11 @@ const USER_PASSWORD_LABEL_TEXT_SELECTOR = 'Senha';
 const USER_PASSWORD_INPUT_SELECTOR = 'input#user-password';
 const USER_LOGIN_BUTTON_SELECTOR = '#button-login';
 const TRYBEWARTS_SLOGAN_SELECTOR = 'p#trybewarts-slogan';
+// eslint-disable-next-line max-len
 const TRYBEWARTS_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
 const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
 const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
-const ALL_INPUT_SELECTOR = 'input';
-const ALL_PASSWORD_INPUT_SELECTOR = 'input[type=password]';
 const BIRTH_DATE_TITLE = 'Data de nascimento';
 const GENDER_TITLE = 'Gênero';
 const GENRES = [
@@ -28,11 +28,9 @@ const checkPlaceholder = (elements, placeholder) => (
   elements.some((element) => Cypress.$(element).attr('placeholder') === placeholder)
 );
 
-
 const evaluateOffset = (doc, selector, offsetType) => {
   return doc.querySelector(selector).getBoundingClientRect()[`${offsetType}`];
 };
-
 
 const checkIsRightOf = (elementLeftSelector, elementRightSelector) => {
   cy.document().then(doc => {
@@ -70,8 +68,8 @@ describe('Trybewarts', () => {
     cy.visit('./index.html');
   });
 
-  describe('Crie uma barra azul na parte superior da página com a classe top-bar', () => {
-    it('Esta barra deve possuir a classe top-bar', () => {
+  describe('1 - Crie uma barra verde na parte superior da página', () => {
+    it('Esta barra deve possuir a classe `top-bar`', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
 
@@ -79,17 +77,17 @@ describe('Trybewarts', () => {
       cy.get(TOP_BAR_SELECTOR).should('have.css', 'display', 'flex');
     });
 
-    it('A classe top-bar deve possuir a propriedade `background-color: rgb(66, 103, 178)`', () => {
-      cy.get(TOP_BAR_SELECTOR).should('have.css', 'background-color', 'rgb(66, 103, 178)');
+    it('A classe top-bar deve possuir a propriedade `background-color: rgb(50, 167, 145)`', () => {
+      cy.get(TOP_BAR_SELECTOR).should('have.css', 'background-color', 'rgb(50, 167, 145)');
     });
   });
 
-  describe('A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe trybewarts-logo', () => {
-    it('O logotipo deve estar alinhado a esquerda dentro da barra azul', () => {
+  describe('2 - A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe trybewarts-header-logo', () => {
+    it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', '.top-bar');
     });
 
-    it('Deve existir um elemento img com a classe trybewarts-logo', () => {
+    it('Deve existir um elemento img com a classe trybewarts-header-logo', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
     });
     
@@ -98,17 +96,34 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('A barra superior deve conter um formulário de autenticação no canto direito', () => {
-    it('O formulário deve estar alinhado a direita dentro da barra azul', () => {
-      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
+  describe('3 - Crie um título "Trybewarts" dentro do `Header`', () => {
+    it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
+      cy.get(TRYBEWARTS_HEADER_TITLE).should('be.centerAligned', '.top-bar');
     });
 
-    it('Existe formulário possui uma classe chamada trybewarts-login', () => {
+    it('Deve existir um elemento h1 com o id trybewarts-header-title', () => {
+      cy.get(TRYBEWARTS_HEADER_TITLE).should('exist');
+    });
+  });
+
+  describe('4. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar', () => {
+    it('Existe um formulário comm a classe trybewarts-login', () => {
       cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('exist');
+    });
+
+    it('O formulário deve estar alinhado a direita dentro da barra verde', () => {
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
     });
 
     it('O formulário deve ser um flex container', () => {
       cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('have.css', 'display', 'flex');
+    });
+
+    it('Existem dois inputs e um formulário com a classe trybewarts-login', () => {
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR + ' input').should(($input) => {
+        expect($input).to.have.length(2)
+      });
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR + ' button').should('exist');
     });
   });
 

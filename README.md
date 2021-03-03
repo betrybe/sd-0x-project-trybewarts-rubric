@@ -263,9 +263,10 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
 
 Pontos importantes:
   * Deverá conter uma tag `<h1>` com o título
+  * Esse elemento `<h1>` deverá ter o id `trybewarts-header-title`
   * O título deverá estar centralizado na barra verde
 
-### 4. Crie campos de login, senha e um botão no canto direito na barra superior
+### 4. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar
 
   Pontos importantes:
   * Os inputs deverão conter um placeholder contendo as palavras *'Login'* e *'Senha'* em seus respectivos campos
