@@ -310,7 +310,7 @@ Pontos importantes:
 ### 10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha
 
   Pontos importantes:
-  * Os campos de *'Name'* e *'Last Name'* devem estar lado a lado
+  * Os campos de *'nome'* e *'Sobrenome'* devem estar lado a lado
 
 ### 11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha
 
