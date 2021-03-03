@@ -313,17 +313,16 @@ describe('Trybewarts', () => {
   describe.only("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
     it('Deve existir um contador com o ID "contador"', () => {
       cy.get('#contador').should('exist');
-    })
+    });
 
     it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
-      const textarea = cy.get("#textarea");
-      const contador = cy.get("#contador");
-
-      contador.should('contain', '500');
-      textarea.type('Salve salve família');
-      contador.should('contain', '481');
-      textarea.clear().type('Salve salve');
-      contador.should('contain', '489');
+      cy.get("#contador").contains('500');
+      cy.get("#textarea").type('Salve salve família');
+      cy.get("#contador").contains('481');
+      cy.get('#textarea').clear();
+      cy.get("#contador").should('contain', '500');
+      cy.get('#textarea').type('Salve salve');
+      cy.get("#contador").should('contain', '489');
     });
   });
 
