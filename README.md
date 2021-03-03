@@ -295,6 +295,8 @@ Pontos importantes:
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 
   Pontos importantes:
+  * Inputs de *'Nome'*, *'Sobrenome'* e *'Email'* deverão ser criados
+  *Os inputs devem possuir os ids 'input-name', 'input-lastname' e 'input-email'
   * Os inputs deverão conter um placeholder com *'Nome'*, *'Sobrenome'* e *'Email'* em seus respectivos campos
 
 ### 9. Crie um select 'Casa' contendo três options
