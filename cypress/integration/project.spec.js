@@ -19,7 +19,6 @@ const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
 const ALL_INPUT_SELECTOR = 'input';
 const ALL_PASSWORD_INPUT_SELECTOR = 'input[type=password]';
-const BIRTH_DATE_TITLE = 'Data de nascimento';
 const GENDER_TITLE = 'Gênero';
 const HOUSE = [
   'Gitnória',
@@ -28,6 +27,10 @@ const HOUSE = [
   'Pytherina',
 ];
 const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
+const LABEL_FAMILY_TEXT = 'Qual sua família?';
+const LABEL_CONTENT_TEXT = 'Qual conteúdo você está com mais vontade de aprender?';
+const LABEL_RATE_TEXT = 'Como você avalia a Trybewarts?';
+const LABEL_TEXTAREA = 'Data de nascimento';
 
 const checkPlaceholder = (elements, placeholder) => (
   elements.some((element) => Cypress.$(element).attr('placeholder') === placeholder)
@@ -207,18 +210,22 @@ describe('Trybewarts', () => {
       cy.get('.main-content form input[name="first-name"]').should('exist');
     });
 
-    it('O campo deve ter um placeholder com o valor "Nome"', () => {
-      cy.get('.main-content form input[name="first-name"]').should('have.attr', 'placeholder', 'Nome');
+
+  describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
+    it('Os campos de Email e Casa devem estar lado a lado', () => {
+      checkIsRightOf('#email', '#house');
     });
   });
 
   describe('12) Crie um campo de entrada de texto para o sobrenome do usuário dentro do formulário criado no requisito 10', () => {
     it('O campo deve ter o atributo name com o valor "last-name"', () => {
       cy.get('.main-content form input[name="last-name"]').should('exist');
+
     });
 
-    it('O campo deve ter um placeholder com o valor "Sobrenome"', () => {
-      cy.get('.main-content form input[name="last-name"]').should('have.attr', 'placeholder', 'Sobrenome');
+    it('Posicione os radio buttons para ficar abaixo um do outro', () => {
+      checkIsBelowOf('option[name="Família Frontend"]', 'option[name="Família Backend"]');
+      checkIsBelowOf('option[name="Família Backend"]', 'option[name="Família FullStack"]');
     });
 
     it('Esse campo deve estar alinhado a direita do campo de Nome', () => {
@@ -229,29 +236,32 @@ describe('Trybewarts', () => {
   describe('13) Crie um campo de entrada de texto para o celular ou email do usuário dentro do formulário criado no requisito 10', () => {
     it('O campo deve ter o atributo name com o valor "phone_email"', () => {
       cy.get('.main-content form input[name="phone_email"]').should('exist');
+
     });
 
-    it('O campo deve ter um placeholder com o valor "Celular ou email"', () => {
-      cy.get('.main-content form input[name="phone_email"]').should('have.attr', 'placeholder', 'Celular ou email');
+    it('Campo High Order Functions', () => {
+      cy.get('input[value="Higher Order Functions"]').contains('Higher Order Functions');
     });
 
     it('Posicione esse campo abaixo do campo do nome do usuário', () => {
       checkIsBelowOf('.main-content form input[name="first-name"]', '.main-content form input[name="phone_email"]');
+
     });
-  });
 
   describe('14) Crie um campo de entrada para senha do usuário dentro do formulário criado no requisito 10', () => {
     it('O campo deve ter o atributo name com o valor "password"', () => {
       cy.get('.main-content form input[name="password"]').should('exist');
+
     });
 
-    it('O campo deve ser do tipo "password"', () => {
-      cy.get('.main-content form input[name="password"]').should('have.attr', 'type', 'password');
+    it('Campo SQL', () => {
+      cy.get('input[value="SQL"]').contains('SQL');
     });
 
-    it('O campo deve ter um placeholder com o valor "Nova senha"', () => {
-      cy.get('.main-content form input[name="password"]').should('have.attr', 'placeholder', 'Nova senha');
+    it('Campo Python', () => {
+      cy.get('input[value="Python"]').contains('Python');
     });
+
 
     it('Posicione esse campo abaixo do celular/email', () => {
       checkIsBelowOf('.main-content form input[name="phone_email"]', '.main-content form input[name="password"]');
@@ -265,10 +275,17 @@ describe('Trybewarts', () => {
 
     it('O campo deve ter o atributo name com o valor "birth-date"', () => {
       cy.get('.main-content form input[name="birth-date"]').should('exist');
+
     });
 
-    it('O campo deve ter um placeholder com o valor "dd/mm/aaaa"', () => {
-      cy.get('.main-content form input[name="birth-date"]').should('have.attr', 'placeholder', 'dd/mm/aaaa');
+    it('Posicione os radio buttons a abaixo do label', () => {
+      checkIsBelowOf('option[value="1"]', '#label-rate')
+    });
+  });
+
+  describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+    it('Um rótulo (label) com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
+      cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
 
     it('Posicione esse campo abaixo do rótulo', () => {
@@ -322,6 +339,33 @@ describe('Trybewarts', () => {
   });
 
   describe('17) Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10', () => {
+    it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
+      cy.get('textarea').should('have.attr', 'maxlength', '500');
+    });
+
+    it('O número máximo de caracteres, 500, deverá estar localizado abaixo da textarea, com o id textarea-count', () => {
+      checkIsBelowOf('textarea', '#textarea-count');
+    });
+  });
+
+  describe.only("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
+    it('Deve existir um contador com o ID "contador"', () => {
+      cy.get('#contador').should('exist');
+    })
+
+    it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
+      const textarea = cy.get("#textarea");
+      const contador = cy.get("#contador");
+
+      contador.should('contain', '500');
+      textarea.type('Salve salve família');
+      contador.should('contain', '481');
+      textarea.clear().type('Salve salve');
+      contador.should('contain', '489');
+    });
+  });
+
+  describe("17) Crie um campo de entrada do tipo 'checkbox' para validar as informações", () => {
     it('Um botão com o texto "Cadastre-se" e id "trybewarts-register"', () => {
       cy.get(REGISTER_BUTTON_SELECTOR)
         .should('exist')
@@ -331,6 +375,7 @@ describe('Trybewarts', () => {
     it('Deve ter a propriedade type igual a submit', () => {
       cy.get(REGISTER_BUTTON_SELECTOR).should('have.attr', 'type').should('equal', 'submit');
     });
+
   });
 
   describe('18) Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {

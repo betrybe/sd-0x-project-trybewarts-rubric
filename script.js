@@ -1,13 +1,13 @@
 function onTextareaContentChange(event) {
   const textarea = event.target;
-  const counter = document.getElementById('textarea-count');
+  const counter = document.getElementById('contador');
 
   const newCount = 500 - textarea.value.length;
   counter.innerText = newCount;
 }
 
 function bindOnChangeToTextareaCounter() {
-  const textarea = document.getElementById('textarea-field');
+  const textarea = document.getElementById('textarea');
   textarea.addEventListener('input', onTextareaContentChange);
 }
 
@@ -41,11 +41,11 @@ function onSubmitForm(event) {
   const email = document.getElementById('email');
   const house = document.getElementById('house');
 
-  const family = Array.from(document.querySelectorAll('.family')).find(radio => radio.checked);
-  const subjects = Array.from(document.querySelectorAll('.subject')).filter(checkbox => checkbox.checked);
+  const family = Array.from(document.querySelectorAll('.family')).find((radio) => radio.checked);
+  const subjects = Array.from(document.querySelectorAll('.subject')).filter((checkbox) => checkbox.checked);
 
-  const evaluation = Array.from(document.querySelectorAll('.evaluation')).find(radio => radio.checked);
-  const textArea = document.getElementById('textarea-field');
+  const evaluation = Array.from(document.querySelectorAll('.evaluation')).find((radio) => radio.checked);
+  const textArea = document.getElementById('textarea');
 
   event.target.innerHTML = '';
 
@@ -55,7 +55,7 @@ function onSubmitForm(event) {
   event.target.appendChild(createParagraph('Casa', house.value));
 
   event.target.appendChild(createParagraph('Família', family.value));
-  subjects.forEach(subject => {
+  subjects.forEach((subject) => {
     event.target.appendChild(createParagraph('Matéria', subject.value));
   });
 
@@ -69,11 +69,11 @@ function bindOnSubmitFormEvent() {
 }
 
 function onClickHeaderBtn() {
-  const login = document.getElementById("login-input");
-  const password = document.getElementById("password-input");
+  const login = document.getElementById('login-input');
+  const password = document.getElementById('password-input');
 
-  const defaultLogin = "tryber@betrybe.com";
-  const defaultPassword = "123456";
+  const defaultLogin = 'tryber@betrybe.com';
+  const defaultPassword = '123456';
 
   if (login.value === defaultLogin && password.value === defaultPassword) {
     alert('Olá Tryber!');
@@ -87,14 +87,14 @@ function onClickHeaderBtn() {
 
 function bindOnClickHeaderBtn() {
   const loginBtn = document.getElementById('login-btn');
-  loginBtn.addEventListener('click', onClickHeaderBtn)
+  loginBtn.addEventListener('click', onClickHeaderBtn);
 }
 
 function execBindEvents() {
   bindOnChangeToTextareaCounter();
   bindEnableSubmitOnAgreementCheck();
   bindOnSubmitFormEvent();
-  bindOnClickHeaderBtn()
+  bindOnClickHeaderBtn();
 }
 
 window.onload = () => {
@@ -102,4 +102,4 @@ window.onload = () => {
 
   const submitFormBtn = document.getElementById('submit-btn');
   submitFormBtn.disabled = true;
-}
+};
