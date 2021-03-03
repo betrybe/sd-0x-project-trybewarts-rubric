@@ -310,7 +310,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe.only("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
+  describe("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
     it('Deve existir um contador com o ID "contador"', () => {
       cy.get('#contador').should('exist');
     });
