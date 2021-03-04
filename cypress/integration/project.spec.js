@@ -358,35 +358,37 @@ describe('Trybewarts', () => {
         .check();
       cy.get('button#form-submit')
         .should('not.be.disabled');
-    })
+    });
   });
 
   describe('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
-    const password = 'change-me';
-    const birthDate = '01/01/1990';
+    const observation = 'Maaaaravilhoso';
 
     function fillForm() {
       cy.visit('./index.html');
 
-      cy.get('input[name="first-name"]').type(firstName);
-      cy.get('input[name="last-name"]').type(lastName);
-      cy.get('input[name="phone_email"]').type(phoneEmail);
-      cy.get('input[name="password"]').type(phoneEmail);
-      cy.get('input[name="birth-date"]').type(birthDate);
-      cy.get('input[name="gender"]').check('Feminino')
+      cy.get('#input-name').type(firstName);
+      cy.get('#input-lastname').type(lastName);
+      cy.get('#input-email').type(phoneEmail);
+      cy.get('#input-house').select('Reactpuff');
+      cy.get('#input-family[type="radio"]').second().check();
+      cy.get('.subject').second().check();
+      cy.get('#input-evaluation[type="radio"]').second().check();
+      cy.get('#textarea').type(observation);
     }
 
     beforeEach(() => {
       fillForm();
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
+      cy.get('input#confirmacao').check();
+      cy.get('button#form-submit').click();
     });
 
     it('Deve haver um texto no modelo "Olá, John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
       cy.get('.main-content .right-content')
-        .contains(`Olá, ${firstName} ${lastName}`)
+        .contains(`Olá, ${firstName} ${lastName}`);
     });
   });
 
