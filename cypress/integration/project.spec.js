@@ -326,58 +326,42 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("17) Crie um campo de entrada do tipo 'checkbox' para validar as informações", () => {
-    it('Um botão com o texto "Cadastre-se" e id "trybewarts-register"', () => {
-      cy.get(REGISTER_BUTTON_SELECTOR)
+  describe("17) Crie um campo de entrada do tipo 'checkbox' com o id 'confirmacao' para validar as informações", () => {
+    it('Uma label com o id "label-infos" deve possuir o texto "Você concorda com o uso das informações acima?"', () => {
+      cy.get("label#label-infos")
         .should('exist')
-        .should('have.text', 'Cadastre-se');
+        .should('have.text', 'Você concorda com o uso das informações acima?');
+    });
+
+    it('Um input do tipo checkbox deve existir e deve possuir o id "confirmacao"', () => {
+      cy.get('input#confirmacao[type="checkbox"]')
+        .should('exist');
+    })
+  });
+
+  describe('18) Crie um botão de Enviar para submeter o formulário', () => {
+    it('Deve existir um botão com o id "form-submit" e o texto "Enviar"', () => {
+      cy.get('button#form-submit[type="submit"]')
+        .should('exist')
+        .should('have.text', 'Enviar');
     });
   });
 
-  describe('18) Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {
-    it('Exibir uma mensagem "Campos inválidos" dentro do formulário caso pelo menos um campo não esteja preenchido', () => {
-      cy.get('input[name="first-name"]').type("John");
-      cy.get('input[name="last-name"]').type("Doe");
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content form').contains('Campos inválidos');
+  describe('19) O botão "Enviar" deverá ser habilitado somente após a checkbox do requisito 18 ser selecionada', () => {
+    it('O botão deve inicialmente estar desabilitado', () => {
+      cy.get('button#form-submit')
+        .should('be.disabled');
     });
+
+    it('Ao marcar o campo de confirmação, o botão de Enviar deve ser habilitado', () => {
+      cy.get('input#confirmacao')
+        .check();
+      cy.get('button#form-submit')
+        .should('not.be.disabled');
+    })
   });
 
-  describe('19) Adicione um novo campo de texto no formulário se a pessoa usuária selecionar a opção "Personalizado" no campo Gênero', () => {
-    const firstName = 'John';
-    const lastName = 'Doe';
-    const phoneEmail = 'johndoe@trybe.com';
-    const birthDate = '01/01/1990';
-    const password = 'change-me';
-
-    function fillForm() {
-      cy.visit('./index.html');
-
-      cy.get('input[name="first-name"]').type(firstName);
-      cy.get('input[name="last-name"]').type(lastName);
-      cy.get('input[name="phone_email"]').type(phoneEmail);
-      cy.get('input[name="password"]').type(password);
-      cy.get('input[name="birth-date"]').type(birthDate);
-    }
-
-    beforeEach(() => {
-      cy.visit('./index.html');
-      cy.get('input[name="gender"]').check('Personalizado');
-    });
-
-    it('O novo campo dever ser uma campo de texto com o atributo name "gender-custom" e um placeholder "Gênero (opcional)"', () => {
-      cy.get('input[name="gender-custom"]').should('exist');
-    });
-
-    it('O novo campo deve estar posicionado entre as opções de gênero e o botão "Cadastrar-se"', () => {
-      checkIsBelowOf('input[name="gender"]', 'input[name="gender-custom"]');
-
-      checkIsBelowOf('input[name="gender-custom"]', REGISTER_BUTTON_SELECTOR);
-    });
-  });
-
-  describe('20) Substituir o conteúdo do container com a classe right-content se o formulário estiver completamente preenchido e validado', () => {
+  describe('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const phoneEmail = 'johndoe@trybe.com';
@@ -404,42 +388,13 @@ describe('Trybewarts', () => {
       cy.get('.main-content .right-content')
         .contains(`Olá, ${firstName} ${lastName}`)
     });
+  });
 
-    it('Exibir o e-mail ou telefone', () => {
-      cy.get('.main-content .right-content')
-        .contains(phoneEmail);
-    });
-
-    it('Não exibir a senha', () => {
-      cy.get('.main-content .right-content').should('not.contain', password);
-    });
-
-    it('Exibir a data de nascimento', () => {
-      cy.get('.main-content .right-content').contains(birthDate);
-    });
-
-    it('Caso a opção selecionada no campo Gênero seja Feminino exibir "Feminino"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Feminino')
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Feminino');
-    });
-
-    it('Caso a opção selecionada no campo Gênero seja Masculino exibir "Masculino"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Masculino')
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Masculino');
-    });
-
-    it('Caso a opção selecionada no campo Gênero seja Personalizado exibir "Personalizado"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Personalizado')
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Personalizado');
+  describe('21) Crie um rodapé no final da página', () => {
+    it('O rodapé deve possuir o texto "Direitos reservados à Trybewarts©"', () => {
+      cy.get('footer')
+        .should('exist')
+        .should('have.text', 'Direitos reservados à Trybewarts©');
     });
   });
 });
