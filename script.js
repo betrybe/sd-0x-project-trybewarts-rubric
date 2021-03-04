@@ -76,7 +76,7 @@ function onClickHeaderBtn() {
   const defaultPassword = '123456';
 
   if (login.value === defaultLogin && password.value === defaultPassword) {
-    alert('Olá Tryber!');
+    alert('Olá, Tryber!');
   } else {
     alert('Login ou senha inválidos.');
   }

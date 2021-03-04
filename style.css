@@ -13,31 +13,26 @@ body {
 .header {
   align-items: center;
   background-color: #32a791;
+  color: white;
   display: flex;
-  justify-content: center;
   height: 10vh;
+  justify-content: space-between;
+  max-width: 1366px;
+  padding: 20px;
 }
 
 .header img {
-  height: 80%;
+  height: 8vh;
 }
 
-.header div {
-  align-items: center;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  width: 1366px;
-}
-
-.login-field {
+.trybewarts-login {
   align-items: center;
   display: flex;
   justify-content: center;
+  flex-direction: row;
 }
 
-.login-field input {
+.trybewarts-login input {
   background-color: white;
   border-radius: 8px;
   border-style: none;
@@ -100,7 +95,16 @@ button:disabled {
 }
 
 #evaluation-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 36px;
   width: 50%;
+}
+
+#evaluation-form textarea {
+  resize: none;
+  width: 100%;
 }
 
 textarea {
@@ -137,18 +141,6 @@ main {
 
 main img {
   height: 100%;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-top: 36px;
-}
-
-form textarea {
-  resize: none;
-  width: 100%;
 }
 
 .fieldset-one input {

@@ -9,11 +9,11 @@
       "bonus": false
     },
     { 
-      "description": "3 - Crie um título 'Trybewarts' dentro do `Header`",
+      "description": "3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar",
       "bonus": false
     },
     { 
-      "description": "4. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar",
+      "description": "4 - Crie um título 'Trybewarts' centralizado dentro do `Header`",
       "bonus": false
     },
     { 
