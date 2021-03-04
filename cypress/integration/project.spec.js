@@ -147,9 +147,16 @@ describe('Trybewarts', () => {
       cy.get(TRYBEWARTS_HEADER_TITLE).should('exist');
     });
 
-    it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
-      cy.get(TRYBEWARTS_HEADER_TITLE).should('be.rightOf', TRYBEWARTS_LOGO_SELECTOR, 0);
-      cy.get(TRYBEWARTS_HEADER_TITLE).should('be.leftOf', TRYBEWARTS_LOGIN_FORM_SELECTOR, 0);
+    it('O elemento deve possuir o texto "Trybewarts"', () => {
+      cy.get(TRYBEWARTS_HEADER_TITLE).should('have.text', 'Trybewarts');
+    });
+
+    it('O header deve ter exatamente três elementos filhos', () => {
+      cy.get(TOP_BAR_SELECTOR).children().should('have.length', 3)
+    });
+
+    it('O filho do meio deve ser o título', () => {
+      cy.get(TOP_BAR_SELECTOR).children().eq(1).should('match', TRYBEWARTS_HEADER_TITLE);
     });
   });
 

@@ -271,12 +271,14 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
     - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
     - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
 
-### 4. Crie um título "Trybewarts" centralizado dentro do `Header`
+### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
 
 Pontos importantes:
-  * Deverá conter uma tag `<h1>` com o título
-  * Esse elemento `<h1>` deverá ter o id `trybewarts-header-title`
+  * Deve existir um elemento `<h1>` com o id `trybewarts-header-title`
+  * O elemento deve possuir o texto "Trybewarts"
   * O título deverá estar centralizado na barra verde
+    - O header deve ter exatamente três elementos filhos
+    - O filho do meio deve ser o título
 
 ### 5. Adicione um formulário no lado esquerdo da página
 
