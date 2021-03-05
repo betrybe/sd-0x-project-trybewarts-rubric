@@ -2,15 +2,7 @@ const TOP_BAR_SELECTOR = '.header';
 const TRYBEWARTS_LOGO_SELECTOR = 'img.trybewarts-header-logo';
 const TRYBEWARTS_HEADER_TITLE = 'h1#trybewarts-header-title';
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
-const USER_IDENTIFIER_INPUT_SELECTOR = 'input#user-email-phone';
-const USER_IDENTIFIER_LABEL_SELECTOR = '#user-email-phone-label';
-const USER_PASSWORD_LABEL_SELECTOR = '#user-password-label';
-const USER_IDENTIFIER_LABEL_TEXT_SELECTOR = 'Email ou telefone';
-const USER_PASSWORD_LABEL_TEXT_SELECTOR = 'Senha';
-const USER_PASSWORD_INPUT_SELECTOR = 'input#user-password';
-const USER_LOGIN_BUTTON_SELECTOR = '#login-btn';
-const TRYBEWARTS_SLOGAN_SELECTOR = 'p#trybewarts-slogan';
-const TRYBEWARTS_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
+const EVALUATION_FORM = 'form#evaluation-form'
 const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
 const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
@@ -63,7 +55,6 @@ const checkIsBelowOf = (elementAboveSelector, elementBelowSelector) => {
 describe('Trybewarts', () => {
   beforeEach(() => {
     cy.visit('./index.html');
-    cy.viewport(1366, 768);
   });
 
   describe('1 - Crie uma barra verde na parte superior da página', () => {
@@ -160,15 +151,24 @@ describe('Trybewarts', () => {
     });
   });
 
-  // describe('Crie uma classe no CSS chamada form-group', () => {
-  //   it('Essa classe deve possuir a propriedade `display: flex`', () => {
-  //     cy.get('.form-group').should('have.css', 'display', 'flex');
-  //   });
+  describe('Adicione um formulário no corpo da página, posicionado ao lado esquerdo', () => {
+    it('Deve existir um formulário com o id `evaluation-form`', () => {
+      cy.get(EVALUATION_FORM).should('exist');
+    });
 
-  //   it('Alinhe o eixo principal dessa classe para ser o eixo vertical', () => {
-  //     cy.get('.form-group').should('have.css', 'flex-direction', 'column');
-  //   });
-  // });
+    it('O formulário deve estar inserido na tag `main` do HTML', () => {
+      cy.get('main').children().eq(0).should('match', EVALUATION_FORM);
+    });
+
+    it('Tanto o formulário quanto o `main` devem ser flex containers', () => {
+      cy.get('main').should('have.css', 'display', 'flex');
+      cy.get(EVALUATION_FORM).should('have.css', 'display', 'flex');
+    });
+
+    it('O formulário deve ter uma largura de 675px', () => {
+      cy.get(EVALUATION_FORM).should('have.css', 'width', '675px');
+    });
+  });
 
   // describe('Adicione o primeiro subcontainer com a classe form-group para agrupar o rótulo e campo "E-mail ou telefone" dentro do formulário criado na etapa 3', () => {
   //   it('Deve haver um container utilizando a classe `form-group` criada no passo anterior', () => {

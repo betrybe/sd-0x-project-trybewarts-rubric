@@ -280,12 +280,13 @@ Pontos importantes:
     - O header deve ter exatamente três elementos filhos
     - O filho do meio deve ser o título
 
-### 5. Adicione um formulário no lado esquerdo da página
+### 5. Adicione um formulário no corpo da página, posicionado ao lado esquerdo
 
   Pontos importantes:
-  * O formulário deve estar alinhado à esquerda, no body do HTML
-  * O formulário deve conter o id `trybewarts-form`
-  * O formulário deve ser um flex container
+  * Deve existir um formulário com o id `evaluation-form`
+  * O formulário deve estar inserido na tag `main` do HTML
+  * Tanto o formulário quanto o `main` devem ser flex containers
+  * O formulário deve ter uma largura de 675px
 
 ### 6. Crie uma classe para o formulário do requisito 5 
 
