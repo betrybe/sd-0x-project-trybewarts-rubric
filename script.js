@@ -33,19 +33,21 @@ function createParagraph(label, content) {
   return p;
 }
 
+const name = document.getElementById('name');
+const lastName = document.getElementById('lastname');
+const email = document.getElementById('email');
+const house = document.getElementById('house');
+
+const family = Array.from(document.querySelectorAll('.family')).find((radio) => radio.checked);
+const subjects = Array.from(document.querySelectorAll('.subject'))
+  .filter((checkbox) => checkbox.checked);
+
+const evaluation = Array.from(document.querySelectorAll('.evaluation'))
+  .find((radio) => radio.checked);
+const textArea = document.getElementById('textarea');
+
 function onSubmitForm(event) {
   event.preventDefault();
-
-  const name = document.getElementById('name');
-  const lastName = document.getElementById('lastname');
-  const email = document.getElementById('email');
-  const house = document.getElementById('house');
-
-  const family = Array.from(document.querySelectorAll('.family')).find((radio) => radio.checked);
-  const subjects = Array.from(document.querySelectorAll('.subject')).filter((checkbox) => checkbox.checked);
-
-  const evaluation = Array.from(document.querySelectorAll('.evaluation')).find((radio) => radio.checked);
-  const textArea = document.getElementById('textarea');
 
   event.target.innerHTML = '';
 
@@ -76,7 +78,7 @@ function onClickHeaderBtn() {
   const defaultPassword = '123456';
 
   if (login.value === defaultLogin && password.value === defaultPassword) {
-    alert('Olá Tryber!');
+    alert('Olá, Tryber!');
   } else {
     alert('Login ou senha inválidos.');
   }

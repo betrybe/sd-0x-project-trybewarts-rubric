@@ -1,19 +1,19 @@
 {
   "requirements": [
     { 
-      "description": "1",
+      "description": "1 - Crie uma barra verde na parte superior da página",
       "bonus": false
     },
     { 
-      "description": "2",
+      "description": "2 - A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe trybewarts-header-logo",
       "bonus": false
     },
     { 
-      "description": "3",
+      "description": "3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar",
       "bonus": false
     },
     { 
-      "description": "4",
+      "description": "4 - Crie um título 'Trybewarts' centralizado dentro do `Header`",
       "bonus": false
     },
     { 

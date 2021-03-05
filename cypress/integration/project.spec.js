@@ -1,19 +1,25 @@
-const TOP_BAR_SELECTOR = '.top-bar';
-const TRYBEWARTS_LOGO_SELECTOR = '#trybewarts-logo';
+const TOP_BAR_SELECTOR = '.header';
+const TRYBEWARTS_LOGO_SELECTOR = 'img.trybewarts-header-logo';
+const TRYBEWARTS_HEADER_TITLE = 'h1#trybewarts-header-title';
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
+const EVALUATION_FORM = 'form#evaluation-form'
 const TRYBEWARTS_FORMS_CLASS = 'form.from-group';
+const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
+const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
+const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
+const BIRTH_DATE_TITLE = 'Data de nascimento';
+const GENDER_TITLE = 'Gênero';
+const GENRES = [
+  'Feminino',
+  'Masculino',
+  'Personalizado',
+];
+const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
 const HEIGHT = 100;
-const USER_IDENTIFIER_INPUT_SELECTOR = 'input#user-email-phone';
-const USER_IDENTIFIER_LABEL_SELECTOR = '#user-email-phone-label';
-const USER_PASSWORD_LABEL_SELECTOR = '#user-password-label';
-const USER_IDENTIFIER_LABEL_TEXT_SELECTOR = 'Email ou telefone';
-const USER_PASSWORD_LABEL_TEXT_SELECTOR = 'Senha';
 const USER_NAME_INPUT_SELECTOR = 'input#input-name';
 const USER_LASTNAME_INPUT_SELECTOR = 'input#input-lastname';
 const USER_EMAIL_INPUT_SELECTOR = 'input#input-email';
 const USER_LOGIN_BUTTON_SELECTOR = '#button-login';
-const TRYBEWARTS_SLOGAN_SELECTOR = 'p#trybewarts-slogan';
-const TRYBEWARTS_SLOGAN = 'O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.';
 const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
 const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
 const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
@@ -74,79 +80,116 @@ describe('Trybewarts', () => {
     cy.visit('./index.html');
   });
 
-  describe('1) Crie uma barra azul na parte superior da página com a classe top-bar', () => {
-    it('Esta barra deve possuir a classe top-bar', () => {
+  describe('1) Crie uma barra verde na parte superior da página', () => {
+    it('Esta barra deve possuir a classe `header`', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
 
-    it('A classe top-bar deve determinar que o elemento é um flex container', () => {
+    it('A classe header deve determinar que o elemento é um flex container', () => {
       cy.get(TOP_BAR_SELECTOR).should('have.css', 'display', 'flex');
     });
 
-    it('A classe top-bar deve possuir a propriedade `background-color: rgb(66, 103, 178)`', () => {
-      cy.get(TOP_BAR_SELECTOR).should('have.css', 'background-color', 'rgb(66, 103, 178)');
+    it('A classe header deve possuir a propriedade `background-color: rgb(50, 167, 145)`', () => {
+      cy.get(TOP_BAR_SELECTOR).should('have.css', 'background-color', 'rgb(50, 167, 145)');
     });
   });
 
-  describe('2) A barra superior deve conter o logotipo do Facebook no canto esquerdo com a classe trybewarts-logo', () => {
-    it('O logotipo deve estar alinhado a esquerda dentro da barra azul', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', '.top-bar');
+  describe('2) A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe trybewarts-header-logo', () => {
+    it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', TOP_BAR_SELECTOR);
     });
 
-    it('Deve existir um elemento img com a classe trybewarts-logo', () => {
+    it('Deve existir um elemento img com a classe trybewarts-header-logo', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
     });
 
     it('O atributo src do logotipo deve apontar para imgs/trybewarts-logo.png', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal', 'imgs/trybewarts-logo.png');
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal', 'images/trybewarts-header-logo.svg');
     });
   });
 
-  describe('3) A barra superior deve conter um formulário de autenticação no canto direito', () => {
-    it('O formulário deve estar alinhado a direita dentro da barra azul', () => {
-      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('be.rightAligned', '.top-bar');
+  describe('3) A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar', () => {
+    it('Existe um formulário com a classe trybewarts-login', () => {
+      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('exist');
     });
 
-    it('Existe formulário possui uma classe chamada trybewarts-login', () => {
-      cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('exist');
+    it('O formulário deve estar alinhado à direita dentro da barra verde', () => {
+      cy.get(TOP_BAR_SELECTOR).should('have.css', 'justify-content', 'space-between');
+    });
+
+    it('Existem dois inputs e um botão dentro do formulário', () => {
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input`).should(($input) => {
+        expect($input).to.have.length(2);
+      });
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).should('exist');
+    });
+
+    it('Os inputs deverão conter placeholders com as palavras "Login" e "Senha", respectivamente', () => {
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input`).should(($input) => {
+        expect($input[0].placeholder).to.match(/Login/);
+        expect($input[1].placeholder).to.match(/Senha/);
+      });
     });
 
     it('O formulário deve ser um flex container', () => {
       cy.get(TRYBEWARTS_LOGIN_FORM_SELECTOR).should('have.css', 'display', 'flex');
     });
+
+    it('Ao clicar no botão com login ou senha inválidos, emite um alerta contendo o texto "Login ou senha inválidos."', () => {
+      const stub = cy.stub()  
+      cy.on('window:alert', stub);
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
+        .then(() => {
+          expect(stub.getCall(0)).to.be.calledWith('Login ou senha inválidos.')      
+        })
+    });
+
+    it('Ao clicar no botão com login ou senha válidos, emite um alerta contendo o texto "Olá, Tryber!"', () => {
+      const stub = cy.stub()  
+      cy.on('window:alert', stub);
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(1)`).type('tryber@betrybe.com');
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(2)`).type('123456');
+      cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
+        .then(() => {
+          expect(stub.getCall(0)).to.be.calledWith('Olá, Tryber!')      
+        })
+    });
   });
 
-  describe('4) Crie uma classe no CSS chamada form-group', () => {
-    it('Essa classe deve possuir a propriedade `display: flex`', () => {
-      cy.get('.form-group').should('have.css', 'display', 'flex');
+  describe('4) Crie um título "Trybewarts" centralizado dentro do `Header`', () => {
+    it('Deve existir um elemento h1 com o id trybewarts-header-title', () => {
+      cy.get(TRYBEWARTS_HEADER_TITLE).should('exist');
     });
 
-    it('Alinhe o eixo principal dessa classe para ser o eixo vertical', () => {
-      cy.get('.form-group').should('have.css', 'flex-direction', 'column');
+    it('O elemento deve possuir o texto "Trybewarts"', () => {
+      cy.get(TRYBEWARTS_HEADER_TITLE).should('have.text', 'Trybewarts');
+    });
+
+    it('O header deve ter exatamente três elementos filhos', () => {
+      cy.get(TOP_BAR_SELECTOR).children().should('have.length', 3)
+    });
+
+    it('O filho do meio deve ser o título', () => {
+      cy.get(TOP_BAR_SELECTOR).children().eq(1).should('match', TRYBEWARTS_HEADER_TITLE);
     });
   });
 
-  describe('5) Adicione o primeiro subcontainer com a classe form-group para agrupar o rótulo e campo "E-mail ou telefone" dentro do formulário criado na etapa 3', () => {
-    it('Deve haver um container utilizando a classe `form-group` criada no passo anterior', () => {
-      cy.get('form.trybewarts-login').children().first()
-        .should('exist')
-        .should('have.class', 'form-group');
+  describe('5) Adicione um formulário no corpo da página, posicionado ao lado esquerdo', () => {
+    it('Deve existir um formulário com o id `evaluation-form`', () => {
+      cy.get(EVALUATION_FORM).should('exist');
     });
 
-    it('Dentro do container `form-group` criado, deve haver um rótulo com o id user-email-phone-label e o texto "Email ou telefone"', () => {
-      cy.get(USER_IDENTIFIER_LABEL_SELECTOR).parent().should('have.class', 'form-group');
-
-      cy.get(USER_IDENTIFIER_LABEL_SELECTOR)
-        .should('exist')
-        .should('have.text', USER_IDENTIFIER_LABEL_TEXT_SELECTOR);
+    it('O formulário deve estar inserido na tag `main` do HTML', () => {
+      cy.get('main').children().eq(0).should('match', EVALUATION_FORM);
     });
 
-    it('Dentro do container `form-group` criado, abaixo do rótulo deve haver campo de entrada de texto para receber o email ou o telefone do usuário com o id user-email-phone', () => {
-      cy.get(USER_IDENTIFIER_INPUT_SELECTOR).should('exist');
+    it('Tanto o formulário quanto o `main` devem ser flex containers', () => {
+      cy.get('main').should('have.css', 'display', 'flex');
+      cy.get(EVALUATION_FORM).should('have.css', 'display', 'flex');
+    });
 
-      cy.get(USER_IDENTIFIER_INPUT_SELECTOR).parent().should('have.class', 'form-group');
-
-      checkIsBelowOf(USER_IDENTIFIER_LABEL_SELECTOR, USER_IDENTIFIER_INPUT_SELECTOR);
+    it('O formulário deve ter uma largura de 675px', () => {
+      cy.get(EVALUATION_FORM).should('have.css', 'width', '675px');
     });
   });
 
