@@ -74,7 +74,7 @@ describe('Trybewarts', () => {
     cy.visit('./index.html');
   });
 
-  describe('1) Crie uma barra azul na parte superior da página com a classe top-bar', () => {
+  describe.only('1) Crie uma barra azul na parte superior da página com a classe top-bar', () => {
     it('Esta barra deve possuir a classe top-bar', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
