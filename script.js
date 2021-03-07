@@ -33,34 +33,36 @@ function createParagraph(label, content) {
   return p;
 }
 
-const name = document.getElementById('name');
-const lastName = document.getElementById('lastname');
-const email = document.getElementById('email');
-const house = document.getElementById('house');
+function getInputFields() {
+  const name = document.getElementById('input-name');
+  const lastName = document.getElementById('input-lastname');
+  const email = document.getElementById('input-email');
+  const house = document.getElementById('house');
 
-const family = Array.from(document.querySelectorAll('.family')).find((radio) => radio.checked);
-const subjects = Array.from(document.querySelectorAll('.subject'))
-  .filter((checkbox) => checkbox.checked);
+  const family = Array.from(document.querySelectorAll('.family')).find((radio) => radio.checked);
+  const subjects = Array.from(document.querySelectorAll('.subject'))
+    .filter((checkbox) => checkbox.checked);
 
-const evaluation = Array.from(document.querySelectorAll('.evaluation'))
-  .find((radio) => radio.checked);
-const textArea = document.getElementById('textarea');
+  const evaluation = Array.from(document.querySelectorAll('.evaluation'))
+    .find((radio) => radio.checked);
+  const textArea = document.getElementById('textarea');
+
+  return { name, lastName, email, house, family, subjects, evaluation, textArea };
+}
 
 function onSubmitForm(event) {
-  event.preventDefault();
+  const { name, lastName, email, house, family, subjects, evaluation, textArea } = getInputFields();
+  const subjectNames = subjects.map((subject) => subject.value).join(', ');
 
+  event.preventDefault();
   event.target.innerHTML = '';
 
   event.target.appendChild(createParagraph('Nome', name.value));
   event.target.appendChild(createParagraph('Sobrenome', lastName.value));
   event.target.appendChild(createParagraph('Email', email.value));
   event.target.appendChild(createParagraph('Casa', house.value));
-
   event.target.appendChild(createParagraph('Família', family.value));
-  subjects.forEach((subject) => {
-    event.target.appendChild(createParagraph('Matéria', subject.value));
-  });
-
+  event.target.appendChild(createParagraph('Matérias', subjectNames));
   event.target.appendChild(createParagraph('Avaliação', evaluation.value));
   event.target.appendChild(createParagraph('Comentários', textArea.value));
 }

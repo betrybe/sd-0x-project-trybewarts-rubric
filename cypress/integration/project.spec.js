@@ -3,36 +3,15 @@ const TRYBEWARTS_LOGO_SELECTOR = 'img.trybewarts-header-logo';
 const TRYBEWARTS_HEADER_TITLE = 'h1#trybewarts-header-title';
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
 const EVALUATION_FORM = 'form#evaluation-form'
-const TRYBEWARTS_FORMS_CLASS = 'form.from-group';
-const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
-const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
-const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
-const BIRTH_DATE_TITLE = 'Data de nascimento';
-const GENDER_TITLE = 'Gênero';
-const GENRES = [
-  'Feminino',
-  'Masculino',
-  'Personalizado',
-];
-const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
-const HEIGHT = 100;
 const USER_NAME_INPUT_SELECTOR = 'input#input-name';
 const USER_LASTNAME_INPUT_SELECTOR = 'input#input-lastname';
 const USER_EMAIL_INPUT_SELECTOR = 'input#input-email';
-const USER_LOGIN_BUTTON_SELECTOR = '#button-login';
-const TRYBEWARTS_NETWORKING_IMG_SELECTOR = 'img#trybewarts-networking';
-const OPEN_ACCOUNT_MESSAGE = 'Abra uma conta';
-const QUICK_AND_SIMPLE_MESSAGE = 'É rápido e fácil.';
-const ALL_INPUT_SELECTOR = 'input';
-const ALL_PASSWORD_INPUT_SELECTOR = 'input[type=password]';
-const GENDER_TITLE = 'Gênero';
 const HOUSE = [
   'Gitnória',
   'Reactpuff',
   'Corvinode',
   'Pytherina',
 ];
-const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
 const LABEL_FAMILY_TEXT = 'Qual sua família?';
 const LABEL_CONTENT_TEXT = 'Qual conteúdo você está com mais vontade de aprender?';
 const LABEL_RATE_TEXT = 'Como você avalia a Trybewarts?';
@@ -398,10 +377,13 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
+  describe.only('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
+    const house = 'Reactpuff';
+    const family = 'Família Backend';
+    const rate = '10';
     const observation = 'Maaaaravilhoso';
 
     function fillForm() {
@@ -409,25 +391,55 @@ describe('Trybewarts', () => {
       cy.get('#input-name').type(firstName);
       cy.get('#input-lastname').type(lastName);
       cy.get('#input-email').type(email);
-      cy.get('#house').check('Reactpuff');
-      cy.get('input[name="family"]').check('Família Backend');
+      cy.get('#house').check(house);
+      cy.get('input[name="family"]').check(family);
       cy.get('.subject')
         .check('React')
         .check('SQL')
         .check('Jest');
-      cy.get('input[name="rate"]').check('10');
+      cy.get('input[name="rate"]').check(rate);
       cy.get('#textarea').type(observation);
     }
 
     beforeEach(() => {
       fillForm();
-      cy.get('input#confirmacao').check();
-      cy.get('button#form-submit').click();
+      cy.get('input#agreement').check();
+      cy.get('button#submit-btn').click();
     });
 
     it('Deve haver um texto no modelo "Nome: John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
-      cy.get('.main-content .right-content')
+      cy.get('#evaluation-form')
         .contains(`Nome: ${firstName} ${lastName}`);
+    });
+
+    it('Deve haver um texto no modelo "Email: alguem@email.com"', () => {
+      cy.get('#evaluation-form')
+        .contains(`Email: ${email}`);
+    });
+
+    it('Deve haver um texto no modelo "Casa: -Casa marcada-"', () => {
+      cy.get('#evaluation-form')
+        .contains(`Casa: ${house}`);
+    });
+
+    it('Deve haver um texto no modelo "Família: -Família marcada-"', () => {
+      cy.get('#evaluation-form')
+        .contains(`Família: ${family}`);
+    });
+
+    it('Deve haver um texto no modelo "Matérias: -Matérias marcadas-"', () => {
+      cy.get('#evaluation-form')
+        .contains('Matérias: Jest, React, SQL');
+    });
+
+    it('Deve haver um texto no modelo "Avaliação: -Nota marcada-"', () => {
+      cy.get('#evaluation-form')
+        .contains(`Avaliação: ${rate}`);
+    });
+
+    it('Deve haver um texto no modelo "Observações: -Texto preenchido-"', () => {
+      cy.get('#evaluation-form')
+        .contains(`Observações: ${observation}`);
     });
   });
 });
