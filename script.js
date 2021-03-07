@@ -57,14 +57,13 @@ function onSubmitForm(event) {
   event.preventDefault();
   event.target.innerHTML = '';
 
-  event.target.appendChild(createParagraph('Nome', name.value));
-  event.target.appendChild(createParagraph('Sobrenome', lastName.value));
+  event.target.appendChild(createParagraph('Nome', `${name.value} ${lastName.value}`));
   event.target.appendChild(createParagraph('Email', email.value));
   event.target.appendChild(createParagraph('Casa', house.value));
   event.target.appendChild(createParagraph('Família', family.value));
   event.target.appendChild(createParagraph('Matérias', subjectNames));
   event.target.appendChild(createParagraph('Avaliação', evaluation.value));
-  event.target.appendChild(createParagraph('Comentários', textArea.value));
+  event.target.appendChild(createParagraph('Observações', textArea.value));
 }
 
 function bindOnSubmitFormEvent() {

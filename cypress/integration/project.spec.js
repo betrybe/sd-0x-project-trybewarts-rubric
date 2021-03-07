@@ -342,22 +342,22 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("17) Crie um campo de entrada do tipo 'checkbox' com o id 'confirmacao' para validar as informações", () => {
+  describe("17) Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações", () => {
     it('Uma label com o id "label-infos" deve possuir o texto "Você concorda com o uso das informações acima?"', () => {
       cy.get("label#label-infos")
         .should('exist')
-        .should('have.text', 'Você concorda com o uso das informações acima?');
+        .contains('Você concorda com o uso das informações acima?');
     });
 
-    it('Um input do tipo checkbox deve existir e deve possuir o id "confirmacao"', () => {
-      cy.get('input#confirmacao[type="checkbox"]')
+    it('Um input do tipo checkbox deve existir e deve possuir o id "agreement"', () => {
+      cy.get('input#agreement[type="checkbox"]')
         .should('exist');
     });
   });
 
   describe('18) Crie um botão de Enviar para submeter o formulário', () => {
-    it('Deve existir um botão com o id "form-submit" e o texto "Enviar"', () => {
-      cy.get('button#form-submit[type="submit"]')
+    it('Deve existir um botão com o id "submit-btn" e o texto "Enviar"', () => {
+      cy.get('button#submit-btn[type="submit"]')
         .should('exist')
         .should('have.text', 'Enviar');
     });
@@ -365,14 +365,14 @@ describe('Trybewarts', () => {
 
   describe('19) O botão "Enviar" deverá ser habilitado somente após a checkbox do requisito 18 ser selecionada', () => {
     it('O botão deve inicialmente estar desabilitado', () => {
-      cy.get('button#form-submit')
+      cy.get('button#submit-btn')
         .should('be.disabled');
     });
 
     it('Ao marcar o campo de confirmação, o botão de Enviar deve ser habilitado', () => {
-      cy.get('input#confirmacao')
+      cy.get('input#agreement')
         .check();
-      cy.get('button#form-submit')
+      cy.get('button#submit-btn')
         .should('not.be.disabled');
     });
   });
@@ -391,20 +391,20 @@ describe('Trybewarts', () => {
       cy.get('#input-name').type(firstName);
       cy.get('#input-lastname').type(lastName);
       cy.get('#input-email').type(email);
-      cy.get('#house').check(house);
+      cy.get('#house').select(house);
       cy.get('input[name="family"]').check(family);
-      cy.get('.subject')
-        .check('React')
-        .check('SQL')
-        .check('Jest');
+      cy.get('.subject').check('React');
+      cy.get('.subject').check('Jest');
+      cy.get('.subject').check('SQL');
       cy.get('input[name="rate"]').check(rate);
       cy.get('#textarea').type(observation);
     }
 
     beforeEach(() => {
       fillForm();
-      cy.get('input#agreement').check();
-      cy.get('button#submit-btn').click();
+      cy.get('input#agreement').check().then(() => {
+        cy.get('button#submit-btn').click({force: true});
+      });
     });
 
     it('Deve haver um texto no modelo "Nome: John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
