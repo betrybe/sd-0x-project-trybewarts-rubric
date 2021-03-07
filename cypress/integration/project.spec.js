@@ -136,22 +136,22 @@ describe('Trybewarts', () => {
     });
 
     it('Ao clicar no botão com login ou senha inválidos, emite um alerta contendo o texto "Login ou senha inválidos."', () => {
-      const stub = cy.stub()  
+      const stub = cy.stub()
       cy.on('window:alert', stub);
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
         .then(() => {
-          expect(stub.getCall(0)).to.be.calledWith('Login ou senha inválidos.')      
+          expect(stub.getCall(0)).to.be.calledWith('Login ou senha inválidos.')
         })
     });
 
     it('Ao clicar no botão com login ou senha válidos, emite um alerta contendo o texto "Olá, Tryber!"', () => {
-      const stub = cy.stub()  
+      const stub = cy.stub()
       cy.on('window:alert', stub);
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(1)`).type('tryber@betrybe.com');
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(2)`).type('123456');
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
         .then(() => {
-          expect(stub.getCall(0)).to.be.calledWith('Olá, Tryber!')      
+          expect(stub.getCall(0)).to.be.calledWith('Olá, Tryber!')
         })
     });
   });
@@ -250,13 +250,13 @@ describe('Trybewarts', () => {
 
   describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
-      checkIsRightOf('#email', '#house');    
+      checkIsRightOf('#email', '#house');
     });
   });
 
   describe("12) Crie um campo de entrada para qual família a pessoa estudante se identifica", () => {
     it('Um rótulo (label) com o id "label-family" e o texto "Qual sua família?" deverá ser criado', () => {
-      cy.get('#label-family').contains(LABEL_FAMILY_TEXT);    
+      cy.get('#label-family').contains(LABEL_FAMILY_TEXT);
     });
 
     it('O campo deve ser formado por três radio buttons com as opções "Frontend", "Backend" e "FullStack" - Frontend', () => {
@@ -273,12 +273,12 @@ describe('Trybewarts', () => {
       const radioBtns = querySelector('option[name="family"]');
       expect(radioBtns.length).to.equal(3);
     });
-    
+
     it('Posicione os radio buttons para ficar abaixo um do outro', () => {
       checkIsBelowOf('option[name="Família Frontend"]', 'option[name="Família Backend"]');
       checkIsBelowOf('option[name="Família Backend"]', 'option[name="Família FullStack"]');
     });
-    
+
     it('Posicione os radio buttons abaixo do label', () => {
       checkIsBelowOf('#label-family', 'option[name="Família Frontend"]');
     });
@@ -286,7 +286,7 @@ describe('Trybewarts', () => {
 
   describe("13) Crie campos de entrada do tipo 'checkbox' contendo seis opções", () => {
     it('Um rótulo (label) com o id "label-content" e o texto "Qual conteúdo você está com mais vontade de aprender?" deverá ser criado', () => {
-      cy.get('#label-content').contains(LABEL_CONTENT_TEXT);    
+      cy.get('#label-content').contains(LABEL_CONTENT_TEXT);
     });
 
     it('Campo High Order Functions', () => {
@@ -320,7 +320,7 @@ describe('Trybewarts', () => {
 
   describe("14) Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts", () => {
     it('Um rótulo (label) com o id label-rate e o texto "Como você avalia a Trybewarts?" deverá ser criado', () => {
-      cy.get('#label-rate').contains(LABEL_RATE_TEXT);    
+      cy.get('#label-rate').contains(LABEL_RATE_TEXT);
     });
 
     it('O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10', () => {
@@ -338,61 +338,6 @@ describe('Trybewarts', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
 
-    it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
-      cy.get('textarea').should('have.attr', 'maxlength', '500');    
-    });
-
-    it('O número máximo de caracteres, 500, deverá estar localizado abaixo da textarea, com o id textarea-count', () => {
-      checkIsBelowOf('textarea', '#textarea-count');
-    });
-  });
-
-  describe('16) Crie um campo de entrada para gênero do usuário dentro do formulário criado no requisito 10', () => {
-    it('Um rótulo abaixo do campo nova senha com o id label-gender e o texto "Gênero" ', () => {
-      cy.get('.main-content form label#label-gender').contains(GENDER_TITLE);
-    });
-
-    it('O campo deve ser formado por três `radio buttons` com as opções "Feminino", "Masculino" e "Personalizado"', () => {
-      cy.get('input[type=\'radio\']')
-        .should(($radios) => {
-          expect($radios).to.have.length(GENRES.length);
-          $radios.each((index, radio) => {
-            expect(Cypress.$(radio).val()).to.equal(GENRES[index]);
-          });
-        });
-    });
-
-    it('Posicione os radio buttons para ficar na mesma linha', () => {
-      const topOptions = [];
-      cy.get('input[type=\'radio\']')
-        .should(($radios) => {
-          $radios.each((index, radio) => {
-            topOptions.push(radio.getBoundingClientRect().top);
-          });
-
-          expect([...new Set(topOptions)].length).to.equal(1);
-        });
-    });
-
-    it('Posicione os radio buttons para ficar abaixo do label', () => {
-      cy.document().then((doc) => {
-        const topOptions = [];
-        const topLabel = evaluateOffset(doc, '.main-content form label#label-gender', 'top');
-        const heightLabel = evaluateOffset(doc, '.main-content form label#label-gender', 'height');
-
-        cy.get('input[type=\'radio\']')
-          .should(($radios) => {
-            $radios.each((index, radio) => {
-              topOptions.push(radio.getBoundingClientRect().top);
-            });
-
-            expect([...new Set(topOptions)][0] >= (topLabel + heightLabel)).to.equal(true);
-          });
-      });
-    });
-  });
-
-  describe('17) Crie um botão para finalizar o cadastro dentro do formulário criado no requisito 10', () => {
     it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
       cy.get('textarea').should('have.attr', 'maxlength', '500');
     });
@@ -425,23 +370,10 @@ describe('Trybewarts', () => {
         .should('have.text', 'Você concorda com o uso das informações acima?');
     });
 
-    it('Deve ter a propriedade type igual a submit', () => {
-      cy.get(REGISTER_BUTTON_SELECTOR).should('have.attr', 'type').should('equal', 'submit');
-    });
-
-  });
-
-  describe('18) Validar se todos os campos foram preenchidos ao clicar no botão "Cadastre-se"', () => {
-    it('Exibir uma mensagem "Campos inválidos" dentro do formulário caso pelo menos um campo não esteja preenchido', () => {
-      cy.get('input[name="first-name"]').type('John');
-      cy.get('input[name="last-name"]').type('Doe');
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-
     it('Um input do tipo checkbox deve existir e deve possuir o id "confirmacao"', () => {
       cy.get('input#confirmacao[type="checkbox"]')
         .should('exist');
-    })
+    });
   });
 
   describe('18) Crie um botão de Enviar para submeter o formulário', () => {
@@ -469,18 +401,22 @@ describe('Trybewarts', () => {
   describe('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
-    const phoneEmail = 'johndoe@trybe.com';
+    const email = 'johndoe@trybe.com';
     const observation = 'Maaaaravilhoso';
 
     function fillForm() {
       cy.visit('./index.html');
-      cy.get('input[name="first-name"]').type(firstName);
-      cy.get('input[name="last-name"]').type(lastName);
-      cy.get('input[name="phone_email"]').type(phoneEmail);
-      cy.get('input[name="password"]').type(phoneEmail);
-      cy.get('input[name="birth-date"]').type(birthDate);
-      cy.get('input[name="gender"]').check('Feminino');
-
+      cy.get('#input-name').type(firstName);
+      cy.get('#input-lastname').type(lastName);
+      cy.get('#input-email').type(email);
+      cy.get('#house').check('Reactpuff');
+      cy.get('input[name="family"]').check('Família Backend');
+      cy.get('.subject')
+        .check('React')
+        .check('SQL')
+        .check('Jest');
+      cy.get('input[name="rate"]').check('10');
+      cy.get('#textarea').type(observation);
     }
 
     beforeEach(() => {
@@ -489,49 +425,9 @@ describe('Trybewarts', () => {
       cy.get('button#form-submit').click();
     });
 
-    it('Deve haver um texto no modelo "Olá, John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
+    it('Deve haver um texto no modelo "Nome: John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {
       cy.get('.main-content .right-content')
-        .contains(`Olá, ${firstName} ${lastName}`);
-    });
-
-    it('Exibir o e-mail ou telefone', () => {
-      cy.get('.main-content .right-content')
-        .contains(phoneEmail);
-    });
-
-    it('Não exibir a senha', () => {
-      cy.get('.main-content .right-content').should('not.contain', password);
-    });
-
-    it('Exibir a data de nascimento', () => {
-      cy.get('.main-content .right-content').contains(birthDate);
-    });
-
-    it('Caso a opção selecionada no campo Gênero seja Feminino exibir "Feminino"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Feminino');
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Feminino');
-    });
-
-    it('Caso a opção selecionada no campo Gênero seja Masculino exibir "Masculino"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Masculino');
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Masculino');
-
-    });
-  });
-
-    it('Caso a opção selecionada no campo Gênero seja Personalizado exibir "Personalizado"', () => {
-      fillForm();
-      cy.get('input[name="gender"]').check('Personalizado');
-      cy.get(REGISTER_BUTTON_SELECTOR).click();
-
-      cy.get('.main-content .right-content').contains('Personalizado');
-
+        .contains(`Nome: ${firstName} ${lastName}`);
     });
   });
 });
