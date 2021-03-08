@@ -320,8 +320,8 @@ Pontos importantes:
 ### 12. Crie um campo de entrada para qual família a pessoa estudante se identifica
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-family` e o texto *"Qual sua família?"* deverá ser criado
-  * O campo deve ser formado por três radio buttons com as opções *"Frontend"*, *"Backend"* e *"FullStack"*
+  * Um elemento com o id `label-family` e o texto *"Qual sua família?"* deverá ser criado
+  * O campo deve ser formado por três radio buttons com os valores *"Frontend"*, *"Backend"* e *"FullStack"*
   * Os radio buttons devem ter o atributo `name` com o valor *"family"*
   * Posicione os radio buttons para ficar abaixo um do outro
   * Posicione os radio buttons abaixo do label
@@ -329,8 +329,8 @@ Pontos importantes:
 ### 13. Crie campos de entrada do tipo 'checkbox' contendo seis opções
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-content` e o texto *"Qual conteúdo você está com mais vontade de aprender?"* deverá ser criado
-  * O campo deve ser formado por seis checkbox com as seguintes opções: *Higher Order Function*, *Jest*, *Promises*, *React*, *SQL* e *Python*
+  * Um elemento com o id `label-content` e o texto *"Qual conteúdo você está com mais vontade de aprender?"* deverá ser criado
+  * O campo deve ser formado por seis checkbox com as seguintes opções: *HoFs*, *Jest*, *Promises*, *React*, *SQL* e *Python*
   * As checkbox devem ter o atributo `value` com o mesmo nome do campos
   * Posicione as checkbox para ficar lado a lado
   * Posicione as checkbox a abaixo do label
@@ -338,7 +338,7 @@ Pontos importantes:
 ### 14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-rate` e o texto *"Como você avalia a Trybewarts?"* deverá ser criado
+  * Um elemento com o id `label-rate` e o texto *"Como você avalia a Trybewarts?"* deverá ser criado
   * O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10
   * Os radio buttons devem ter o atributo `name` com o valor *"rate"*
   * Posicione os radio buttons para ficar lado a lado
@@ -347,7 +347,7 @@ Pontos importantes:
 ### 15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo
 
   Pontos importantes:
-  * Um rótulo (label) com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
+  * Um elemento com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
   * O campo `textarea` deverá ter o máximo de 500 caracteres
   * O número máximo de caracteres, 500, deverá estar localizado abaixo da `textarea`, com o id `textarea-count`
 

@@ -30,11 +30,15 @@ const REGISTER_BUTTON_SELECTOR = 'button#trybewarts-register';
 const LABEL_FAMILY_TEXT = 'Qual sua família?';
 const LABEL_CONTENT_TEXT = 'Qual conteúdo você está com mais vontade de aprender?';
 const LABEL_RATE_TEXT = 'Como você avalia a Trybewarts?';
-const LABEL_TEXTAREA = 'Data de nascimento';
+const LABEL_TEXTAREA = 'Deixe seu comentário:';
 
 const checkPlaceholder = (elements, placeholder) => (
   elements.some((element) => Cypress.$(element).attr('placeholder') === placeholder)
 );
+
+const isEqualTo = (elementA, elementB) => {
+  return (elementA === elementB);
+};
 
 const evaluateOffset = (doc, selector, offsetType) => doc.querySelector(selector).getBoundingClientRect()[`${offsetType}`];
 
@@ -212,86 +216,86 @@ describe('Trybewarts', () => {
   });
 
   describe("12) Crie um campo de entrada para qual família a pessoa estudante se identifica", () => {
-    it('Um rótulo (label) com o id "label-family" e o texto "Qual sua família?" deverá ser criado', () => {
+    it('Um elemento com o id "label-family" e o texto "Qual sua família?" deverá ser criado', () => {
       cy.get('#label-family').contains(LABEL_FAMILY_TEXT);    
     });
 
-    it('O campo deve ser formado por três radio buttons com as opções "Frontend", "Backend" e "FullStack" - Frontend', () => {
-      cy.get('option[name="Família Frontend"]').should('exist');
+    it('O campo deve ser formado por três radio buttons com os valores "Frontend", "Backend" e "FullStack" - Frontend', () => {
+      cy.get('input[value="Frontend"]').should('exist');
     });
-    it('O campo deve ser formado por três radio buttons com as opções "Frontend", "Backend" e "FullStack" - Backend', () => {
-      cy.get('option[name="Família Backend"]').should('exist');
+    it('O campo deve ser formado por três radio buttons com os valores "Frontend", "Backend" e "FullStack" - Backend', () => {
+      cy.get('input[value="Backend"]').should('exist');
     });
-    it('O campo deve ser formado por três radio buttons com as opções "Frontend", "Backend" e "FullStack" - FullStack', () => {
-      cy.get('option[name="Família FullStack"]').should('exist');
+    it('O campo deve ser formado por três radio buttons com os valores "Frontend", "Backend" e "FullStack" - FullStack', () => {
+      cy.get('input[value="FullStack"]').should('exist');
     });
 
     it('Os radio buttons devem ter o atributo name com o valor "family"', () => {
-      const radioBtns = querySelector('option[name="family"]');
-      expect(radioBtns.length).to.equal(3);
+      cy.get('input[name="family"]').then((arr) => expect(arr.length).to.equal(3));
     });
     
     it('Posicione os radio buttons para ficar abaixo um do outro', () => {
-      checkIsBelowOf('option[name="Família Frontend"]', 'option[name="Família Backend"]');
-      checkIsBelowOf('option[name="Família Backend"]', 'option[name="Família FullStack"]');
+      checkIsBelowOf('input[value="Frontend"]', 'input[value="Backend"]');
+      checkIsBelowOf('input[value="Backend"]', 'input[value="FullStack"]');
     });
     
     it('Posicione os radio buttons abaixo do label', () => {
-      checkIsBelowOf('#label-family', 'option[name="Família Frontend"]');
+      checkIsBelowOf('#label-family', 'input[value="Frontend"]');
     });
   });
 
   describe("13) Crie campos de entrada do tipo 'checkbox' contendo seis opções", () => {
-    it('Um rótulo (label) com o id "label-content" e o texto "Qual conteúdo você está com mais vontade de aprender?" deverá ser criado', () => {
+    it('Um elemento com o id "label-content" e o texto "Qual conteúdo você está com mais vontade de aprender?" deverá ser criado', () => {
       cy.get('#label-content').contains(LABEL_CONTENT_TEXT);    
     });
 
-    it('Campo High Order Functions', () => {
-      cy.get('input[value="Higher Order Functions"]').contains('Higher Order Functions');
+    it('Campo HoFs', () => {
+      cy.get('input[value="HoFs"]');
     });
 
     it('Campo Jest', () => {
-      cy.get('input[value="Jest"]').contains('Jest');
+      cy.get('input[value="Jest"]');
     });
 
     it('Campo Promises', () => {
-      cy.get('input[value="Promises"]').contains('Promises');
+      cy.get('input[value="Promises"]');
     });
 
     it('Campo React', () => {
-      cy.get('input[value="React"]').contains('React');
+      cy.get('input[value="React"]');
     });
 
     it('Campo SQL', () => {
-      cy.get('input[value="SQL"]').contains('SQL');
+      cy.get('input[value="SQL"]');
     });
 
     it('Campo Python', () => {
-      cy.get('input[value="Python"]').contains('Python');
+      cy.get('input[value="Python"]');
     });
 
     it('Posicione os checkbox abaixo do label', () => {
-      checkIsBelowOf('#label-content', 'input[value="Higher Order Functions"]');
+      checkIsBelowOf('#label-content', 'input[value="HoFs"]');
     });
   });
 
   describe("14) Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts", () => {
-    it('Um rótulo (label) com o id label-rate e o texto "Como você avalia a Trybewarts?" deverá ser criado', () => {
+    it('Um elemento com o id label-rate e o texto "Como você avalia a Trybewarts?" deverá ser criado', () => {
       cy.get('#label-rate').contains(LABEL_RATE_TEXT);    
     });
 
     it('O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10', () => {
-      const radioBtns = querySelector('option[name="rate"]');
-      expect(radioBtns.length).to.equal(10);
+      cy.get('input[name="rate"]')
+      .its('length')
+      .should('be.gt', 9);
     });
 
     it('Posicione os radio buttons a abaixo do label', () => {
-      checkIsBelowOf('option[value="1"]', '#label-rate')
+      checkIsBelowOf('#label-rate', 'input[value="1"]');
     });
   });
 
-  describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
-    it('Um rótulo (label) com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
+  describe.only("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+    it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
 

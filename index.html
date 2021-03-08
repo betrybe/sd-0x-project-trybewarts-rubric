@@ -40,27 +40,27 @@
       <hr />
       <fieldset class="fieldset-two">
         <div>
-          <p>Qual a sua família?</p>
-          <label><input type="radio" class="family" value="Família Frontend" name="family" checked/>Família Frontend</label>
-          <label><input type="radio" class="family" value="Família Backend" name="family"/>Família Backend</label>
-          <label><input type="radio" class="family" value="Família FullStack" name="family"/>Família FullStack</label>
+          <p id="label-family">Qual sua família?</p>
+          <label><input type="radio" class="family" value="Frontend" name="family" checked/>Família Frontend</label>
+          <label><input type="radio" class="family" value="Backend" name="family"/>Família Backend</label>
+          <label><input type="radio" class="family" value="FullStack" name="family"/>Família FullStack</label>
         </div>
         <div class="subjects">
-          <p>Qual conteúdo você está com mais vontade de aprender?</p>
+          <p id="label-content">Qual conteúdo você está com mais vontade de aprender?</p>
           <div>
-            <input class="subject" type="checkbox" value="Higher Order Functions" />HoFs
-            <input class="subject" type="checkbox" value="Jest" />Jest
-            <input class="subject" type="checkbox" value="Promises" />Promises
+            <input class="subject" type="checkbox" value="HoFs">HoFs</input>
+            <input class="subject" type="checkbox" value="Jest">Jest</input>
+            <input class="subject" type="checkbox" value="Promises">Promises</input>
           </div>
           <div>
-            <input class="subject" type="checkbox" value="React" />React
-            <input class="subject" type="checkbox" value="SQL" />SQL
-            <input class="subject" type="checkbox" value="Python" />Python
+            <input class="subject" type="checkbox" value="React">React</input>
+            <input class="subject" type="checkbox" value="SQL">SQL</input>
+            <input class="subject" type="checkbox" value="Python">Python</input>
           </div>
         </div>
       </fieldset>
       <hr />
-      <div class="evaluate">
+      <div class="evaluate" id="label-rate">
         Como você avalia a Trybewarts?
         <label><input type="radio" class="evaluation" value="1" name="rate" required/>1</label>
         <label><input type="radio" class="evaluation" value="2" name="rate" required/>2</label>
@@ -73,10 +73,10 @@
         <label><input type="radio" class="evaluation" value="9" name="rate" required/>9</label>
         <label><input type="radio" class="evaluation" value="10" name="rate" required/>10</label>
       </div>
-      <label class="textarea">
+      <label class="textarea" id="textarea">
         Deixe seu comentário:
         <textarea maxlength="500" id="textarea"></textarea>
-        <p class="char-count" id="contador">500</p>
+        <p class="char-count" id="textarea-count">500</p>
       </label>
       <label>
         Você concorda com o uso das informações acima?
