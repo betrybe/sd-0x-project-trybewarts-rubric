@@ -288,18 +288,18 @@ Pontos importantes:
   * Tanto o formulário quanto o `main` devem ser flex containers
   * O formulário deve ter uma largura de 675px
 
-### 6. Crie uma classe para o formulário do requisito 5 
+### 6. Crie um id para o formulário do requisito 5 
 
   Pontos importantes:
-  * Essa classe deverá se chamar `form-group`
-  * Essa classe deverá possuir a propriedade `display: flex`
+  * Esse id deverá se chamar `evaluation-form`
+  * Esse id deverá possuir a propriedade `display: flex`
   * Alinhe o eixo principal dessa classe para ser o eixo vertical
 
 ### 7. Adicione a logo da Trybewarts no lado direito da página
 
   Pontos importantes:
-  * A logo deve possuir um height de `100%`
-  * O atributo `src` do logotipo deve apontar para ``images/trybewarts-logo.png``
+  * Deve possuir o id ``trybewarts-forms-logo``
+  * O atributo `src` do logotipo deve apontar para ``./images/Trybewarts-colored.svg``
 
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 

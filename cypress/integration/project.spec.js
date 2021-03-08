@@ -6,6 +6,7 @@ const EVALUATION_FORM = 'form#evaluation-form'
 const USER_NAME_INPUT_SELECTOR = 'input#input-name';
 const USER_LASTNAME_INPUT_SELECTOR = 'input#input-lastname';
 const USER_EMAIL_INPUT_SELECTOR = 'input#input-email';
+const TRYBEWARTS_LOGO_FORMS_SELECTOR = 'img#trybewarts-forms-logo';
 const HOUSE = [
   'Gitnória',
   'Reactpuff',
@@ -62,6 +63,7 @@ describe('Trybewarts', () => {
   beforeEach(() => {
     cy.visit('./index.html');
   });
+
 
   describe('1) Crie uma barra verde na parte superior da página', () => {
     it('Esta barra deve possuir a classe `header`', () => {
@@ -154,6 +156,7 @@ describe('Trybewarts', () => {
 
     it('O filho do meio deve ser o título', () => {
       cy.get(TOP_BAR_SELECTOR).children().eq(1).should('match', TRYBEWARTS_HEADER_TITLE);
+
     });
   });
 
@@ -176,28 +179,28 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('6) Crie uma classe para o formulário do requisito 5 ', () => {
-    it('Essa classe deverá se chamar `form-group`', () => {
-      cy.get('.form-group').eq(1).should('exist');
+  describe('6) Crie um id para o formulário do requisito 5  ', () => {
+    it('Esse id deverá se chamar `evaluation-form`', () => {
+      cy.get('#evaluation-form').should('exist');
     });
 
-    it('Essa classe deverá possuir a propriedade `display: flex`', () => {
-      cy.get('.form-group')
+    it('Esse id deverá possuir a propriedade `display: flex`', () => {
+      cy.get('#evaluation-form')
         .should('have.css', 'display', 'flex');
     });
 
     it('Alinhe o eixo principal dessa classe para ser o eixo vertical', () => {
-      cy.get('.form-group').should('have.css', 'flex-direction', 'column');
+      cy.get('#evaluation-form').should('have.css', 'flex-direction', 'column');
     });
   });
 
   describe('7) Adicione a logo da Trybewarts no lado direito da página', () => {
-    it('A logo deve possuir um height de `100%``', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.css', 'height,'`100%`);
+    it('Deve possuir o id trybewarts-forms-logo', () => {
+      cy.get(TRYBEWARTS_LOGO_FORMS_SELECTOR).should('exist');
     });
 
     it('O atributo `src` do logotipo deve apontar para `images/trybewarts-logo.png`', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.src', 'images/trybewarts-logo.png');
+      cy.get(TRYBEWARTS_LOGO_FORMS_SELECTOR).should('have.attr', 'src').should('equal', './images/Trybewarts-colored.svg');
     });
   });
 
@@ -224,9 +227,11 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
+  describe.only('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
     it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
-      cy.get(USER_NAME_INPUT_SELECTOR, USER_LASTNAME_INPUT_SELECTOR)
+      cy.get(USER_LASTNAME_INPUT_SELECTOR)
+        .should('have.css', 'flex-direction', 'row');
+        cy.get(USER_LASTNAME_INPUT_SELECTOR)
         .should('have.css', 'flex-direction', 'row');
     });
   });
@@ -317,7 +322,8 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe.only("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+  describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
