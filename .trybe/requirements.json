@@ -78,7 +78,11 @@
     },
     { 
       "description": "20",
-      "bonus": false
+      "bonus": true
+    },
+    { 
+      "description": "21",
+      "bonus": true
     }
   ]
 }
