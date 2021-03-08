@@ -257,27 +257,36 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * Deve existir um elemento `img` com a id `trybewarts-logo`
   * Esse elemento `img` deverá ter o atributo `alt` com o valor `trybewarts-logo`
   * O logotipo deve estar alinhado a esquerda dentro da barra verde
-  * O atributo `src` do logotipo deve apontar para `"images/trybewarts-logo.png"`
+  * O atributo `src` do logotipo deve apontar exatamente para `images/trybewarts-header-logo.svg`
 
-### 3. Crie um título "Trybewarts" dentro do `Header`
+### 3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar
+
+  Pontos importantes:
+  * O formulário deve ter a classe `trybewarts-login`
+  * O alinhamento à direita deve ser feito usando a propriedade flex que faz os elementos terem o espaçamento máximo *entre* eles dentro de um determinado container
+  * Existem dois inputs e um botão dentro do formulário
+  * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*, 
+  * O formulário deve ser um flex container
+  * O formulário deve aceitar como padrão o login 'tryber@betrybe.com' e a senha '123456'
+    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
+    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+
+### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
 
 Pontos importantes:
-  * Deverá conter uma tag `<h1>` com o título
+  * Deve existir um elemento `<h1>` com o id `trybewarts-header-title`
+  * O elemento deve possuir o texto "Trybewarts"
   * O título deverá estar centralizado na barra verde
+    - O header deve ter exatamente três elementos filhos
+    - O filho do meio deve ser o título
 
-### 4. Crie campos de login, senha e um botão no canto direito na barra superior
-
-  Pontos importantes:
-  * Os inputs deverão conter um placeholder contendo as palavras *'Login'* e *'Senha'* em seus respectivos campos
-  * O nome do botão deverá conter a palavra *'Entrar'*
-  * Ao clicar no botão, um alerta deverá ser emitido na página, contendo o texto *"Olá, Tryber!"*
-
-### 5. Adicione um formulário no lado esquerdo da página
+### 5. Adicione um formulário no corpo da página, posicionado ao lado esquerdo
 
   Pontos importantes:
-  * O formulário deve estar alinhado à esquerda, no body do HTML
-  * O formulário deve conter o id `trybewarts-form`
-  * O formulário deve ser um flex container
+  * Deve existir um formulário com o id `evaluation-form`
+  * O formulário deve estar inserido na tag `main` do HTML
+  * Tanto o formulário quanto o `main` devem ser flex containers
+  * O formulário deve ter uma largura de 675px
 
 ### 6. Crie uma classe para o formulário do requisito 5 
 
