@@ -141,7 +141,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('4) Crie um título "Trybewarts" centralizado dentro do `Header`', () => {
+  describe("4) Crie um título 'Trybewarts' centralizado dentro do `Header`", () => {
     it('Deve existir um elemento h1 com o id trybewarts-header-title', () => {
       cy.get(TRYBEWARTS_HEADER_TITLE).should('exist');
     });
@@ -179,7 +179,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('6) Crie um id para o formulário do requisito 5  ', () => {
+  describe('6) Crie um id para o formulário do requisito 5', () => {
     it('Esse id deverá se chamar `evaluation-form`', () => {
       cy.get('#evaluation-form').should('exist');
     });
@@ -204,7 +204,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('8) No formulário, crie inputs de \'Nome:\', \'Sobrenome:\' e \'Email\'', () => {
+  describe("8) No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'", () => {
     it('Inputs de Nome, Sobrenome e Email deverão ser criados', () => {
       cy.get(USER_NAME_INPUT_SELECTOR).should('exist');
       cy.get(USER_LASTNAME_INPUT_SELECTOR).should('exist');
@@ -221,13 +221,13 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('9) Crie um select \'Casa\' contendo três options', () => {
+  describe("9) Crie um select 'Casa' contendo três options", () => {
     it('Deverá conter a opção `Gitnória`', () => {
       cy.get(HOUSE).should('exist');
     });
   });
 
-  describe('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
+  describe("10) Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha", () => {
     it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
       cy.get(USER_LASTNAME_INPUT_SELECTOR)
         .should('have.css', 'flex-direction', 'row');
@@ -354,7 +354,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('18) O botão "Enviar" deverá ser habilitado somente após a checkbox do requisito 17 ser selecionada', () => {
+  describe("18) O botão 'Enviar' deverá ser habilitado somente após a checkbox do requisito 17 ser selecionada", () => {
     it('O botão deve inicialmente estar desabilitado', () => {
       cy.get('button#submit-btn')
         .should('be.disabled');
@@ -392,7 +392,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('21) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
+  describe("21) Ao clicar no botão 'Enviar', o conteúdo do formulário deve ser substituído pelas informações preenchidas", () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
