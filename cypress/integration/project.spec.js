@@ -223,9 +223,19 @@ describe('Trybewarts', () => {
 
   describe('9) Crie um select \'Casa\' contendo três options', () => {
     it('Deverá conter a opção `Gitnória`', () => {
-      cy.get(HOUSE).should('exist');
+      cy.get("#gitnoria-house").should('exist');     
     });
+    it('Deverá conter a opção `Reactpuff`', () => {
+      cy.get("#reactpuff-house").should('exist');
+    });
+    it('Deverá conter a opção ``Corvinode``', () => {
+      cy.get("#corvinode-house").should('exist');
+    });
+    it('Deverá conter a opção ``Pytherina``', () => {
+      cy.get("#pytherina-house").should('exist');
+    })
   });
+
 
   describe('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
     it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
