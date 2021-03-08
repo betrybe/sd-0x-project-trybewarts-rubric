@@ -257,40 +257,49 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * Deve existir um elemento `img` com a id `trybewarts-logo`
   * Esse elemento `img` deverá ter o atributo `alt` com o valor `trybewarts-logo`
   * O logotipo deve estar alinhado a esquerda dentro da barra verde
-  * O atributo `src` do logotipo deve apontar para `"images/trybewarts-logo.png"`
+  * O atributo `src` do logotipo deve apontar exatamente para `images/trybewarts-header-logo.svg`
 
-### 3. Crie um título "Trybewarts" dentro do `Header`
+### 3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar
+
+  Pontos importantes:
+  * O formulário deve ter a classe `trybewarts-login`
+  * O alinhamento à direita deve ser feito usando a propriedade flex que faz os elementos terem o espaçamento máximo *entre* eles dentro de um determinado container
+  * Existem dois inputs e um botão dentro do formulário
+  * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*, 
+  * O formulário deve ser um flex container
+  * O formulário deve aceitar como padrão o login 'tryber@betrybe.com' e a senha '123456'
+    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
+    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+
+### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
 
 Pontos importantes:
-  * Deverá conter uma tag `<h1>` com o título
+  * Deve existir um elemento `<h1>` com o id `trybewarts-header-title`
+  * O elemento deve possuir o texto "Trybewarts"
   * O título deverá estar centralizado na barra verde
+    - O header deve ter exatamente três elementos filhos
+    - O filho do meio deve ser o título
 
-### 4. Crie campos de login, senha e um botão no canto direito na barra superior
-
-  Pontos importantes:
-  * Os inputs deverão conter um placeholder contendo as palavras *'Login'* e *'Senha'* em seus respectivos campos
-  * O nome do botão deverá conter a palavra *'Entrar'*
-  * Ao clicar no botão, um alerta deverá ser emitido na página, contendo o texto *"Olá, Tryber!"*
-
-### 5. Adicione um formulário no lado esquerdo da página
+### 5. Adicione um formulário no corpo da página, posicionado ao lado esquerdo
 
   Pontos importantes:
-  * O formulário deve estar alinhado à esquerda, no body do HTML
-  * O formulário deve conter o id `trybewarts-form`
-  * O formulário deve ser um flex container
+  * Deve existir um formulário com o id `evaluation-form`
+  * O formulário deve estar inserido na tag `main` do HTML
+  * Tanto o formulário quanto o `main` devem ser flex containers
+  * O formulário deve ter uma largura de 675px
 
-### 6. Crie uma classe para o formulário do requisito 5 
+### 6. Crie um id para o formulário do requisito 5 
 
   Pontos importantes:
-  * Essa classe deverá se chamar `form-group`
-  * Essa classe deverá possuir a propriedade `display: flex`
+  * Esse id deverá se chamar `evaluation-form`
+  * Esse id deverá possuir a propriedade `display: flex`
   * Alinhe o eixo principal dessa classe para ser o eixo vertical
 
 ### 7. Adicione a logo da Trybewarts no lado direito da página
 
   Pontos importantes:
-  * A logo deve possuir um height de `100%`
-  * O atributo `src` do logotipo deve apontar para ``images/trybewarts-logo.png``
+  * Deve possuir o id ``trybewarts-forms-logo``
+  * O atributo `src` do logotipo deve apontar para ``./images/Trybewarts-colored.svg``
 
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 
@@ -320,8 +329,8 @@ Pontos importantes:
 ### 12. Crie um campo de entrada para qual família a pessoa estudante se identifica
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-family` e o texto *"Qual sua família?"* deverá ser criado
-  * O campo deve ser formado por três radio buttons com as opções *"Frontend"*, *"Backend"* e *"FullStack"*
+  * Um elemento com o id `label-family` e o texto *"Qual sua família?"* deverá ser criado
+  * O campo deve ser formado por três radio buttons com os valores *"Frontend"*, *"Backend"* e *"FullStack"*
   * Os radio buttons devem ter o atributo `name` com o valor *"family"*
   * Posicione os radio buttons para ficar abaixo um do outro
   * Posicione os radio buttons abaixo do label
@@ -329,8 +338,8 @@ Pontos importantes:
 ### 13. Crie campos de entrada do tipo 'checkbox' contendo seis opções
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-content` e o texto *"Qual conteúdo você está com mais vontade de aprender?"* deverá ser criado
-  * O campo deve ser formado por seis checkbox com as seguintes opções: *Higher Order Function*, *Jest*, *Promises*, *React*, *SQL* e *Python*
+  * Um elemento com o id `label-content` e o texto *"Qual conteúdo você está com mais vontade de aprender?"* deverá ser criado
+  * O campo deve ser formado por seis checkbox com as seguintes opções: *HoFs*, *Jest*, *Promises*, *React*, *SQL* e *Python*
   * As checkbox devem ter o atributo `value` com o mesmo nome do campos
   * Posicione as checkbox para ficar lado a lado
   * Posicione as checkbox a abaixo do label
@@ -338,7 +347,7 @@ Pontos importantes:
 ### 14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts
 
   Pontos importantes:
-  * Um rótulo (label) com o id `label-rate` e o texto *"Como você avalia a Trybewarts?"* deverá ser criado
+  * Um elemento com o id `label-rate` e o texto *"Como você avalia a Trybewarts?"* deverá ser criado
   * O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10
   * Os radio buttons devem ter o atributo `name` com o valor *"rate"*
   * Posicione os radio buttons para ficar lado a lado
@@ -347,7 +356,7 @@ Pontos importantes:
 ### 15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo
 
   Pontos importantes:
-  * Um rótulo (label) com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
+  * Um elemento com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
   * O campo `textarea` deverá ter o máximo de 500 caracteres
   * O número máximo de caracteres, 500, deverá estar localizado abaixo da `textarea`, com o id `textarea-count`
 
