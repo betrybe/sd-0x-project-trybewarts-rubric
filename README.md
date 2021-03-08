@@ -50,6 +50,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [19. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 18 ser selecionada](#19-o-botão-Enviar-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-18-ser-selecionada)
   - [20. Crie um rodapé no final da página](#20-crie-um-rodapé-no-final-da-página)
   - [Requisito Bônus](#requisito-bônus)
+  - [21. Preencha o arquivo feedback.md . Aproveite o espaço para deixar seus feedbacks sobre o projeto](#21-preencha-o-arquivo-feedback-md-aproveite-o-espaço-para-deixar-seus-feedbacks-sobre-o-projeto)
 - [Avisos finais](#avisos-finais)
 
 ---
@@ -76,7 +77,7 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 ### O que deverá ser desenvolvido
 
-Neste projeto, você irá desenvolver uma página de formulário da Escola de Magia de Trybewarts, em que as pessoas estudantes poderão enviar seus feedbacks sobre a escola. O tema desse projeto é baseado na obra 'Harry Potter', de J. K. Rowling, já que programar é o mais próximo que podemos chegar de algo *verdadeiramente mágico*! Mas não se preocupe se não tiver conhecimento sobre o universo da obra original, pois criamos nossa própria versão da Escola de Bruxaria e você terá todas as informações necessárias para a construção do projeto nesse _readme_!  
+Neste projeto, você irá desenvolver uma página de formulário da Escola de Magia de Trybewarts, em que as pessoas estudantes poderão enviar seus feedbacks sobre a escola. O tema desse projeto é baseado na obra 'Harry Potter', de J. K. Rowling, já que programar é o mais próximo que podemos chegar de algo *verdadeiramente mágico*! Mas não se preocupe se não tiver conhecimento sobre o universo da obra original, pois criamos nossa própria versão da Escola de Bruxaria e você terá todas as informações necessárias para a construção do projeto nesse _readme_!
 
 ### Desenvolvimento
 
@@ -265,7 +266,7 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * O formulário deve ter a classe `trybewarts-login`
   * O alinhamento à direita deve ser feito usando a propriedade flex que faz os elementos terem o espaçamento máximo *entre* eles dentro de um determinado container
   * Existem dois inputs e um botão dentro do formulário
-  * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*, 
+  * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*,
   * O formulário deve ser um flex container
   * O formulário deve aceitar como padrão o login 'tryber@betrybe.com' e a senha '123456'
     - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
@@ -288,7 +289,7 @@ Pontos importantes:
   * Tanto o formulário quanto o `main` devem ser flex containers
   * O formulário deve ter uma largura de 675px
 
-### 6. Crie um id para o formulário do requisito 5 
+### 6. Crie um id para o formulário do requisito 5
 
   Pontos importantes:
   * Esse id deverá se chamar `evaluation-form`
@@ -339,8 +340,8 @@ Pontos importantes:
 
   Pontos importantes:
   * Um elemento com o id `label-content` e o texto *"Qual conteúdo você está com mais vontade de aprender?"* deverá ser criado
-  * O campo deve ser formado por seis checkbox com as seguintes opções: *HoFs*, *Jest*, *Promises*, *React*, *SQL* e *Python*
-  * As checkbox devem ter o atributo `value` com o mesmo nome do campos
+  * O campo deve ser formado por seis checkbox com as seguintes opções (seguindo esta ordem): *HoFs*, *Jest*, *Promises*, *React*, *SQL* e *Python*
+  * Os valores (`value`) dos campos são, respectivamente: *Higher Order Functions*, *Jest*, *Promises*, *React*, *SQL*, *Python*
   * Posicione as checkbox para ficar lado a lado
   * Posicione as checkbox a abaixo do label
 
@@ -353,49 +354,68 @@ Pontos importantes:
   * Posicione os radio buttons para ficar lado a lado
   * Posicione os radio buttons a abaixo do label
 
-### 15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo
+### 15. Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500
 
   Pontos importantes:
   * Um elemento com o id `textarea` e o texto *"Deixe seu comentário:"* deverá ser criado
   * O campo `textarea` deverá ter o máximo de 500 caracteres
-  * O número máximo de caracteres, 500, deverá estar localizado abaixo da `textarea`, com o id `textarea-count`
 
-### 16. O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea
-
-  Pontos importantes:
-  * O contador deverá decrementar a medida que algo for escrito no campo `textarea`
-  * O contador deverá incrementar a medida que algo for deletado no campo `textarea`
-
-### 17. Crie um campo de entrada do tipo 'checkbox' para validar as informações
+### 16. Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações
 
   Pontos importantes:
   * Um rótulo (label) com o id `label-infos` e o texto *"Você concorda com o uso das informações acima?"* deverá ser criado
   * O campo deve ser formado por um checkbox
-  * A checkbox deverá ter o atributo `value` chamado *'infos'*
+  * O campo de 'checkbox' deve possuir o ID `agreement`
   * Posicione a checkbox ao lado da label
 
-### 18. Crie um botão de Enviar
+### 17. Crie um botão de Enviar
 
   Pontos importantes:
   * Um botão do tipo `submit` deverá ser criado
+  * O botão deve possuir o ID `submit-btn`
   * Deverá conter o texto *'Enviar'*
 
-### 19. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 18 ser selecionada
+### 18. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 17 ser selecionada
 
   Pontos importantes:
   * O botão deverá estar desabilitado caso a checkbox não esteja selecionada
   * O botão deverá ser habilitado caso a checkbox seja selecionada
 
-### 20. Crie um rodapé no final da página
+### 19. Crie um rodapé no final da página
 
   Pontos importantes:
   * O rodapé deverá conter o texto *"Direitos reservados à Trybewarts©"*
 
 ### Requisito Bônus
 
-Esse requisito **não** é verificável pelo avaliador automático. Sua apresentação **(opcional)** será realizada durante o fechamento do dia seguinte ao final do projeto
+### Lista de requisitos bônus:
 
-**Realize o desenvolvimento da versão mobile do formulário Trybewarts.**
+### 20. Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que devera ser atualizado a medida que algo for digitado na textarea
+
+  Pontos importantes:
+  * O contador deverá possuir o ID `counter`
+  * O contador inicialmente deve possuir o valor `500`
+  * O contador deverá decrementar a medida que algo for escrito no campo `textarea`
+  * O contador deverá incrementar a medida que algo for deletado no campo `textarea`
+
+## 21. Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas
+  Pontos importantes:
+  * Todos os campos do formulário devem ser substituídos.
+  * Deve haver um campo com o formato "Nome: Alguem Aqui"
+  * Deve haver um campo com o formato "Email: email@mail.com"
+  * Deve haver um campo com o formato "Casa: Casa Escolhida"
+  * Deve haver um campo com o formato "Família: Família Escolhida"
+  * Deve haver um campo com o formato "Matérias: Matérias, Marcadas, Aqui"
+  * Deve haver um campo com o formato "Avaliação: NotaAqui"
+  * Deve haver um campo com o formato "Observações: Observações aqui"
+
+---
+
+Esses requisitos **não** são verificáveis pelo avaliador automático. A apresentação **(opcional)** do requisito 22 será realizada durante o fechamento do dia seguinte ao final do projeto
+
+### 22. Preencha o arquivo feedback.md . Aproveite o espaço para deixar seus feedbacks sobre o projeto.
+
+### 23. Realize o desenvolvimento da versão mobile do formulário Trybewarts.**
 
 ---
 

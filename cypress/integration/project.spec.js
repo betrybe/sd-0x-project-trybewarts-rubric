@@ -227,7 +227,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe.only('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
+  describe('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
     it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
       cy.get(USER_LASTNAME_INPUT_SELECTOR)
         .should('have.css', 'flex-direction', 'row');
@@ -302,7 +302,7 @@ describe('Trybewarts', () => {
     });
 
     it('Posicione os checkbox abaixo do label', () => {
-      checkIsBelowOf('#label-content', 'input[value="HoFs"]');
+      checkIsBelowOf('#label-content', 'input[value="Higher Order Functions"]');
     });
   });
 
@@ -322,8 +322,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
-
+  describe("15) Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500", () => {
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
@@ -331,29 +330,10 @@ describe('Trybewarts', () => {
     it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
       cy.get('textarea').should('have.attr', 'maxlength', '500');
     });
-
-    it('O número máximo de caracteres, 500, deverá estar localizado abaixo da textarea, com o id textarea-count', () => {
-      checkIsBelowOf('textarea', '#textarea-count');
-    });
   });
 
-  describe("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
-    it('Deve existir um contador com o ID "contador"', () => {
-      cy.get('#contador').should('exist');
-    });
 
-    it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
-      cy.get("#contador").contains('500');
-      cy.get("#textarea").type('Salve salve família');
-      cy.get("#contador").contains('481');
-      cy.get('#textarea').clear();
-      cy.get("#contador").should('contain', '500');
-      cy.get('#textarea').type('Salve salve');
-      cy.get("#contador").should('contain', '489');
-    });
-  });
-
-  describe("17) Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações", () => {
+  describe("16) Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações", () => {
     it('Uma label com o id "label-infos" deve possuir o texto "Você concorda com o uso das informações acima?"', () => {
       cy.get("label#label-infos")
         .should('exist')
@@ -366,7 +346,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('18) Crie um botão de Enviar para submeter o formulário', () => {
+  describe('17) Crie um botão de Enviar para submeter o formulário', () => {
     it('Deve existir um botão com o id "submit-btn" e o texto "Enviar"', () => {
       cy.get('button#submit-btn[type="submit"]')
         .should('exist')
@@ -374,7 +354,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('19) O botão "Enviar" deverá ser habilitado somente após a checkbox do requisito 18 ser selecionada', () => {
+  describe('18) O botão "Enviar" deverá ser habilitado somente após a checkbox do requisito 17 ser selecionada', () => {
     it('O botão deve inicialmente estar desabilitado', () => {
       cy.get('button#submit-btn')
         .should('be.disabled');
@@ -388,7 +368,31 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe.only('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
+  describe('19) Crie um rodapé no final da página', () => {
+    it('O rodapé deve conter o texto "Direitos reservados à Trybewarts©"', () => {
+      cy.get('footer')
+        .should('exist')
+        .contains('Direitos reservados à Trybewarts©')
+    });
+  });
+
+  describe("20) Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que devera ser atualizado a medida que algo for digitado na textarea", () => {
+    it('Deve existir um contador com o ID "counter"', () => {
+      cy.get('#counter').should('exist');
+    });
+
+    it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
+      cy.get("#counter").contains('500');
+      cy.get("#textarea").type('Salve salve família');
+      cy.get("#counter").contains('481');
+      cy.get('#textarea').clear();
+      cy.get("#counter").should('contain', '500');
+      cy.get('#textarea').type('Salve salve');
+      cy.get("#counter").should('contain', '489');
+    });
+  });
+
+  describe('21) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';

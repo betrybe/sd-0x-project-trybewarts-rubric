@@ -1,6 +1,6 @@
 function onTextareaContentChange(event) {
   const textarea = event.target;
-  const counter = document.getElementById('contador');
+  const counter = document.getElementById('counter');
 
   const newCount = 500 - textarea.value.length;
   counter.innerText = newCount;
