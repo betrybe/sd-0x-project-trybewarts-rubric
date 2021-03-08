@@ -64,9 +64,9 @@ describe('Trybewarts', () => {
     cy.visit('./index.html');
   });
 
-  describe('1) Crie uma barra azul na parte superior da página com a classe top-bar', () => {
-    it('Esta barra deve possuir a classe top-bar', () => {
 
+  describe('1) Crie uma barra verde na parte superior da página', () => {
+    it('Esta barra deve possuir a classe `header`', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
 
@@ -156,6 +156,7 @@ describe('Trybewarts', () => {
 
     it('O filho do meio deve ser o título', () => {
       cy.get(TOP_BAR_SELECTOR).children().eq(1).should('match', TRYBEWARTS_HEADER_TITLE);
+
     });
   });
 
@@ -322,6 +323,7 @@ describe('Trybewarts', () => {
   });
 
   describe("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
@@ -386,7 +388,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
+  describe.only('20) Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas', () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
