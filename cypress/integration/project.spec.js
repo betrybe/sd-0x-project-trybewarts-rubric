@@ -70,7 +70,7 @@ describe('Trybewarts', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
 
-    it('A classe header deve determinar que o elemento é um flex container', () => {
+    it('A classe `header` deve determinar que o elemento é um flex container', () => {
       cy.get(TOP_BAR_SELECTOR).should('have.css', 'display', 'flex');
     });
 
@@ -80,15 +80,15 @@ describe('Trybewarts', () => {
   });
 
   describe('2) A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe trybewarts-header-logo', () => {
+    it('Deve existir um elemento img com a classe `trybewarts-header-logo`', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
+    });
+
     it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', TOP_BAR_SELECTOR);
     });
 
-    it('Deve existir um elemento img com a classe trybewarts-header-logo', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
-    });
-
-    it('O atributo src do logotipo deve apontar para imgs/trybewarts-logo.png', () => {
+    it('O atributo src do logotipo deve apontar para images/trybewarts-header-logo.svg', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal', 'images/trybewarts-header-logo.svg');
     });
   });
