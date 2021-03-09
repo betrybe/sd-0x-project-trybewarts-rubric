@@ -238,7 +238,7 @@ describe('Trybewarts', () => {
 
   describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
-      checkIsRightOf('#email', '#house');
+      checkIsRightOf('#input-email', '#house');
     });
   });
 
