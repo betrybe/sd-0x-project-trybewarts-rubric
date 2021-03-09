@@ -13,7 +13,7 @@
       "bonus": false
     },
     { 
-      "description": "4) Crie um título 'Trybewarts' centralizado dentro do `Header`",
+      "description": "4) Crie um título com o texto 'Trybewarts' centralizado dentro do 'Header'",
       "bonus": false
     },
     { 
@@ -33,7 +33,7 @@
       "bonus": false
     },
     { 
-      "description": "9) Crie um select 'Casa' contendo três options",
+      "description": "9) Crie um select 'Casa' contendo quatro options",
       "bonus": false
     },
     { 
@@ -41,7 +41,7 @@
       "bonus": false
     },
     { 
-      "description": "11) Alinhe os campos de email e casa para fiquem em linha",
+      "description": "11) Alinhe os campos de 'Email' e 'Casa' para fiquem em linha",
       "bonus": false
     },
     { 

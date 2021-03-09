@@ -141,7 +141,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("4) Crie um título 'Trybewarts' centralizado dentro do `Header`", () => {
+  describe("4) Crie um título com o texto 'Trybewarts' centralizado dentro do 'Header'", () => {
     it('Deve existir um elemento h1 com o id trybewarts-header-title', () => {
       cy.get(TRYBEWARTS_HEADER_TITLE).should('exist');
     });
@@ -245,7 +245,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
+  describe("11) Alinhe os campos de 'Email' e 'Casa' para fiquem em linha", () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
       checkIsRightOf('#input-email', '#house');
     });

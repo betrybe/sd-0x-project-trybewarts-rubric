@@ -45,8 +45,8 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts](#14-crie-campo-de-entrada-para-avaliar-de-1-a-10-o-nível-de-satisfação-com-a-Trybewarts)
   - [15. Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500](#15-crie-uma-textarea-com-o-id-textarea-contendo-o-número-máximo-de-caracteres-igual-à-500)
   - [16. Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações](#16-crie-um-campo-de-entrada-do-tipo-checkbox-com-o-id-agreement-para-validar-as-informações)
-  - [17. Crie um botão de Enviar](#17-crie-um-botão-de-Enviar)
-  - [18. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 17 ser selecionada](#18-o-botão-Enviar-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-17-ser-selecionada)
+  - [17. Crie um botão de Enviar para submeter o formulário](#17-crie-um-botão-de-Enviar-para-submeter-o-formulário)
+  - [18. O botão 'Enviar' deverá ser habilitado somente após a checkbox do requisito 17 ser selecionada](#18-o-botão-Enviar-deverá-ser-habilitado-somente-após-a-checkbox-do-requisito-17-ser-selecionada)
   - [19. Crie um rodapé no final da página](#19-crie-um-rodapé-no-final-da-página)
   - [Requisito Bônus](#requisito-bônus)
   - [20. Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que deverá ser atualizado a medida que algo for digitado na textarea](#20-crie-um-contador-com-o-id-counter-contendo-o-número-de-caracteres-disponíveis-no-textarea-variando-de-500-até-0-que-deverá-ser-atualizado-a-medida-que-algo-for-digitado-na-textarea)
@@ -183,7 +183,7 @@ Caso tenha alguma dúvida, [aqui tem um vídeo explicativo](https://vimeo.com/36
 
 ### Dicas
 
-- Para colocar sua página no [GitHub Pages](https://pages.github.com/), não é necessário remover o conteúdo que já está lá, você pode apenas adicionar essa nova página. Para isso, todo o conteúdo desse projeto deve ser colocado em uma pasta `/projetos/hogwarts-nps-form`.
+- Para colocar sua página no [GitHub Pages](https://pages.github.com/), não é necessário remover o conteúdo que já está lá, você pode apenas adicionar essa nova página. Para isso, todo o conteúdo desse projeto deve ser colocado em uma pasta `/projetos/trybewarts`.
 
 ---
 
@@ -203,7 +203,7 @@ Algumas coisas devem seguir um padrão pré-estabelecido para que os teste de co
 
 ⚠️ Leia-os atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de _ids_ que alguns elementos de seu projeto devem possuir**. ⚠️
 
-⚠ **Alguns requisitos pedem para utilizar flex box. Tenha atenção no que é solicitado caso vá usar algum framework CSS para que o requisitos sejam atendidos.** ⚠
+⚠ **Alguns requisitos pedem para utilizar flexbox. Tenha atenção no que é solicitado caso vá usar algum framework CSS para que os requisitos sejam atendidos.** ⚠
 
 O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
 
@@ -271,7 +271,7 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
     - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
     - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Olá, Tryber!'*
 
-### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
+### 4. Crie um título com o texto 'Trybewarts' centralizado dentro do 'Header'
 
 Pontos importantes:
   * Deve existir um elemento `<h1>` com o id `trybewarts-header-title`
@@ -367,14 +367,14 @@ Pontos importantes:
   * O campo de 'checkbox' deve possuir o ID `agreement`
   * Posicione a checkbox ao lado da label
 
-### 17. Crie um botão de Enviar
+### 17. Crie um botão de Enviar para submeter o formulário
 
   Pontos importantes:
   * Um botão do tipo `submit` deverá ser criado
   * O botão deve possuir o ID `submit-btn`
   * Deverá conter o texto *'Enviar'*
 
-### 18. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 17 ser selecionada
+### 18. O botão 'Enviar' deverá ser habilitado somente após a checkbox do requisito 17 ser selecionada
 
   Pontos importantes:
   * O botão deverá estar desabilitado caso a checkbox não esteja selecionada
@@ -397,7 +397,7 @@ Pontos importantes:
   * O contador deverá decrementar a medida que algo for escrito no campo `textarea`
   * O contador deverá incrementar a medida que algo for deletado no campo `textarea`
 
-## 21. Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas
+## 21. Ao clicar no botão 'Enviar', o conteúdo do formulário deve ser substituído pelas informações preenchidas
   Pontos importantes:
   * Todos os campos do formulário devem ser substituídos.
   * Deve haver um campo com o formato "Nome: Alguem Aqui"
