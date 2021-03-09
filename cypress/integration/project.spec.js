@@ -412,7 +412,7 @@ describe('Trybewarts', () => {
 
     function fillForm() {
       cy.visit('./index.html');
-      cy.get('#input-name').type(firstName, {timeout: 20000});
+      cy.wait(2000).get('#input-name').type(firstName);
       cy.get('#input-lastname').type(lastName);
       cy.get('#input-email').type(email);
       cy.get('#house').select(house);
