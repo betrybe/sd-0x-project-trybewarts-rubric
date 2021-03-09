@@ -309,7 +309,7 @@ Pontos importantes:
   *Os inputs devem possuir os ids 'input-name', 'input-lastname' e 'input-email'
   * Os inputs deverão conter um placeholder com *'Nome'*, *'Sobrenome'* e *'Email'* em seus respectivos campos
 
-### 9. Crie um select 'Casa' contendo três options
+### 9. Crie um select 'Casa' contendo quatro options
 
   Pontos importantes:
   * Deverá conter a opção `Gitnória` e um id ``gitnoria-house``

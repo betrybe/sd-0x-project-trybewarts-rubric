@@ -221,7 +221,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("9) Crie um select 'Casa' contendo três options", () => {
+  describe("9) Crie um select 'Casa' contendo quatro options", () => {
     it('Deverá conter a opção `Gitnória`', () => {
       cy.get("#gitnoria-house").should('exist');     
     });
