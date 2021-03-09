@@ -30,27 +30,27 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Requisitos do projeto](#requisitos-do-projeto)
 - [Lista de requisitos obrigatórios](#lista-de-requisitos-obrigatórios)
   - [1. Crie uma barra verde na parte superior da página](#1-crie-uma-barra-verde-na-parte-superior-da-página)
-  - [2. Posicione o logotipo da Trybewarts no canto esquerdo na barra superior](#2-posicione-o-logotipo-da-trybewarts-no-canto-esquerdo-na-barra-superior)
-  - [3. Crie um título "Trybewarts" dentro do `Header`](#3-crie-um-título-Trybewarts-dentro-do-Header)
-  - [4. Crie campos de login, senha e um botão no canto direito na barra superior](#4-crie-campos-de-login-senha-e-um-botão-no-canto-direito-na-barra-superior)
-  - [5. Adicione um formulário no lado esquerdo da página](#5-adicione-um-formulário-no-lado-esquerdo-da-página)
-  - [6. Crie uma classe para o formulário do requisito 5](#6-Crie-uma-classe-para-o-formulário-do-requisito-5)
+  - [2. A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe `trybewarts-header-logo`](#2-a-barra-superior-deve-conter-o-logotipo-do-Trybewarts-no-canto-esquerdo-com-a-classe-trybewarts-header-logo)
+  - [3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar](#3-a-barra-superior-deve-conter-um-formulário-de-autenticação-no-canto-direito-com-um-input-de-login-um-de-senha-e-um-botão-de-entrar)
+  - [4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`](#4-crie-um-título-com-o-texto-Trybewarts-centralizado-dentro-do-Header)
+  - [5. Adicione um formulário no corpo da página, posicionado ao lado esquerdo](#5-adicione-um-formulário-no-corpo-da-página-posicionado-ao-lado-esquerdo)
+  - [6. Crie um id para o formulário do requisito 5](#6-Crie-um-id-para-o-formulário-do-requisito-5)
   - [7. Adicione a logo da Trybewarts no lado direito da página](#7-adicione-a-logo-da-Trybewarts-no-lado-direito-da-página)
-  - [8. No formulário, crie inputs  de 'Nome:', 'Sobrenome:' e 'Email'](#8-no-formulário-crie-inputs-de-Nome-Sobrenome-e-Email)
-  - [9. Crie um select 'Casa' contendo três options](#9-crie-um-select-Casa-contendo-três-options)
+  - [8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'](#8-no-formulário-crie-inputs-de-Nome-Sobrenome-e-Email)
+  - [9. Crie um select 'Casa' contendo quatro options](#9-crie-um-select-Casa-contendo-quatro-options)
   - [10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha](#10-alinhe-os-campos-de-Nome-e-Sobrenome-para-que-fiquem-em-linha)
   - [11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha](#11-alinhe-os-campos-de-Email-e-Casa-para-que-fiquem-em-linha)
   - [12. Crie um campo de entrada para qual família a pessoa estudante se identifica](#12-crie-um-campo-de-entrada-para-qual-família-a-pessoa-estudante-se-identifica)
   - [13. Crie campos de entrada do tipo 'checkbox' contendo seis opções](#13-crie-campos-de-entrada-do-tipo-checkbox-contendo-seis-opções)
   - [14. Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts](#14-crie-campo-de-entrada-para-avaliar-de-1-a-10-o-nível-de-satisfação-com-a-Trybewarts)
-  - [15. Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo](#15-crie-uma-textarea-contendo-o-número-máximo-de-caracteres-posicionado-logo-abaixo)
-  - [16. O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea](#16-o-contador-contendo-o-número-de-caracteres-devera-ser-atualizado-a-medida-que-algo-for-digitado-na-textarea)
-  - [17. Crie um campo de entrada do tipo 'checkbox' para validar as informações](#17-crie-um-campo-de-entrada-do-tipo-checkbox-para-validar-as-informações)
-  - [18. Crie um botão de Enviar](#18-crie-um-botão-de-Enviar)
-  - [19. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 18 ser selecionada](#19-o-botão-Enviar-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-18-ser-selecionada)
-  - [20. Crie um rodapé no final da página](#20-crie-um-rodapé-no-final-da-página)
+  - [15. Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500](#15-crie-uma-textarea-com-o-id-textarea-contendo-o-número-máximo-de-caracteres-igual-à-500)
+  - [16. Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações](#16-crie-um-campo-de-entrada-do-tipo-checkbox-com-o-id-agreement-para-validar-as-informações)
+  - [17. Crie um botão de Enviar](#17-crie-um-botão-de-Enviar)
+  - [18. O botão 'Enviar' deverá ser ativado somente após a checkbox do requisito 17 ser selecionada](#18-o-botão-Enviar-deverá-ser-ativado-somente-após-a-checkbox-do-requisito-17-ser-selecionada)
+  - [19. Crie um rodapé no final da página](#19-crie-um-rodapé-no-final-da-página)
   - [Requisito Bônus](#requisito-bônus)
-  - [21. Preencha o arquivo feedback.md . Aproveite o espaço para deixar seus feedbacks sobre o projeto](#21-preencha-o-arquivo-feedback-md-aproveite-o-espaço-para-deixar-seus-feedbacks-sobre-o-projeto)
+  - [20. Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que deverá ser atualizado a medida que algo for digitado na textarea](#20-crie-um-contador-com-o-id-counter-contendo-o-número-de-caracteres-disponíveis-no-textarea-variando-de-500-até-0-que-deverá-ser-atualizado-a-medida-que-algo-for-digitado-na-textarea)
+  - [21. Ao clicar no botão "Enviar", o conteúdo do formulário deve ser substituído pelas informações preenchidas](#21-ao-clicar-no-botão-enviar-o-conteúdo-do-formulário-deve-ser-substituído-pelas-informações-preenchidas)
 - [Avisos finais](#avisos-finais)
 
 ---
@@ -252,7 +252,7 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * A classe `header` deve determinar que o elemento é um flex container
   * A classe header deve possuir a propriedade `background-color: rgb(50, 167, 145)`
 
-### 2. A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe `trybewarts-header-logo`'
+### 2. A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe `trybewarts-header-logo`
 
   Pontos importantes:
   * Deve existir um elemento img com a classe `trybewarts-header-logo`
@@ -389,7 +389,7 @@ Pontos importantes:
 
 ### Lista de requisitos bônus:
 
-### 20. Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que devera ser atualizado a medida que algo for digitado na textarea
+### 20. Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que deverá ser atualizado a medida que algo for digitado na textarea
 
   Pontos importantes:
   * O contador deverá possuir o ID `counter`
@@ -414,7 +414,7 @@ Esses requisitos **não** são verificáveis pelo avaliador automático. A apres
 
 ### 22. Preencha o arquivo feedback.md . Aproveite o espaço para deixar seus feedbacks sobre o projeto.
 
-### 23. Realize o desenvolvimento da versão mobile do formulário Trybewarts.**
+### 23. Realize o desenvolvimento da versão mobile do formulário Trybewarts.
 
 ---
 
