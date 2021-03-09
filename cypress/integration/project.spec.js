@@ -412,23 +412,43 @@ describe('Trybewarts', () => {
 
     function fillForm() {
       cy.visit('./index.html');
-      cy.get('#input-name').type(firstName, {force: true});
-      cy.get('#input-lastname').type(lastName);
-      cy.get('#input-email').type(email);
-      cy.get('#house').select(house);
-      cy.get('input[name="family"]').check(family);
-      cy.get('.subject').check('React');
-      cy.get('.subject').check('Jest');
-      cy.get('.subject').check('SQL');
-      cy.get('input[name="rate"]').check(rate);
-      cy.get('#textarea').type(observation);
+      cy.get('#input-name').then(($tag) => {
+        cy.wrap($tag).type(firstName);
+      });
+      cy.get('#input-lastname').then(($tag) => {
+        cy.wrap($tag).type(lastName);
+      });
+      cy.get('#input-email').then(($tag) => {
+        cy.wrap($tag).type(email);
+      });
+      cy.get('#house').then(($tag) => {
+        cy.wrap($tag).select(house);
+      });
+      cy.get('input[name="family"]').then(($tag) => {
+        cy.wrap($tag).check(family);
+      });
+      cy.get('.subject').then(($tag) => {
+        cy.wrap($tag).check('React');
+      });
+      cy.get('.subject').then(($tag) => {
+        cy.wrap($tag).check('Jest');
+      });
+      cy.get('.subject').then(($tag) => {
+        cy.wrap($tag).check('SQL');
+      });
+      cy.get('input[name="rate"]').then(($tag) => {
+        cy.wrap($tag).check(rate);
+      });
+      cy.get('#textarea').then(($tag) => {
+        cy.wrap($tag).type(observation);
+      });
     }
 
     beforeEach(() => {
       fillForm();
       cy.get('input#agreement').check();
-      cy.get('button#submit-btn').then((btn) => {
-        btn.click();
+      cy.get('button#submit-btn').then(($btn) => {
+        $btn.click();
       });
     });
 
