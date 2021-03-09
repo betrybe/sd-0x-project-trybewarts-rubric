@@ -392,7 +392,7 @@ describe('Trybewarts', () => {
 
     it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
       cy.get("#counter").contains('500');
-      cy.get("#textarea").type('Salve salve família');
+      cy.get("#textarea").wait(3000).type('Salve salve família');
       // cy.get("#counter").contains('481');
       // cy.get('#textarea').clear();
       // cy.get("#counter").should('contain', '500');
