@@ -223,8 +223,17 @@ describe('Trybewarts', () => {
 
   describe("9) Crie um select 'Casa' contendo três options", () => {
     it('Deverá conter a opção `Gitnória`', () => {
-      cy.get(HOUSE).should('exist');
+      cy.get("#gitnoria-house").should('exist');
     });
+    it('Deverá conter a opção `Reactpuff`', () => {
+      cy.get("#reactpuff-house").should('exist');
+    });
+    it('Deverá conter a opção ``Corvinode``', () => {
+      cy.get("#corvinode-house").should('exist');
+    });
+    it('Deverá conter a opção ``Pytherina``', () => {
+      cy.get("#pytherina-house").should('exist');
+    })
   });
 
   describe("10) Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha", () => {
@@ -324,7 +333,7 @@ describe('Trybewarts', () => {
 
   describe("15) Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500", () => {
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
-      cy.get('#textarea').contains(LABEL_TEXTAREA);
+      cy.get('.textarea').contains(LABEL_TEXTAREA);
     });
 
     it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
@@ -417,9 +426,8 @@ describe('Trybewarts', () => {
 
     beforeEach(() => {
       fillForm();
-      cy.get('input#agreement').check().then(() => {
-        cy.get('button#submit-btn').click({force: true});
-      });
+      cy.get('input#agreement').check();
+      cy.get('button#submit-btn').click({force: true});
     });
 
     it('Deve haver um texto no modelo "Nome: John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {

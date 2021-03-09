@@ -312,10 +312,10 @@ Pontos importantes:
 ### 9. Crie um select 'Casa' contendo três options
 
   Pontos importantes:
-  * Deverá conter a opção `Gitnória`
-  * Deverá conter a opção `Reactpuff`
-  * Deverá conter a opção `Corvinode`
-  * Deverá conter a opção `Pytherina`
+  * Deverá conter a opção `Gitnória` e um id ``gitnoria-house``
+  * Deverá conter a opção `Reactpuff`e um id ``reactpuff-house``
+  * Deverá conter a opção `Corvinode`e um id ``corvinode-house``
+  * Deverá conter a opção `Pytherina`e um id ``pytherina-house``
 
 ### 10. Alinhe os campos de 'Nome' e 'Sobrenome' para que fiquem em linha
 
