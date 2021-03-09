@@ -268,8 +268,8 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*,
   * O formulário deve ser um flex container
   * O formulário deve aceitar como padrão o login 'tryber@betrybe.com' e a senha '123456'
-    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
-    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Olá, Tryber!'*
 
 ### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
 

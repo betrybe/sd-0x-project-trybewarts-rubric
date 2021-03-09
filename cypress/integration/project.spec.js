@@ -287,31 +287,31 @@ describe('Trybewarts', () => {
     });
 
     it('Campo HoFs', () => {
-      cy.get('input[value="HoFs"]');
+      cy.get('input[value="HoFs"]').should('exist');
     });
 
     it('Campo Jest', () => {
-      cy.get('input[value="Jest"]');
+      cy.get('input[value="Jest"]').should('exist');
     });
 
     it('Campo Promises', () => {
-      cy.get('input[value="Promises"]');
+      cy.get('input[value="Promises"]').should('exist');
     });
 
     it('Campo React', () => {
-      cy.get('input[value="React"]');
+      cy.get('input[value="React"]').should('exist');
     });
 
     it('Campo SQL', () => {
-      cy.get('input[value="SQL"]');
+      cy.get('input[value="SQL"]').should('exist');
     });
 
     it('Campo Python', () => {
-      cy.get('input[value="Python"]');
+      cy.get('input[value="Python"]').should('exist');
     });
 
     it('Posicione os checkbox abaixo do label', () => {
-      checkIsBelowOf('#label-content', 'input[value="Higher Order Functions"]');
+      checkIsBelowOf('#label-content', 'input[value="HoFs"]');
     });
   });
 
@@ -326,8 +326,8 @@ describe('Trybewarts', () => {
       .should('be.gt', 9);
     });
 
-    it('Posicione os radio buttons a abaixo do label', () => {
-      checkIsBelowOf('#label-rate', 'input[value="1"]');
+    it('Posicione os radio buttons à direita do label', () => {
+      checkIsRightOf('#label-rate', 'input[value="1"]');
     });
   });
 
@@ -406,7 +406,7 @@ describe('Trybewarts', () => {
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
     const house = 'Reactpuff';
-    const family = 'Família Backend';
+    const family = 'Backend';
     const rate = '10';
     const observation = 'Maaaaravilhoso';
 
