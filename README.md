@@ -353,7 +353,7 @@ Pontos importantes:
   * O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10
   * Os radio buttons devem ter o atributo `name` com o valor *"rate"*
   * Posicione os radio buttons para ficar lado a lado
-  * Posicione os radio buttons à direita do label
+  * Posicione os radio buttons à direita da label
 
 ### 15. Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500
 
