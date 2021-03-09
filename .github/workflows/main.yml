@@ -14,7 +14,6 @@ jobs:
         uses: betrybe/stylelint-linter-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
   evaluator_job:
     name: Evaluator Job
     runs-on: ubuntu-18.04
