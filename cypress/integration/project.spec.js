@@ -70,7 +70,7 @@ describe('Trybewarts', () => {
       cy.get(TOP_BAR_SELECTOR).should('exist');
     });
 
-    it('A classe header deve determinar que o elemento é um flex container', () => {
+    it('A classe `header` deve determinar que o elemento é um flex container', () => {
       cy.get(TOP_BAR_SELECTOR).should('have.css', 'display', 'flex');
     });
 
@@ -80,15 +80,15 @@ describe('Trybewarts', () => {
   });
 
   describe('2) A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe trybewarts-header-logo', () => {
+    it('Deve existir um elemento img com a classe `trybewarts-header-logo`', () => {
+      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
+    });
+
     it('O logotipo deve estar alinhado à esquerda dentro da barra verde', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('be.leftAligned', TOP_BAR_SELECTOR);
     });
 
-    it('Deve existir um elemento img com a classe trybewarts-header-logo', () => {
-      cy.get(TRYBEWARTS_LOGO_SELECTOR).should('exist');
-    });
-
-    it('O atributo src do logotipo deve apontar para imgs/trybewarts-logo.png', () => {
+    it('O atributo src do logotipo deve apontar para images/trybewarts-header-logo.svg', () => {
       cy.get(TRYBEWARTS_LOGO_SELECTOR).should('have.attr', 'src').should('equal', 'images/trybewarts-header-logo.svg');
     });
   });
@@ -223,7 +223,7 @@ describe('Trybewarts', () => {
 
   describe("9) Crie um select 'Casa' contendo quatro options", () => {
     it('Deverá conter a opção `Gitnória`', () => {
-      cy.get("#gitnoria-house").should('exist');     
+      cy.get("#gitnoria-house").should('exist');
     });
     it('Deverá conter a opção `Reactpuff`', () => {
       cy.get("#reactpuff-house").should('exist');
@@ -247,7 +247,7 @@ describe('Trybewarts', () => {
 
   describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
-      checkIsRightOf('#email', '#house');
+      checkIsRightOf('#input-email', '#house');
     });
   });
 
@@ -287,31 +287,31 @@ describe('Trybewarts', () => {
     });
 
     it('Campo HoFs', () => {
-      cy.get('input[value="HoFs"]');
+      cy.get('input[value="HoFs"]').should('exist');
     });
 
     it('Campo Jest', () => {
-      cy.get('input[value="Jest"]');
+      cy.get('input[value="Jest"]').should('exist');
     });
 
     it('Campo Promises', () => {
-      cy.get('input[value="Promises"]');
+      cy.get('input[value="Promises"]').should('exist');
     });
 
     it('Campo React', () => {
-      cy.get('input[value="React"]');
+      cy.get('input[value="React"]').should('exist');
     });
 
     it('Campo SQL', () => {
-      cy.get('input[value="SQL"]');
+      cy.get('input[value="SQL"]').should('exist');
     });
 
     it('Campo Python', () => {
-      cy.get('input[value="Python"]');
+      cy.get('input[value="Python"]').should('exist');
     });
 
     it('Posicione os checkbox abaixo do label', () => {
-      checkIsBelowOf('#label-content', 'input[value="Higher Order Functions"]');
+      checkIsBelowOf('#label-content', 'input[value="HoFs"]');
     });
   });
 
@@ -326,14 +326,14 @@ describe('Trybewarts', () => {
       .should('be.gt', 9);
     });
 
-    it('Posicione os radio buttons a abaixo do label', () => {
-      checkIsBelowOf('#label-rate', 'input[value="1"]');
+    it('Posicione os radio buttons à direita do label', () => {
+      checkIsRightOf('#label-rate', 'input[value="1"]');
     });
   });
 
   describe("15) Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500", () => {
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
-      cy.get('#textarea').contains(LABEL_TEXTAREA);
+      cy.get('.textarea').contains(LABEL_TEXTAREA);
     });
 
     it('O campo `textarea` deverá ter o máximo de 500 caracteres', () => {
@@ -406,7 +406,7 @@ describe('Trybewarts', () => {
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
     const house = 'Reactpuff';
-    const family = 'Família Backend';
+    const family = 'Backend';
     const rate = '10';
     const observation = 'Maaaaravilhoso';
 
@@ -426,9 +426,8 @@ describe('Trybewarts', () => {
 
     beforeEach(() => {
       fillForm();
-      cy.get('input#agreement').check().then(() => {
-        cy.get('button#submit-btn').click({force: true});
-      });
+      cy.get('input#agreement').check();
+      cy.get('button#submit-btn').click({force: true});
     });
 
     it('Deve haver um texto no modelo "Nome: John Doe" (substitua John Doe pelo nome e sobrenome preenchido no formulário)', () => {

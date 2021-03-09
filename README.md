@@ -248,17 +248,16 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
 ### 1. Crie uma barra verde na parte superior da página
 
   Pontos importantes:
-  * A barra deve ter a id `top-bar`
-  * O id `top-bar` deve determinar que o elemento é um flex container
-  * O id `top-bar` deve possuir a propriedade `background-color: r#32a791`
+  * Esta barra deve possuir a classe `header`
+  * A classe `header` deve determinar que o elemento é um flex container
+  * A classe header deve possuir a propriedade `background-color: rgb(50, 167, 145)`
 
-### 2. Posicione o logotipo da Trybewarts no canto esquerdo na barra superior
+### 2. A barra superior deve conter o logotipo do Trybewarts no canto esquerdo com a classe `trybewarts-header-logo`'
 
   Pontos importantes:
-  * Deve existir um elemento `img` com a id `trybewarts-logo`
-  * Esse elemento `img` deverá ter o atributo `alt` com o valor `trybewarts-logo`
-  * O logotipo deve estar alinhado a esquerda dentro da barra verde
-  * O atributo `src` do logotipo deve apontar exatamente para `images/trybewarts-header-logo.svg`
+  * Deve existir um elemento img com a classe `trybewarts-header-logo`
+  * O logotipo deve estar alinhado à esquerda dentro da barra verde
+  * O atributo `src` do logotipo deve apontar para `images/trybewarts-header-logo.svg`
 
 ### 3. A barra superior deve conter um formulário de autenticação no canto direito com um input de login, um de senha e um botão de entrar
 
@@ -269,8 +268,8 @@ Caso você faça o download de bibliotecas externas, utilize o diretório libs (
   * Os inputs deverão conter placeholders com as palavras *'Login'* e *'Senha'*,
   * O formulário deve ser um flex container
   * O formulário deve aceitar como padrão o login 'tryber@betrybe.com' e a senha '123456'
-    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *Olá, Tryber!*
-    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+    - Caso o login ou a senha sejam **diferentes** do padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Login ou senha inválidos.'*
+    - Caso o login ou a senha sejam **as mesmas** definidas por padrão, ao clicar no botão deverá ser emitido um alerta contendo o texto *'Olá, Tryber!'*
 
 ### 4. Crie um título com o texto "Trybewarts" centralizado dentro do `Header`
 
