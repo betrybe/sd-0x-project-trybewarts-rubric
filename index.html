@@ -21,22 +21,26 @@
   <main>
     <form id="evaluation-form">
       <h2 class="form-title">Formulário de Avaliação</h2>
-      <fieldset class="fieldset-one">
-        <input type="text" placeholder="Nome" id="input-name" required/>
-        <input type="text" placeholder="Sobrenome" id="input-lastname" required/>
-        <input type="text" placeholder="Email" id="input-email" required/>
+      <div class="fieldset-one">
         <div>
-          Casa:
-          <select id="house">
-            <option id="gitnoria-house" value="Gitnória">Gitnória</option>
-            <option id="reactpuff-house" value="Reactpuff">Reactpuff</option>
-            <option id="corvinode-house" value="Corvinode">Corvinode</option>
-            <option id="pytherina-house" value="Pytherina">Pytherina</option>
-          </select>
+          <input type="text" placeholder="Nome" id="input-name" required/>
+          <input type="text" placeholder="Sobrenome" id="input-lastname" required/>
         </div>
-      </fieldset>
+        <div>
+          <input type="text" placeholder="Email" id="input-email" required/>
+          <div>
+            Casa:
+            <select id="house">
+              <option id="gitnoria-house" value="Gitnória">Gitnória</option>
+              <option id="reactpuff-house" value="Reactpuff">Reactpuff</option>
+              <option id="corvinode-house" value="Corvinode">Corvinode</option>
+              <option id="pytherina-house" value="Pytherina">Pytherina</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <hr />
-      <fieldset class="fieldset-two">
+      <div class="fieldset-two">
         <div>
           <p id="label-family">Qual sua família?</p>
           <label><input type="radio" class="family" value="Frontend" name="family" checked/>Família Frontend</label>
@@ -56,7 +60,7 @@
             <input class="subject" type="checkbox" value="Python">Python</input>
           </div>
         </div>
-      </fieldset>
+      </div>
       <hr />
       <div class="evaluate">
         <span id="label-rate">Como você avalia a Trybewarts?</span>
