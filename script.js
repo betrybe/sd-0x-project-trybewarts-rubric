@@ -51,10 +51,10 @@ function getInputFields() {
 }
 
 function onSubmitForm(event) {
+  event.preventDefault();
   const { name, lastName, email, house, family, subjects, evaluation, textArea } = getInputFields();
   const subjectNames = subjects.map((subject) => subject.value).join(', ');
 
-  event.preventDefault();
   event.target.innerHTML = '';
 
   event.target.appendChild(createParagraph('Nome', `${name.value} ${lastName.value}`));
