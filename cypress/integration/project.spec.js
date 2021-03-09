@@ -385,7 +385,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("20) Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que devera ser atualizado a medida que algo for digitado na textarea", () => {
+  describe("20 - Crie um contador com o ID 'counter' contendo o número de caracteres disponíveis no textarea, variando de 500 até 0, que devera ser atualizado a medida que algo for digitado na textarea", () => {
     it('Deve existir um contador com o ID "counter"', () => {
       cy.get('#counter').should('exist');
     });
@@ -401,7 +401,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("21) Ao clicar no botão 'Enviar', o conteúdo do formulário deve ser substituído pelas informações preenchidas", () => {
+  describe("21 - Ao clicar no botão 'Enviar', o conteúdo do formulário deve ser substituído pelas informações preenchidas", () => {
     const firstName = 'John';
     const lastName = 'Doe';
     const email = 'johndoe@trybe.com';
