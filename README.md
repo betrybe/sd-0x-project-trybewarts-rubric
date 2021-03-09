@@ -300,6 +300,7 @@ Pontos importantes:
   Pontos importantes:
   * Deve possuir o id ``trybewarts-forms-logo``
   * O atributo `src` do logotipo deve apontar para ``./images/Trybewarts-colored.svg``
+  * A imagem deve possuir um `height` de `500px`
 
 ### 8. No formulário, crie inputs de 'Nome:', 'Sobrenome:' e 'Email'
 
@@ -324,6 +325,7 @@ Pontos importantes:
 ### 11. Alinhe os campos de 'Email' e 'Casa' para que fiquem em linha
 
   Pontos importantes:
+  * Os campos de *'Email'* e *'Casa'* devem estar abaixo dos de *'Nome'* e *'Sobrenome'*
   * Os campos de *'Email'* e *'Casa'* devem estar lado a lado
 
 ### 12. Crie um campo de entrada para qual família a pessoa estudante se identifica
@@ -351,7 +353,7 @@ Pontos importantes:
   * O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10
   * Os radio buttons devem ter o atributo `name` com o valor *"rate"*
   * Posicione os radio buttons para ficar lado a lado
-  * Posicione os radio buttons a abaixo do label
+  * Posicione os radio buttons à direita da label
 
 ### 15. Crie uma textarea com o id 'textarea' contendo o número máximo de caracteres igual à 500
 
