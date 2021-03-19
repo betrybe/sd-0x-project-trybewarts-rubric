@@ -2,7 +2,7 @@ const TOP_BAR_SELECTOR = '.header';
 const TRYBEWARTS_LOGO_SELECTOR = 'img.trybewarts-header-logo';
 const TRYBEWARTS_HEADER_TITLE = 'h1#trybewarts-header-title';
 const TRYBEWARTS_LOGIN_FORM_SELECTOR = 'form.trybewarts-login';
-const EVALUATION_FORM = 'form#evaluation-form'
+const EVALUATION_FORM = 'form#evaluation-form';
 const USER_NAME_INPUT_SELECTOR = 'input#input-name';
 const USER_LASTNAME_INPUT_SELECTOR = 'input#input-lastname';
 const USER_EMAIL_INPUT_SELECTOR = 'input#input-email';
@@ -21,9 +21,7 @@ const checkPlaceholder = (elements, placeholder) => (
   elements.some((element) => Cypress.$(element).attr('placeholder') === placeholder)
 );
 
-const isEqualTo = (elementA, elementB) => {
-  return (elementA === elementB);
-};
+const isEqualTo = (elementA, elementB) => (elementA === elementB);
 
 const evaluateOffset = (doc, selector, offsetType) => doc.querySelector(selector).getBoundingClientRect()[`${offsetType}`];
 
@@ -119,23 +117,23 @@ describe('Trybewarts', () => {
     });
 
     it('Ao clicar no botão com login ou senha inválidos, emite um alerta contendo o texto "Login ou senha inválidos."', () => {
-      const stub = cy.stub()
+      const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
         .then(() => {
-          expect(stub.getCall(0)).to.be.calledWith('Login ou senha inválidos.')
-        })
+          expect(stub.getCall(0)).to.be.calledWith('Login ou senha inválidos.');
+        });
     });
 
     it('Ao clicar no botão com login ou senha válidos, emite um alerta contendo o texto "Olá, Tryber!"', () => {
-      const stub = cy.stub()
+      const stub = cy.stub();
       cy.on('window:alert', stub);
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(1)`).type('tryber@betrybe.com');
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} input:nth-child(2)`).type('123456');
       cy.get(`${TRYBEWARTS_LOGIN_FORM_SELECTOR} button`).click()
         .then(() => {
-          expect(stub.getCall(0)).to.be.calledWith('Olá, Tryber!')
-        })
+          expect(stub.getCall(0)).to.be.calledWith('Olá, Tryber!');
+        });
     });
   });
 
@@ -149,7 +147,7 @@ describe('Trybewarts', () => {
     });
 
     it('O header deve ter exatamente três elementos filhos', () => {
-      cy.get(TOP_BAR_SELECTOR).children().should('have.length', 3)
+      cy.get(TOP_BAR_SELECTOR).children().should('have.length', 3);
     });
 
     it('O filho do meio deve ser o título', () => {
@@ -224,20 +222,21 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe('10) Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
+  describe('10 - Alinhe os campos de \'Nome\' e \'Sobrenome\' para que fiquem em linha', () => {
     it('Os campos de Nome e Sobrenome devem estar lado a lado', () => {
-      cy.get(USER_NAME_INPUT_SELECTOR, USER_LASTNAME_INPUT_SELECTOR)
-        .should('have.css', 'flex-direction', 'row');
+      cy.get(USER_NAME_INPUT_SELECTOR);
+      cy.get(USER_LASTNAME_INPUT_SELECTOR);
+      checkIsRightOf(USER_NAME_INPUT_SELECTOR, USER_LASTNAME_INPUT_SELECTOR);
     });
   });
 
-  describe("11) Alinhe os campos de email e casa para fiquem em linha", () => {
+  describe('11) Alinhe os campos de email e casa para fiquem em linha', () => {
     it('Os campos de Email e Casa devem estar lado a lado', () => {
       checkIsRightOf('#email', '#house');
     });
   });
 
-  describe("12) Crie um campo de entrada para qual família a pessoa estudante se identifica", () => {
+  describe('12) Crie um campo de entrada para qual família a pessoa estudante se identifica', () => {
     it('Um elemento com o id "label-family" e o texto "Qual sua família?" deverá ser criado', () => {
       cy.get('#label-family').contains(LABEL_FAMILY_TEXT);
     });
@@ -266,8 +265,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("13) Crie campos de entrada do tipo 'checkbox' contendo seis opções", () => {
-
+  describe('13) Crie campos de entrada do tipo \'checkbox\' contendo seis opções', () => {
     it('Um elemento com o id "label-content" e o texto "Qual conteúdo você está com mais vontade de aprender?" deverá ser criado', () => {
       cy.get('#label-content').contains(LABEL_CONTENT_TEXT);
     });
@@ -301,15 +299,15 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("14) Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts", () => {
+  describe('14) Crie campo de entrada para avaliar de 1 a 10 o nível de satisfação com a Trybewarts', () => {
     it('Um elemento com o id label-rate e o texto "Como você avalia a Trybewarts?" deverá ser criado', () => {
       cy.get('#label-rate').contains(LABEL_RATE_TEXT);
     });
 
     it('O campo deve ser formado por dez radio buttons, contendo as opções de 1 a 10', () => {
       cy.get('input[name="rate"]')
-      .its('length')
-      .should('be.gt', 9);
+        .its('length')
+        .should('be.gt', 9);
     });
 
     it('Posicione os radio buttons a abaixo do label', () => {
@@ -317,7 +315,7 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe.only("15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo", () => {
+  describe.only('15) Crie uma textarea contendo o número máximo de caracteres posicionado logo abaixo', () => {
     it('Um elemento com o id textarea e o texto "Deixe seu comentário:" deverá ser criado" ', () => {
       cy.get('#textarea').contains(LABEL_TEXTAREA);
     });
@@ -331,25 +329,25 @@ describe('Trybewarts', () => {
     });
   });
 
-  describe("16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea", () => {
+  describe('16) O contador, contendo o número de caracteres, devera ser atualizado a medida que algo for digitado na textarea', () => {
     it('Deve existir um contador com o ID "contador"', () => {
       cy.get('#contador').should('exist');
     });
 
     it('O contador de caracteres deve ser atualizado conforme o conteúdo do textarea muda.', () => {
-      cy.get("#contador").contains('500');
-      cy.get("#textarea").type('Salve salve família');
-      cy.get("#contador").contains('481');
+      cy.get('#contador').contains('500');
+      cy.get('#textarea').type('Salve salve família');
+      cy.get('#contador').contains('481');
       cy.get('#textarea').clear();
-      cy.get("#contador").should('contain', '500');
+      cy.get('#contador').should('contain', '500');
       cy.get('#textarea').type('Salve salve');
-      cy.get("#contador").should('contain', '489');
+      cy.get('#contador').should('contain', '489');
     });
   });
 
-  describe("17) Crie um campo de entrada do tipo 'checkbox' com o id 'agreement' para validar as informações", () => {
+  describe('17) Crie um campo de entrada do tipo \'checkbox\' com o id \'agreement\' para validar as informações', () => {
     it('Uma label com o id "label-infos" deve possuir o texto "Você concorda com o uso das informações acima?"', () => {
-      cy.get("label#label-infos")
+      cy.get('label#label-infos')
         .should('exist')
         .contains('Você concorda com o uso das informações acima?');
     });
@@ -408,7 +406,7 @@ describe('Trybewarts', () => {
     beforeEach(() => {
       fillForm();
       cy.get('input#agreement').check().then(() => {
-        cy.get('button#submit-btn').click({force: true});
+        cy.get('button#submit-btn').click({ force: true });
       });
     });
 
