@@ -159,10 +159,12 @@ textarea {
 
 main {
   align-items: center;
+  justify-content: space-evenly;
   display: flex;
   height: 85vh;
   margin: 0 auto;
   max-width: 1366px;
+  overflow: auto;
 }
 
 .fieldset-one input {
