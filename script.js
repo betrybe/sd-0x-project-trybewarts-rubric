@@ -75,7 +75,7 @@ function onClickHeaderBtn() {
   const login = document.getElementById('login-input');
   const password = document.getElementById('password-input');
 
-  const defaultLogin = 'tryber@test.com';
+  const defaultLogin = 'tryber@teste.com';
   const defaultPassword = '123456';
 
   if (login.value === defaultLogin && password.value === defaultPassword) {
