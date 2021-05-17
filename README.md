@@ -239,6 +239,21 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 ---
 
+## Cypress
+
+Cypress é uma ferramenta de teste de front-end desenvolvida para a web.
+Você pode rodar o cypress localmente para verificar se seus requisitos estão passando, para isso execute o seguinte comando:
+
+```bash
+npx cypress open
+```
+
+Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) vídeo 😉🎙
+
+**Para rodar o cypress é preciso ter rodado o comando npm install anteriormente.**
+
+---
+
 ## Requisitos do projeto
 
 Caso você faça o download de bibliotecas externas, utilize o diretório libs (a partir da raiz do projeto) para colocar os arquivos (*.css, *.js, etc...) baixados.
